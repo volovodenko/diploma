@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 
 
 import NotFoundPage from '../pages/NotFoundPage';
-import ProductContainer from '../containers/ProductContainer';
+import ProductPageContainer from '../containers/ProductPageContainer';
 
 
 export default () => View => {
 
-    @ProductContainer()
+    @ProductPageContainer()
     class ProductPageController extends Component {
 
         constructor(props) {
@@ -22,6 +22,7 @@ export default () => View => {
                 })
             }
 
+            //если продукта нет в списке продуктов => загружаем
             if (!product) {
                 this.props.getProductItem(partSlug);
                 product = null;
@@ -72,6 +73,7 @@ export default () => View => {
 
 
         render() {
+            console.log('ProductPageController');
             if (this.props.productItemFetchFail) {
                 return <NotFoundPage/>
             }

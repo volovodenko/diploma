@@ -16,6 +16,20 @@ export default () => View => {
             this.car = this.props.location.match.params.car;
             this.carModel = this.props.location.match.params.model;
 
+
+            if (!this.props.carsLoaded){
+                this.props.getCars();
+            }
+
+
+            //если список моделей для этой машины не загружен => загрузить список моделей для этой машины
+            if (!this.props.carModelsCatalogList.some(item => item.car === this.car)) {
+                const data = {slug: this.car};
+
+                this.props.getCarModelsCatalog(data);
+            }
+
+
             //если список категорий для этой модели не загружен => загрузить список категорий для этой модели
             if (!this.props.carCategoriesCatalogList.some(item => item.carModel === this.carModel)) {
                 const data = {slug: this.carModel};
@@ -66,7 +80,9 @@ export default () => View => {
 
 
         componentWillUnmount() {
-            if (this.props.carCategoriesCatalogFetchFail) {
+            if (this.props.carCategoriesCatalogFetchFail ||
+                this.props.carModelsCatalogFetchFail
+            ) {
                 this.props.onClearFetchErrors();
             }
         }
@@ -75,14 +91,14 @@ export default () => View => {
         render() {
             console.log('CarCategoriesPageController');
 
-            if (this.props.carCategoriesCatalogFetchFail) {
+            if (this.props.carCategoriesCatalogFetchFail ||
+                this.props.carModelsCatalogFetchFail) {
                 return <NotFound/>;
             }
 
             return <View
                 carCategoriesCatalogLoaded={this.props.carCategoriesCatalogLoaded}
                 carCategoriesCatalogList={this.props.carCategoriesCatalogList}
-                productListLoaded={this.props.productListLoaded}
 
                 car={this.car}
                 carModel={this.carModel}

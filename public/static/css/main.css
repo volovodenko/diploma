@@ -3216,7 +3216,7 @@ a {
     .CarModelsPage-modelsList__3MAIF li:hover {
       border-color: yellow; }
 
-.Nav-nav__1KJus ul {
+.NavBar-nav__ZWGuc ul {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3226,17 +3226,17 @@ a {
       -ms-flex-direction: row;
           flex-direction: row;
   font-size: 14px; }
-  .Nav-nav__1KJus ul li {
+  .NavBar-nav__ZWGuc ul li {
     margin: 0 2px; }
-    .Nav-nav__1KJus ul li:first-child {
+    .NavBar-nav__ZWGuc ul li:first-child {
       margin-left: 0; }
-    .Nav-nav__1KJus ul li a {
+    .NavBar-nav__ZWGuc ul li a {
       color: darkblue;
       text-decoration: none; }
-      .Nav-nav__1KJus ul li a:hover {
+      .NavBar-nav__ZWGuc ul li a:hover {
         text-decoration: underline; }
 
-.Nav-header__3v0sU {
+.NavBar-header__CU2N2 {
   border-bottom: 1px solid black;
   letter-spacing: 2px;
   padding: 5px 0;

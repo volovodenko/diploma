@@ -12,18 +12,18 @@ export default () => View => {
         constructor(props) {
             super(props);
 
-            if (!this.props.carsLoaded){
+            if (!this.props.carsLoaded) {
                 this.props.getCars();
             }
 
             window.scrollTo(0, 0); //обнулить прокрутку
         }
 
+
         render() {
             console.log('HomePageController');
             return <View
-                carsLoaded={this.props.carsLoaded}
-                carsList={this.props.carsList}
+                carsList={this.getCarsList()}
             />
 
         }
@@ -32,6 +32,9 @@ export default () => View => {
          * CONTROLLER LOGIC START
          **************************************************************************/
 
+        getCarsList(){
+            return this.props.carsLoaded ? this.props.carsList : []
+        }
 
         /***************************************************************************
          * CONTROLLER LOGIC END

@@ -14,11 +14,7 @@ export default class HomePage extends Component {
             <div className={styles.home}>
                 <h1>Каталог автозапчастей</h1>
                 <ul className={styles.parts}>
-                    {
-                        this.props.carsLoaded
-                            ? <CarModelsList carsList={this.props.carsList}/>
-                            : null
-                    }
+                    <CarModelsList carsList={this.props.carsList}/>
                 </ul>
             </div>
         );

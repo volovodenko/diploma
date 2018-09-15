@@ -4,21 +4,23 @@ import PropTypes from 'prop-types';
 
 
 import {
-    getProductList, getProductItem, onClearProductItem
-} from './store/actions';
+    getProductItem, onClearProductItem
+} from '../store/reducers/product/actions';
+
+import {
+    onPutProductIntoCart
+} from '../store/reducers/cart/actions';
 
 
 export default () => Controller => {
 
     const mapStateToProps = state => {
         return {
-            productList: state.product.productList,
-            productListIsLoading: state.product.productListIsLoading,
             productListLoaded: state.product.productListLoaded,
+            productList: state.product.productList,
 
-            productItem: state.product.productItem,
-            productItemIsLoading: state.product.productItemIsLoading,
             productItemLoaded: state.product.productItemLoaded,
+            productItem: state.product.productItem,
             productItemFetchFail: state.product.productItemFetchFail,
         };
     };
@@ -26,35 +28,33 @@ export default () => Controller => {
     @connect(
         mapStateToProps,
         {
-            getProductList, getProductItem, onClearProductItem,
-        },
-        null,
-        {pure: false}
+            getProductItem, onClearProductItem, onPutProductIntoCart
+        }
     )
-    class ProductContainer extends Component {
+    class ProductPageContainer extends Component {
+
 
         render() {
+            console.log('ProductPageContainer');
+
             return <Controller {...this.props}/>
         }
 
-        static propTypes = {
-            productList: PropTypes.array,
-            productListIsLoading: PropTypes.bool.isRequired,
-            productListLoaded: PropTypes.bool.isRequired,
 
-            productItem: PropTypes.object.isRequired,
-            productItemIsLoading: PropTypes.bool.isRequired,
+        static propTypes = {
+            productListLoaded: PropTypes.bool.isRequired,
+            productList: PropTypes.array,
+
             productItemLoaded: PropTypes.bool.isRequired,
+            productItem: PropTypes.object.isRequired,
             productItemFetchFail: PropTypes.bool.isRequired,
 
-            getProductList: PropTypes.func.isRequired,
             getProductItem: PropTypes.func.isRequired,
             onClearProductItem: PropTypes.func.isRequired,
+            onPutProductIntoCart: PropTypes.func.isRequired,
         };
     }
 
 
-    return ProductContainer;
-
-
+    return ProductPageContainer;
 }

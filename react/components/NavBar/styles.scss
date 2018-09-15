@@ -1,0 +1,33 @@
+.nav {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+
+    li {
+      margin: 0 2px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        color: darkblue;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  border-bottom: 1px solid black;
+  letter-spacing: 2px;
+  padding: 5px 0;
+  text-align: center;
+  height: 39px;
+}

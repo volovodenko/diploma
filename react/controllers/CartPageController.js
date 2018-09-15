@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
 
-import CartContainer from '../containers/CartContainer';
+import CartPageContainer from '../containers/CartPageContainer';
 
 
 export default () => View => {
 
-    @CartContainer()
+    @CartPageContainer()
     class CartPageController extends Component {
 
         constructor(props) {
@@ -39,6 +39,7 @@ export default () => View => {
 
 
         render() {
+            console.log('CartPageController');
             return <View
                 cart={this.props.cart}
                 clearCart={::this.clearCart}

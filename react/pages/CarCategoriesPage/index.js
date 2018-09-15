@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-// import Nav from '../CatalogPage/helpers/Nav';
+import Nav from '../../components/NavBar';
 import ProductsList from '../../components/ProductsList';
 import Pagination from '../../components/Pagination';
 import CarCategoriesList from './components/CarCategoriesList';
@@ -16,7 +16,7 @@ export default class CarCategoriesPage extends Component {
 
         return (
             <div className={styles.catalog}>
-                {/*<Nav {...this.props} />*/}
+                <Nav car={this.props.car} carModel={this.props.carModel}/>
                 <ul className={styles.categoriesList}>
                     {
                         this.props.carCategoriesCatalogLoaded
@@ -36,16 +36,13 @@ export default class CarCategoriesPage extends Component {
                     pageRangeDisplayed={this.props.pageRangeDisplayed}
                     onChange={this.props.handlePageChange}
                 />
-                {
-                    this.props.productListLoaded
-                        ?
-                        <ProductsList
-                            productList={this.props.productList}
-                            activePage={this.props.activePage}
-                            itemsCountPerPage={this.props.itemsCountPerPage}
-                        />
-                        : null
-                }
+
+                <ProductsList
+                    productList={this.props.productList}
+                    activePage={this.props.activePage}
+                    itemsCountPerPage={this.props.itemsCountPerPage}
+                />
+
                 <Pagination
                     totalItemsCount={this.props.totalItemsCount}
                     activePage={this.props.activePage}

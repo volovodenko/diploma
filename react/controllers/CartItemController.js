@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
 
-import CartContainer from '../containers/CartContainer';
+import CartItemContainer from '../containers/CartItemContainer';
 
 
 export default () => View => {
 
-    @CartContainer()
+    @CartItemContainer()
     class CartItemController extends Component {
 
         constructor(props) {
@@ -35,7 +35,7 @@ export default () => View => {
 
 
         render() {
-
+            console.log('CartItemController');
             return <View
                 item={this.props.item}
                 buyQuantity={this.state.buyQuantity}

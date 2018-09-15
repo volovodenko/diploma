@@ -3,38 +3,36 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 
-import {
-    getCarModelsCatalog, onClearFetchErrors, getCars
-} from '../store/reducers/car/actions';
-
-
 export default () => Controller => {
 
     const mapStateToProps = state => {
         return {
+            carsList: state.car.carsList,
             carModelsCatalogList: state.car.carModelsCatalogList,
-            carModelsCatalogLoaded: state.car.carModelsCatalogLoaded,
-            carModelsCatalogFetchFail: state.car.carModelsCatalogFetchFail,
+            carCategoriesCatalogList: state.car.carCategoriesCatalogList
         };
     };
 
     @connect(
         mapStateToProps,
-        {
-            getCarModelsCatalog, onClearFetchErrors, getCars
-        }
+        null
     )
-    class CarModelsPageContainer extends Component {
+    class NavBarContainer extends Component {
 
 
         render() {
-            console.log('CarModelsPageContainer');
+            console.log('NavBarContainer');
 
             return <Controller {...this.props}/>
         }
 
 
         static propTypes = {
+            carsList: PropTypes.arrayOf(PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                title: PropTypes.string.isRequired,
+                slug: PropTypes.string.isRequired
+            })).isRequired,
             carModelsCatalogList: PropTypes.arrayOf(PropTypes.shape({
                 car: PropTypes.string.isRequired,
                 models: PropTypes.arrayOf(PropTypes.shape({
@@ -44,15 +42,10 @@ export default () => Controller => {
                     car_id: PropTypes.number.isRequired,
                 })).isRequired,
             })).isRequired,
-            carModelsCatalogLoaded: PropTypes.bool.isRequired,
-            carModelsCatalogFetchFail: PropTypes.bool.isRequired,
-
-            getCarModelsCatalog: PropTypes.func.isRequired,
-            onClearFetchErrors: PropTypes.func.isRequired,
-            getCars: PropTypes.func.isRequired,
+            carCategoriesCatalogList: PropTypes.array.isRequired,
         };
     }
 
 
-    return CarModelsPageContainer;
+    return NavBarContainer;
 }

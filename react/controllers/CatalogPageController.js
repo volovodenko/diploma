@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 
-import CarContainer from '../containers/CarContainer';
+
 import NotFound from '../pages/NotFoundPage';
 import SubCategoryItem from '../pages/CatalogPage/SubCategoryItem';
 import SubCategoryList from '../pages/CatalogPage/SubCategoryList';
@@ -11,7 +11,7 @@ import ModelsList from '../pages/CatalogPage/ModelsList';
 
 export default () => View => {
 
-    @CarContainer()
+
     class CatalogPageController extends Component {
 
         constructor(props) {

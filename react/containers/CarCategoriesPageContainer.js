@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 
 import {
-    getCarCategoriesCatalog, onClearFetchErrors
+    getCarCategoriesCatalog, onClearFetchErrors, getCars,
+    getCarModelsCatalog
 } from '../store/reducers/car/actions';
 import {
     getProductList
@@ -20,6 +21,9 @@ export default () => Controller => {
             carCategoriesCatalogLoaded: state.car.carCategoriesCatalogLoaded,
             carCategoriesCatalogFetchFail: state.car.carCategoriesCatalogFetchFail,
 
+            carModelsCatalogList: state.car.carModelsCatalogList,
+            carModelsCatalogFetchFail: state.car.carModelsCatalogFetchFail,
+
             productList: state.product.productList,
             productListLoaded: state.product.productListLoaded,
         };
@@ -28,7 +32,8 @@ export default () => Controller => {
     @connect(
         mapStateToProps,
         {
-            getCarCategoriesCatalog, onClearFetchErrors, getProductList
+            getCarCategoriesCatalog, onClearFetchErrors, getProductList, getCars,
+            getCarModelsCatalog
         }
     )
     class CarCategoriesPageContainer extends Component {
@@ -46,12 +51,25 @@ export default () => Controller => {
             carCategoriesCatalogLoaded: PropTypes.bool.isRequired,
             carCategoriesCatalogFetchFail: PropTypes.bool.isRequired,
 
+            carModelsCatalogList: PropTypes.arrayOf(PropTypes.shape({
+                car: PropTypes.string.isRequired,
+                models: PropTypes.arrayOf(PropTypes.shape({
+                    id: PropTypes.number.isRequired,
+                    title: PropTypes.string.isRequired,
+                    slug: PropTypes.string.isRequired,
+                    car_id: PropTypes.number.isRequired,
+                })).isRequired,
+            })).isRequired,
+            carModelsCatalogFetchFail: PropTypes.bool.isRequired,
+
             productList: PropTypes.array.isRequired,
             productListLoaded: PropTypes.bool.isRequired,
 
             getCarCategoriesCatalog: PropTypes.func.isRequired,
             onClearFetchErrors: PropTypes.func.isRequired,
             getProductList: PropTypes.func.isRequired,
+            getCars: PropTypes.func.isRequired,
+            getCarModelsCatalog: PropTypes.func.isRequired,
         };
     }
 

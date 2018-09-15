@@ -14,6 +14,11 @@ export default () => View => {
 
             this.car = this.props.location.match.params.car;
 
+
+            if (!this.props.carsLoaded){
+                this.props.getCars();
+            }
+
             //если список моделей для этой машины не загружен => загрузить список моделей для этой машины
             if (!this.props.carModelsCatalogList.some(item => item.car === this.car)) {
                 const data = {slug: this.car};

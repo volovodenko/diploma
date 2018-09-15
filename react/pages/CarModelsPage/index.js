@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 import styles from './styles.scss';
-import Nav from '../CatalogPage/helpers/Nav';
+import Nav from '../../components/NavBar';
 import CarModelsPageController from '../../controllers/CarModelsPageController';
 
 
@@ -14,7 +14,8 @@ export default class CarModelsPage extends Component {
 
         return (
            <div className={styles.catalog}>
-                <Nav {...this.props} />
+                <Nav car={this.props.car} />
+
                 <ul className={styles.modelsList}>
                     {
                         this.props.carModelsList.map(item => (
