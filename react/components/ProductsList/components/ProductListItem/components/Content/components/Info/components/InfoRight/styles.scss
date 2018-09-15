@@ -1,0 +1,42 @@
+.infoRight {
+  list-style: none;
+
+  li {
+    margin: 5px 0;
+    text-align: right;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .price {
+    font-size: 20px;
+    color: #0c0537;
+    font-weight: bold;
+
+    &.disabled {
+      color: darkgray;
+    }
+  }
+
+  .amount {
+    i {
+      margin-right: 5px;
+    }
+
+  }
+
+  .timesCircle {
+    color: darkred;
+  }
+
+  .arrowCircleDown {
+    color: darkorange;
+  }
+
+  .checkCircle {
+    color: darkgreen;
+  }
+
+}

@@ -1,0 +1,13 @@
+.title {
+  margin-bottom: 5px;
+
+  a {
+    color: #0c0537;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

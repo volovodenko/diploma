@@ -1,0 +1,93 @@
+.orderData {
+
+  ul {
+    list-style: none;
+  }
+
+  & > ul {
+    max-height: 240px;
+    overflow-y: auto;
+    border-bottom: 1px solid #999;
+    padding: 0 5px;
+
+    .orderItem {
+      border-bottom: 1px solid #999;
+      padding: 5px 0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #990;
+
+        &:hover {
+          color: yellow;
+          text-decoration: underline;
+        }
+      }
+
+      .sum {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+
+        ul {
+          text-align: center;
+
+          li:last-child {
+            color: white;
+          }
+        }
+      }
+
+
+    }
+  }
+
+  .total {
+    font-size: 1.2rem;
+    padding-top: 5px;
+    text-align: center;
+
+    a {
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    span {
+      color: white;
+    }
+
+    .button {
+      padding: 10px 0;
+
+      &:first-child{
+        margin-top: 5px;
+      }
+
+      a {
+        padding: 7px 10px;
+        border-radius: 5px;
+        background-color: darkorange;
+        color: rgba(0, 0, 0, 0.7);
+
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+
+        &:hover {
+          background-color: darkblue;
+          color: #999;
+        }
+      }
+    }
+
+
+  }
+
+}

@@ -1,0 +1,40 @@
+.buyPrice {
+  list-style: none;
+
+  .price {
+    font-size: 2rem;
+    color: #0c0537;
+    font-weight: bold;
+
+    &.disabled {
+      color: darkgray;
+    }
+  }
+
+  .amount {
+    margin: 5px 0;
+
+    i {
+      margin-right: 5px;
+    }
+
+    span {
+      font-size: 1.125rem;
+      text-transform: uppercase;
+    }
+
+  }
+
+  .timesCircle {
+    color: darkred;
+  }
+
+  .arrowCircleDown {
+    color: darkorange;
+  }
+
+  .checkCircle {
+    color: darkgreen;
+  }
+
+}

@@ -1,0 +1,47 @@
+.login {
+  color: #999;
+  line-height: 30px;
+  position: relative;
+
+  &:hover {
+    color: white;
+    cursor: pointer;
+
+    .caretDown {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .caretDown {
+    transition: transform .3s ease 0s;
+  }
+
+  .signIn, .caretDown {
+    margin-left: 10px;
+  }
+
+  .user {
+    margin-right: 10px;
+  }
+
+  .auth {
+    height: 100%;
+
+
+    a {
+      color: #999;
+      transition: ease-in-out color 0.2s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      * {
+        color: white;
+      }
+    }
+  }
+
+
+
+}

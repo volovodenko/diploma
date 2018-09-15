@@ -1,0 +1,36 @@
+.nav {
+  width: 100%;
+  height: 30px;
+
+
+  & .active {
+    color: white;
+  }
+
+  ul {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    line-height: 30px;
+    list-style: none;
+
+    li {
+      margin: 0 10px;
+
+      a {
+        color: #999;
+        text-decoration: none;
+        transition: ease-in-out color .2s;
+        outline: 0 !important;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
+  }
+
+
+}

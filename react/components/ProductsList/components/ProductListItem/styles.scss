@@ -1,0 +1,21 @@
+.productItem {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+  padding: 5px 7px 5px 5px;
+  position: relative;
+
+  &:hover {
+    box-shadow: 2px 2px 5px black;
+  }
+
+}
+
+
+.dropDown {
+  width: 60px;
+  bottom: -178px;
+  right: 125px;
+}

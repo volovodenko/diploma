@@ -1,0 +1,39 @@
+.selectQuantity {
+  margin: auto 10px;
+  border: 1px solid #aabed2;
+  display: flex;
+  border-radius: 5px;
+  justify-content: space-between;
+
+  &.active {
+    border-color: cornflowerblue;
+  }
+
+  input {
+    margin: auto 0;
+    font: inherit;
+    font-size: 1.125rem;
+    height: 100%;
+    padding: 10px 5px;
+    border: 0;
+    outline: 0 !important;
+    background: none;
+    text-align: center;
+  }
+
+  .arrowDown {
+    display: flex;
+
+    &:hover {
+      i {
+        color: white;
+      }
+    }
+
+    i {
+      margin: auto 0;
+      margin-right: 5px;
+    }
+  }
+
+}

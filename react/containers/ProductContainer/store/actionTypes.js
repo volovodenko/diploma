@@ -1,0 +1,9 @@
+export const PRODUCT_LIST_FETCH_REQUEST = '@ProductItemContainer/PRODUCT_LIST_FETCH_REQUEST';
+export const PRODUCT_LIST_FETCH_SUCCESS = '@ProductItemContainer/PRODUCT_LIST_FETCH_SUCCESS';
+export const PRODUCT_LIST_FETCH_FAIL = '@ProductItemContainer/PRODUCT_LIST_FETCH_FAIL';
+
+export const PRODUCT_ITEM_FETCH_REQUEST = '@ProductItemContainer/PRODUCT_ITEM_FETCH_REQUEST';
+export const PRODUCT_ITEM_FETCH_SUCCESS = '@ProductItemContainer/PRODUCT_ITEM_FETCH_SUCCESS';
+export const PRODUCT_ITEM_FETCH_FAIL = '@ProductItemContainer/PRODUCT_ITEM_FETCH_FAIL';
+
+export const CLEAR_PRODUCT_ITEM = '@ProductItemContainer/CLEAR_PRODUCT_ITEM';

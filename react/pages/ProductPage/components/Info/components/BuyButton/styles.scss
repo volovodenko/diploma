@@ -1,0 +1,61 @@
+.buyButton {
+  display: flex;
+
+  & > button {
+    margin: auto 0;
+    font-size: 1.125rem;
+    width: 130px;
+    height: 50px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: inherit;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    text-align: center;
+    outline: 0 !important;
+    cursor: pointer;
+    background-color: darkorange;
+    color: rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+
+    &:hover {
+      background-color: darkblue;
+      color: #999;
+    }
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    &.disable {
+      box-shadow: none;
+      background-color: gray;
+
+      &:hover {
+        background-color: gray;
+        color: rgba(0, 0, 0, 0.7);
+        cursor: not-allowed;
+      }
+    }
+
+    & > i, & > span {
+      margin: auto 0;
+    }
+
+    & > span {
+      text-transform: uppercase;
+      margin-left: 5px;
+    }
+
+  }
+
+}
+
+.selectQuantity {
+  width: 80px;
+
+  input {
+    width: 50px;
+  }
+}
