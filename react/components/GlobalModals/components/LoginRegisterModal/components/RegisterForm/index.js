@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 
 import styles from './styles.scss';
-import RegisterFormController from '../../../../../../controllers/RegisterFormController';
+import RegisterFormController from '../../../../../../controllers/ComponentCotrollers/RegisterFormController';
 import Icons from './components/Icons';
 
 

@@ -32,7 +32,7 @@ class CarController extends Controller
 
         $carModels = $car->toArray()['car_models'];
 
-//        sleep(5);
+//        sleep(2);
 
         return response($carModels, 200);
     }
@@ -62,7 +62,7 @@ class CarController extends Controller
         }, $carCategoriesObject->toArray());
 
 
-//        sleep(5);
+//        sleep(2);
 
         return response($carCategories, 200);
     }

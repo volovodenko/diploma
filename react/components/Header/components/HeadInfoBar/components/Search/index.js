@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import SearchController from '../../../../../../controllers/SearchController';
+import SearchController from '../../../../../../controllers/ComponentCotrollers/SearchController';
 
 
 @SearchController()

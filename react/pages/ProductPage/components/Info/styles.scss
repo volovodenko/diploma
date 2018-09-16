@@ -15,4 +15,9 @@
   width: 80px;
   top: 56px;
   right: 140px;
+  font-size: 1.125rem;
+
+  & > li:hover {
+    font-size: 1.5rem;
+  }
 }

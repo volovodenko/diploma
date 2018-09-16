@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import NavBarController from '../../controllers/NavBarController';
+import NavBarController from '../../controllers/ComponentCotrollers/NavBarController';
 import CarTitle from './components/CarTitle';
 import ModelTitle from './components/ModelTitle';
 import CategoryTitle from './components/CategoryTitle';

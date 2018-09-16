@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 
 
 import styles from './styles.scss';
-import CartPageController from '../../controllers/CartPageController';
+import CartPageController from '../../controllers/PageControllers/CartPageController';
 import CartItem from './components/CartItem';
 import CartFooter from './components/CartFooter';
 

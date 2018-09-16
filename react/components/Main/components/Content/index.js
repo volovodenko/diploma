@@ -6,6 +6,8 @@ import styles from './styles.scss';
 import HomePage from '../../../../pages/HomePage';
 import CarModelsPage from '../../../../pages/CarModelsPage';
 import CarCategoriesPage from '../../../../pages/CarCategoriesPage';
+import CarSubCategoriesPage from '../../../../pages/CarSubCategoriesPage';
+import CarSubCategoriesItemPage from '../../../../pages/CarSubCategoriesItemPage';
 
 import CartPage from '../../../../pages/CartPage';
 import ProductPage from '../../../../pages/ProductPage';
@@ -20,6 +22,8 @@ export default class Content extends Component {
             <section className={styles.content}>
                 <Switch>
                     <Route exact path='/' render={() => <HomePage />}/>
+
+
                     <Route exact path='/catalog'
                            render={this.redirectTo('/')}
                     />
@@ -29,9 +33,14 @@ export default class Content extends Component {
                     <Route exact path='/catalog/:car/:model'
                            render={location => <CarCategoriesPage location={location}/>}
                     />
-                    {/*<Route exact path='/catalog/:car?/:model?/:category?/:subCategory?'*/}
-                           {/*render={location => <CatalogPage location={location} {...this.props}/>}*/}
-                    {/*/>*/}
+                    <Route exact path='/catalog/:car/:model/:category'
+                           render={location => <CarSubCategoriesPage location={location}/>}
+                    />
+                    <Route exact path='/catalog/:car/:model/:category/:subCategory'
+                           render={location => <CarSubCategoriesItemPage location={location}/>}
+                    />
+
+
                     <Route exact path='/parts/:partSlug'
                            render={location => <ProductPage location={location}/>}
                     />
@@ -39,14 +48,8 @@ export default class Content extends Component {
                     <Route component={NotFoundPage}/>
                 </Switch>
 
-                {
-                    this.props.carModelsCatalogIsLoading ||
-                    this.props.carCategoriesCatalogIsLoading ||
-                    this.props.productListIsLoading ||
-                    this.props.productItemIsLoading
-                        ? <Loader/>
-                        : null
-                }
+                <Loader/>
+
             </section>
         );
     }

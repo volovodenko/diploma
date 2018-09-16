@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 import styles from './styles.scss';
 import Nav from '../../components/NavBar';
-import CarModelsPageController from '../../controllers/CarModelsPageController';
+import CarModelsPageController from '../../controllers/PageControllers/CarModelsPageController';
 
 
 @CarModelsPageController()

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {NavLink, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import MenuHeaderController from '../../../../../controllers/MenuHeaderController';
+import MenuHeaderController from '../../../../../controllers/ComponentCotrollers/MenuHeaderController';
 
 
 @MenuHeaderController()
@@ -17,8 +17,7 @@ export default class MenuHeader extends Component {
             <nav className={styles.nav}>
                 <ul>
                     <li>
-                        <NavLink exact to='/'
-                                 activeClassName={styles.active}
+                        <Link to='/'
                                  className={
                                      classNames(
                                          fontAwesome.fa,

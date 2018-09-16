@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-import ProductListItemController from '../../../../controllers/ProductListItemController'
+import ProductListItemController from '../../../../controllers/ComponentCotrollers/ProductListItemController'
 import SelectQuantityDropDown from '../../../SelectQuantityDropDown';
 import Image from './components/Image';
 import Content from './components/Content';

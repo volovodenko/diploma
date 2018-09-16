@@ -24,12 +24,7 @@ export default props => (
                 props.subCategoryTitle
                     ?
                     <Link
-                        to={
-                            `/catalog/
-                                    ${props.car}/
-                                    ${props.carModel}/
-                                    ${props.carModelCategory}`
-                        }
+                        to={`/catalog/${props.car}/${props.carModel}/${props.carModelCategory}`}
                     >
                         {props.categoryTitle}
                     </Link>

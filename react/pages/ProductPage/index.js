@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-import ProductPageController from '../../controllers/ProductPageController';
+import ProductPageController from '../../controllers/PageControllers/ProductPageController';
 import Image from './components/Image';
 import Info from './components/Info';
 

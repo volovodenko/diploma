@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import styles from './styles.scss';
 import CarModelsList from './componets/CarModelsList';
-import HomePageController from '../../controllers/HomePageController';
+import HomePageController from '../../controllers/PageControllers/HomePageController';
 
 
 @HomePageController()

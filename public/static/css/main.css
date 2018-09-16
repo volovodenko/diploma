@@ -3316,7 +3316,10 @@ a {
 .ProductListItem-dropDown__3oW-A {
   width: 60px;
   bottom: -178px;
-  right: 125px; }
+  right: 125px;
+  font-size: 1rem; }
+  .ProductListItem-dropDown__3oW-A > li:hover {
+    font-size: 1.25rem; }
 
 .SelectQuantityDropDown-dropDown__2XnJB {
   position: absolute;
@@ -3328,15 +3331,13 @@ a {
   border-radius: 5px;
   border: 1px solid #aabed2;
   -webkit-box-shadow: 2px 2px 5px black;
-          box-shadow: 2px 2px 5px black;
-  font-size: 1.125rem; }
+          box-shadow: 2px 2px 5px black; }
   .SelectQuantityDropDown-dropDown__2XnJB > li {
     padding: 3px 0;
     cursor: default;
     line-height: 20px; }
     .SelectQuantityDropDown-dropDown__2XnJB > li:hover {
-      color: white;
-      font-size: 24px; }
+      color: white; }
     .SelectQuantityDropDown-dropDown__2XnJB > li:last-child {
       padding: 0;
       padding-bottom: 10px;
@@ -3462,7 +3463,8 @@ a {
 .BuyButton-selectQuantity__2gX7n {
   width: 60px; }
   .BuyButton-selectQuantity__2gX7n input {
-    width: 39px; }
+    width: 39px;
+    font-size: 1rem; }
 
 .SelectQuantity-selectQuantity__XgabG {
   margin: auto 10px;
@@ -3479,7 +3481,6 @@ a {
   .SelectQuantity-selectQuantity__XgabG input {
     margin: auto 0;
     font: inherit;
-    font-size: 1.125rem;
     height: 100%;
     padding: 10px 5px;
     border: 0;
@@ -3510,6 +3511,54 @@ a {
         cursor: default; }
     .Pagination-pagination__28a7w li:hover {
       cursor: pointer; }
+
+.CarSubCategoriesPage-catalog__1VKLi {
+  margin-bottom: 200px; }
+
+.CarSubCategoriesPage-subCategoriesList__1Ip4I {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-bottom: 1px solid black; }
+  .CarSubCategoriesPage-subCategoriesList__1Ip4I li {
+    border: 3px solid darkblue;
+    padding: 5px;
+    margin: 15px;
+    background-color: #474a51;
+    border-radius: 5px;
+    width: 160px;
+    height: 150px; }
+    .CarSubCategoriesPage-subCategoriesList__1Ip4I li a {
+      color: inherit;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      .CarSubCategoriesPage-subCategoriesList__1Ip4I li a img {
+        margin: 0 auto;
+        width: 120px;
+        height: 80px; }
+      .CarSubCategoriesPage-subCategoriesList__1Ip4I li a span {
+        display: block;
+        text-align: center;
+        padding: 5px 0; }
+    .CarSubCategoriesPage-subCategoriesList__1Ip4I li:hover {
+      border-color: yellow; }
+
+.CarSubCategoriesItemPage-catalog__3HWa- {
+  margin-bottom: 200px; }
 
 .CartPage-cart__2MYmC {
   width: 99%;
@@ -3688,7 +3737,10 @@ a {
 .Info-dropDown__1ENxR {
   width: 80px;
   top: 56px;
-  right: 140px; }
+  right: 140px;
+  font-size: 1.125rem; }
+  .Info-dropDown__1ENxR > li:hover {
+    font-size: 1.5rem; }
 
 .Characteristics-characteristic__14Hlc {
   margin-top: 20px; }
@@ -3747,7 +3799,8 @@ a {
 .BuyButton-selectQuantity__3rf2b {
   width: 80px; }
   .BuyButton-selectQuantity__3rf2b input {
-    width: 50px; }
+    width: 50px;
+    font-size: 1.125rem; }
 
 .Price-buyPrice__2egkX {
   list-style: none; }

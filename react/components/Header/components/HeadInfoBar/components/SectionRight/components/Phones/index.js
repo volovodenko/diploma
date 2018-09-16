@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import PhonesController from '../../../../../../../../controllers/PhonesController';
+import PhonesController from '../../../../../../../../controllers/ComponentCotrollers/PhonesController';
 import Popup from './components/Popup/index';
 
 

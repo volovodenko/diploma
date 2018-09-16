@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import MenuFooterController from '../../../../controllers/MenuFooterController';
+import MenuFooterController from '../../../../controllers/ComponentCotrollers/MenuFooterController';
 
 
 @MenuFooterController()
