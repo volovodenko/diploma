@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-import Nav from '../../components/NavBar';
+import NavBar from '../../components/NavBar';
 import ProductsList from '../../components/ProductsList';
 import Pagination from '../../components/Pagination';
 import CarCategoriesList from './components/CarCategoriesList';
@@ -17,7 +17,10 @@ export default class CarCategoriesPage extends Component {
         return (
             <div className={styles.catalog}>
 
-                <Nav car={this.props.car} carModel={this.props.carModel}/>
+                <NavBar
+                    car={this.props.car}
+                    carModel={this.props.carModel}
+                />
 
                 <ul className={styles.categoriesList}>
                     <CarCategoriesList

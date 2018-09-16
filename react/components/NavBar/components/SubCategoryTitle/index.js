@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 
 
@@ -18,6 +19,19 @@ export default props => (
                 aria-hidden='true'
             />
         </li>
-        <li>{props.subCategoryTitle}</li>
+        <li>{
+            props.productPage
+                ?
+                <Link
+                    to={
+                        `/catalog/${props.car}/${props.carModel}/${props.carModelCategory}/${props.carModelSubCategory}`
+                    }
+                >
+                    {props.subCategoryTitle}
+                </Link>
+                :
+                props.subCategoryTitle
+        }
+        </li>
     </Fragment>
 )

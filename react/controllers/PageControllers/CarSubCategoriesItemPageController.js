@@ -14,13 +14,6 @@ export default () => View => {
         constructor(props) {
             super(props);
 
-            this.car = this.props.location.match.params.car;
-            this.carModel = this.props.location.match.params.model;
-            this.carModelCategory = this.props.location.match.params.category;
-            this.carModelSubCategory = this.props.location.match.params.subCategory;
-
-            this.loadDataFromServer();
-
             this.state = {
                 activePage: 1,
                 totalItemsCount: 0,
@@ -28,7 +21,18 @@ export default () => View => {
 
                 carModelCategoryNotFound: false,
                 carModelSubCategoryNotFound: false,
+
+                currentCar: this.props.location.match.params.car,
+                currentModel: this.props.location.match.params.model,
+                currentCategory: this.props.location.match.params.category,
+                currentSubCategory: this.props.location.match.params.subCategory,
+
+                refresh: false,
             };
+
+            this.saveHistorySlug(this.props);
+
+            this.loadDataFromServer(this.props);
 
             window.scrollTo(0, 0); //обнулить прокрутку
 
@@ -36,6 +40,23 @@ export default () => View => {
 
 
         static getDerivedStateFromProps(props, state) {
+
+            if (
+                state.currentCar !== props.location.match.params.car ||
+                state.currentModel !== props.location.match.params.model ||
+                state.currentCategory !== props.location.match.params.category ||
+                state.currentSubCategory !== props.location.match.params.subCategory
+            ) {
+                return {
+                    currentCar: props.location.match.params.car,
+                    currentModel: props.location.match.params.model,
+                    currentCategory: props.location.match.params.category,
+                    currentSubCategory: props.location.match.params.subCategory,
+                    refresh: true,
+                    totalItemsCount: 0
+                }
+            }
+
 
             if (!state.totalItemsCount && props.productListLoaded) {
                 const currentCarModel = props.location.match.params.model;
@@ -85,13 +106,34 @@ export default () => View => {
                 const products = carModelProducts.products
                     .filter(item => item.car_category_id === subCategoryId);
 
+                const totalItemsCount = products.length;
+
                 return {
-                    totalItemsCount: products.length,
+                    totalItemsCount,
                     products
-                };
+                }
+
             }
 
             return null;
+        }
+
+
+        shouldComponentUpdate(nextProps, nextState) {
+
+            if (nextState.refresh) {
+
+                this.saveHistorySlug(nextProps);
+
+                this.loadDataFromServer(nextProps);
+
+                this.setState({
+                    refresh: false
+                });
+
+            }
+
+            return true;
         }
 
 
@@ -115,10 +157,10 @@ export default () => View => {
 
             return <View
                 productList={this.state.products}
-                car={this.car}
-                carModel={this.carModel}
-                carModelCategory={this.carModelCategory}
-                carModelSubCategory={this.carModelSubCategory}
+                car={this.state.currentCar}
+                carModel={this.state.currentModel}
+                carModelCategory={this.state.currentCategory}
+                carModelSubCategory={this.state.currentSubCategory}
 
                 totalItemsCount={this.state.totalItemsCount}
                 activePage={this.state.activePage}
@@ -142,7 +184,9 @@ export default () => View => {
         }
 
 
-        loadDataFromServer() {
+        loadDataFromServer(props) {
+            const currentCar = props.location.match.params.car;
+            const currentModel = props.location.match.params.model;
 
             if (!this.props.carsLoaded) {
                 this.props.getCars();
@@ -150,26 +194,35 @@ export default () => View => {
 
 
             //если список моделей для этой машины не загружен => загрузить список моделей для этой машины
-            if (!this.props.carModelsCatalogList.some(item => item.car === this.car)) {
-                const data = {slug: this.car};
+            if (!this.props.carModelsCatalogList.some(item => item.car === currentCar)) {
+                const data = {slug: currentCar};
 
                 this.props.getCarModelsCatalog(data);
             }
 
 
             //если список категорий для этой модели не загружен => загрузить список категорий для этой модели
-            if (!this.props.carCategoriesCatalogList.some(item => item.carModel === this.carModel)) {
-                const data = {slug: this.carModel};
+            if (!this.props.carCategoriesCatalogList.some(item => item.carModel === currentModel)) {
+                const data = {slug: currentModel};
 
                 this.props.getCarCategoriesCatalog(data);
             }
 
 
             //если список продуктов для этой модели не загружен => загрузить список продуктов для этой модели
-            if (!this.props.productList.some(item => item.carModel === this.carModel)) {
+            if (!this.props.productList.some(item => item.carModel === currentModel)) {
 
-                this.props.getProductList(this.carModel);
+                this.props.getProductList(currentModel);
             }
+        }
+
+        saveHistorySlug(props){
+            props.onSaveHistorySlug({
+                car: props.location.match.params.car,
+                carModel: props.location.match.params.model,
+                carModelCategory: props.location.match.params.category,
+                carModelSubCategory: props.location.match.params.subCategory,
+            });
         }
 
         /***************************************************************************

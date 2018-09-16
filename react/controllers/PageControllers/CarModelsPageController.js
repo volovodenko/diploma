@@ -14,8 +14,9 @@ export default () => View => {
 
             this.car = this.props.location.match.params.car;
 
+            this.props.onSaveHistorySlug({car: this.car});
 
-            if (!this.props.carsLoaded){
+            if (!this.props.carsLoaded) {
                 this.props.getCars();
             }
 
@@ -27,6 +28,25 @@ export default () => View => {
             }
 
             window.scrollTo(0, 0); //обнулить прокрутку
+
+
+            this.state = {
+                carModelsList: []
+            }
+
+        }
+
+
+        static getDerivedStateFromProps(props) {
+            const currentCar = props.location.match.params.car;
+
+            const modelsList = props.carModelsCatalogList
+                .find(item => item.car === currentCar);
+            const carModelsList = modelsList ? modelsList.models : [];
+
+            return {
+                carModelsList,
+            };
 
         }
 
@@ -44,7 +64,7 @@ export default () => View => {
             }
 
             return <View
-                carModelsList={this.getModelsList()}
+                carModelsList={this.state.carModelsList}
                 car={this.car}
             />
 
@@ -53,13 +73,6 @@ export default () => View => {
         /***************************************************************************
          * CONTROLLER LOGIC START
          **************************************************************************/
-
-        getModelsList() {
-            const modelsList = this.props.carModelsCatalogList
-                .find(item => item.car === this.car);
-
-            return modelsList ? modelsList.models : []
-        }
 
         /***************************************************************************
          * CONTROLLER LOGIC END

@@ -6,6 +6,10 @@ import PropTypes from 'prop-types';
 import {
     getCarModelsCatalog, onClearFetchErrors, getCars
 } from '../../store/reducers/car/actions';
+import {
+    onSaveHistorySlug,
+} from '../../store/reducers/nav/actions';
+
 
 
 export default () => Controller => {
@@ -15,13 +19,16 @@ export default () => Controller => {
             carModelsCatalogList: state.car.carModelsCatalogList,
             carModelsCatalogLoaded: state.car.carModelsCatalogLoaded,
             carModelsCatalogFetchFail: state.car.carModelsCatalogFetchFail,
+            carsLoaded: state.car.carsLoaded,
+            carsList: state.car.carsList
         };
     };
 
     @connect(
         mapStateToProps,
         {
-            getCarModelsCatalog, onClearFetchErrors, getCars
+            getCarModelsCatalog, onClearFetchErrors, getCars,
+            onSaveHistorySlug
         }
     )
     class CarModelsPageContainer extends Component {
@@ -43,10 +50,17 @@ export default () => Controller => {
             })).isRequired,
             carModelsCatalogLoaded: PropTypes.bool.isRequired,
             carModelsCatalogFetchFail: PropTypes.bool.isRequired,
+            carsLoaded: PropTypes.bool.isRequired,
+            carsList: PropTypes.arrayOf(PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                title: PropTypes.string.isRequired,
+                slug: PropTypes.string.isRequired
+            })).isRequired,
 
             getCarModelsCatalog: PropTypes.func.isRequired,
             onClearFetchErrors: PropTypes.func.isRequired,
             getCars: PropTypes.func.isRequired,
+            onSaveHistorySlug: PropTypes.func.isRequired,
         };
     }
 

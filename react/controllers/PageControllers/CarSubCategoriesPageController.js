@@ -18,6 +18,12 @@ export default () => View => {
             this.carModel = this.props.location.match.params.model;
             this.carModelCategory = this.props.location.match.params.category;
 
+            this.props.onSaveHistorySlug({
+                car: this.car,
+                carModel: this.carModel,
+                carModelCategory: this.carModelCategory
+            });
+
             this.loadDataFromServer();
 
             this.state = {

@@ -10,6 +10,9 @@ import {
 import {
     getProductList
 } from '../../store/reducers/product/actions';
+import {
+    onSaveHistorySlug,
+} from '../../store/reducers/nav/actions';
 
 
 
@@ -24,6 +27,8 @@ export default () => Controller => {
             carModelsCatalogList: state.car.carModelsCatalogList,
             carModelsCatalogFetchFail: state.car.carModelsCatalogFetchFail,
 
+            carsLoaded: state.car.carsLoaded,
+
             productList: state.product.productList,
             productListLoaded: state.product.productListLoaded,
         };
@@ -33,7 +38,8 @@ export default () => Controller => {
         mapStateToProps,
         {
             getCarCategoriesCatalog, onClearFetchErrors, getProductList, getCars,
-            getCarModelsCatalog
+            getCarModelsCatalog,
+            onSaveHistorySlug
         }
     )
     class CarSubCategoriesPageContainer extends Component {
@@ -62,11 +68,14 @@ export default () => Controller => {
             productList: PropTypes.array.isRequired,
             productListLoaded: PropTypes.bool.isRequired,
 
+            carsLoaded: PropTypes.bool.isRequired,
+
             getCarCategoriesCatalog: PropTypes.func.isRequired,
             onClearFetchErrors: PropTypes.func.isRequired,
             getProductList: PropTypes.func.isRequired,
             getCars: PropTypes.func.isRequired,
             getCarModelsCatalog: PropTypes.func.isRequired,
+            onSaveHistorySlug: PropTypes.func.isRequired,
         };
     }
 

@@ -62,9 +62,15 @@ export default class NavBar extends Component {
 
                     </ul>
                 </nav>
-                <h1 className={styles.header}>
-                    <HeaderTitle {...this.props}/>
-                </h1>
+                {
+                    !this.props.productPage
+                        ?
+                        <h1 className={styles.header}>
+                            <HeaderTitle {...this.props}/>
+                        </h1>
+                        : null
+                }
+
             </Fragment>
         )
 

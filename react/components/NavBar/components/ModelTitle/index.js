@@ -21,7 +21,7 @@ export default props => (
         </li>
         <li>
             {
-                props.categoryTitle
+                props.categoryTitle || props.productPage
                     ?
                     <Link to={`/catalog/${props.car}/${props.carModel}`}>
                         {props.modelTitle}

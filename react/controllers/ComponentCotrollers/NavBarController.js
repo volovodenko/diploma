@@ -16,7 +16,7 @@ export default () => View => {
                 carTitle: null,
                 modelTitle: null,
                 categoryTitle: null,
-                subCategoryTitle: null
+                subCategoryTitle: null,
             };
 
         }
@@ -74,6 +74,15 @@ export default () => View => {
 
             }
 
+            if (!props.productPage) {
+                props.onSaveHistoryTitle({
+                    carTitle,
+                    carModelTitle: modelTitle,
+                    carCategoryTitle: categoryTitle,
+                    carSubCategoryTitle: subCategoryTitle,
+                });
+            }
+
             return {
                 carTitle,
                 modelTitle,
@@ -86,15 +95,17 @@ export default () => View => {
 
         render() {
             return <View
-                carTitle={this.state.carTitle}
-                modelTitle={this.state.modelTitle}
-                categoryTitle={this.state.categoryTitle}
-                subCategoryTitle={this.state.subCategoryTitle}
+                carTitle={this.props.productPage ? this.props.carTitle : this.state.carTitle}
+                modelTitle={this.props.productPage ? this.props.carModelTitle : this.state.modelTitle}
+                categoryTitle={this.props.productPage ? this.props.carCategoryTitle : this.state.categoryTitle}
+                subCategoryTitle={this.props.productPage ? this.props.carSubCategoryTitle : this.state.subCategoryTitle}
 
                 car={this.props.car}
                 carModel={this.props.carModel}
                 carModelCategory={this.props.carModelCategory}
+                carModelSubCategory={this.props.carModelSubCategory}
 
+                productPage={this.props.productPage}
             />
 
         }

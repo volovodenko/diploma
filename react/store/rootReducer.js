@@ -7,6 +7,7 @@ import car from './reducers/car';
 import menu from './reducers/menu';
 import user from './reducers/user';
 import loginForm from './reducers/loginForm';
+import nav from './reducers/nav';
 
 
 export default combineReducers(
@@ -17,6 +18,7 @@ export default combineReducers(
         menu,
         user,
         loginForm,
+        nav
     }
 )
 

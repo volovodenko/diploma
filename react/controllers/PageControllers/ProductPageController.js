@@ -38,6 +38,12 @@ export default () => View => {
             };
 
 
+            this.historyNavData = {
+                ...this.props.navHistoryTitle,
+                ...this.props.navHistorySlug
+            };
+
+
             window.scrollTo(0, 0); //обнулить прокрутку
 
             this.inputQuantity = React.createRef();
@@ -93,6 +99,8 @@ export default () => View => {
                     inputQuantity={this.inputQuantity}
                     dropDownArrow={this.dropDownArrow}
                     dropDown={this.dropDown}
+                    historyNavData={this.historyNavData}
+                    navRender={this.getNavRender()}
                 />
                 : null
         }
@@ -190,6 +198,10 @@ export default () => View => {
             };
 
             this.props.onPutProductIntoCart(order);
+        }
+
+        getNavRender(){
+            return this.historyNavData.hasOwnProperty('car');
         }
 
         /***************************************************************************

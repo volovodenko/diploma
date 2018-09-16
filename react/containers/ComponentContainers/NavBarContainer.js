@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 
+import {onSaveHistoryTitle} from '../../store/reducers/nav/actions';
+
 export default () => Controller => {
 
     const mapStateToProps = state => {
@@ -15,7 +17,9 @@ export default () => Controller => {
 
     @connect(
         mapStateToProps,
-        null
+        {
+            onSaveHistoryTitle
+        }
     )
     class NavBarContainer extends Component {
 
@@ -40,6 +44,8 @@ export default () => Controller => {
                 })).isRequired,
             })).isRequired,
             carCategoriesCatalogList: PropTypes.array.isRequired,
+
+            onSaveHistoryTitle: PropTypes.func.isRequired,
         };
     }
 

@@ -16,6 +16,11 @@ export default () => View => {
             this.car = this.props.location.match.params.car;
             this.carModel = this.props.location.match.params.model;
 
+            this.props.onSaveHistorySlug({
+                car: this.car,
+                carModel: this.carModel
+            });
+
             this.loadDataFromServer();
 
             this.state = {
@@ -73,6 +78,7 @@ export default () => View => {
 
 
         render() {
+
             if (this.props.carCategoriesCatalogFetchFail ||
                 this.props.carModelsCatalogFetchFail) {
                 return <NotFound/>;

@@ -22,6 +22,9 @@ export default () => Controller => {
             productItemLoaded: state.product.productItemLoaded,
             productItem: state.product.productItem,
             productItemFetchFail: state.product.productItemFetchFail,
+
+            navHistoryTitle: state.nav.navHistoryTitle,
+            navHistorySlug: state.nav.navHistorySlug
         };
     };
 
@@ -45,6 +48,9 @@ export default () => Controller => {
             productItemLoaded: PropTypes.bool.isRequired,
             productItem: PropTypes.object.isRequired,
             productItemFetchFail: PropTypes.bool.isRequired,
+
+            navHistoryTitle: PropTypes.object.isRequired,
+            navHistorySlug: PropTypes.object.isRequired,
 
             getProductItem: PropTypes.func.isRequired,
             onClearProductItem: PropTypes.func.isRequired,
