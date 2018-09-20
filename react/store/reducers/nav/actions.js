@@ -23,3 +23,14 @@ const saveTitle = (data) => ({
 export const onSaveHistoryTitle = (data) => dispatch => {
     dispatch(saveTitle(data));
 };
+
+/*************************************************************************
+ * CLEAR HISTORY
+ *************************************************************************/
+const clearTitle = () => ({
+    type: t.CLEAR_NAV_HISTORY,
+});
+
+export const onClearNavHistory = () => dispatch => {
+    dispatch(clearTitle());
+};

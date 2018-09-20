@@ -3,11 +3,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 
-import {
-    getCars
-} from '../../store/reducers/car/actions';
-
-
 export default () => Controller => {
 
     const mapStateToProps = state => {
@@ -19,9 +14,7 @@ export default () => Controller => {
 
     @connect(
         mapStateToProps,
-        {
-            getCars
-        }
+        null
     )
     class HomePageContainer extends Component {
 
@@ -37,8 +30,6 @@ export default () => Controller => {
                 title: PropTypes.string.isRequired,
                 slug: PropTypes.string.isRequired
             })).isRequired,
-
-            getCars: PropTypes.func.isRequired,
         };
     }
 

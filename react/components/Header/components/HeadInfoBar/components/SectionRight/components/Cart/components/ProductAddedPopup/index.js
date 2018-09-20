@@ -7,9 +7,6 @@ import fontAwesome from 'font-awesome/css/font-awesome.css';
 
 
 export default props => {
-    props.clearTimer();
-    props.setTimer();
-
 
     return (
         <div

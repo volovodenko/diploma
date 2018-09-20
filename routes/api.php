@@ -31,6 +31,9 @@ Route::get('getProductList/{carModelSlug}', 'ProductController@getProductList');
 Route::get('getProductItem/{partSlug}', 'ProductController@getProductItem');
 
 
+Route::post('transporter/getCities', 'TransporterController@getCities');
+Route::post('transporter/getWarehouses', 'TransporterController@getWarehouses');
+
 
 
 //Route::get('catalog/to', 'MenuController@test1');

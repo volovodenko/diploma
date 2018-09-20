@@ -11,7 +11,10 @@ export default props => (
             {
                 props.cart.map(item =>
                     <li key={item.id} className={styles.orderItem}>
-                        <Link to={`/parts/${item.slug}`}>
+                        <Link
+                            target='_blank'
+                            to={`/parts/${item.slug}`}
+                        >
                             {item.title}
                         </Link>
                         <div className={styles.sum}>

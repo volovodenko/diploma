@@ -1,0 +1,26 @@
+.finish {
+  width: 100%;
+  margin-top: 20px;
+
+}
+
+.info {
+  display: flex;
+}
+
+.infoLeft, .infoRight {
+  list-style: none;
+
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+.infoLeft {
+  text-align: right;
+
+}
+
+.infoRight {
+  margin-left: 10px;
+}

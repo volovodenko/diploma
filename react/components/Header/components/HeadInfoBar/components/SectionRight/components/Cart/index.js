@@ -62,7 +62,7 @@ export default class Cart extends Component {
                     </Link>
 
                     {
-                        this.props.popupVisible
+                        this.props.popupVisible && !this.props.productToCartAdded
                             ? <ProductOrderPopup {...this.props}/>
                             : null
                     }
@@ -83,7 +83,12 @@ export default class Cart extends Component {
                     }
                 >
                     <Link to='/cart'>Перейти в корзину</Link>
-                    <Link to='/checkout'>Оформить заказ</Link>
+                    <Link
+                        to='/checkout'
+                        onClick={this.props.onCheckout}
+                    >
+                        Оформить заказ
+                    </Link>
                 </div>
 
             </div>

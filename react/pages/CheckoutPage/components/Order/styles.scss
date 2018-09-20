@@ -1,0 +1,133 @@
+.order {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  .sideLeft {
+    flex-shrink: 0;
+    width: 380px;
+    margin-right: 10px;
+
+    label {
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+      margin: 10px 0;
+      line-height: 30px;
+
+      input, textarea {
+        flex-shrink: 0;
+        padding: 3px;
+        width: 260px;
+        height: 30px;
+        margin-left: 10px;
+        border-radius: 5px;
+        font-size: 100%;
+        outline: 0 !important;
+        border: 2px solid #aabed2;
+
+        &:focus {
+          border-color: blue;
+        }
+      }
+
+      textarea {
+        line-height: 20px;
+        resize: none;
+        height: 100px;
+        font-family: inherit;
+      }
+    }
+
+    .button {
+      float: right;
+    }
+
+  }
+
+  .sideRight {
+    width: 100%;
+
+    h3 {
+      border-bottom: 1px solid black;
+      padding: 5px 0;
+      text-align: center;
+      letter-spacing: 1.1px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    & > ul {
+      border-bottom: 1px solid black;
+      padding: 0 5px;
+
+      .orderItem {
+        border-bottom: 1px solid black;
+        padding: 5px 0;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          display: block;
+          text-align: center;
+          text-decoration: none;
+          color: darkblue;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .sum {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+
+          ul {
+            text-align: center;
+
+            li:last-child {
+              font-weight: bold;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+
+  .total {
+    font-size: 1.125rem;
+    padding-top: 5px;
+    font-weight: bold;
+
+    span {
+      color: #0c0537;
+    }
+  }
+
+  .edit {
+    a {
+
+      color: darkblue;
+      font-size: 14px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      i {
+        margin-right: 5px;
+      }
+    }
+
+  }
+
+}

@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import {
     getMenu
 } from '../../store/reducers/menu/actions';
+import {
+    getCars
+} from '../../store/reducers/car/actions';
 
 
 export default () => Controller => {
@@ -20,7 +23,7 @@ export default () => Controller => {
     @connect(
         mapStateToProps,
         {
-            getMenu,
+            getMenu, getCars
         }
     )
     class MenuHeaderContainer extends Component {
@@ -39,6 +42,7 @@ export default () => Controller => {
             })).isRequired,
 
             getMenu: PropTypes.func.isRequired,
+            getCars: PropTypes.func.isRequired,
         };
     }
 

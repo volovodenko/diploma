@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 
 import CartShortcutIconContainer from '../../containers/ComponentContainers/CartShortcutIconContainer';
-import {TIMEOUT_RESET_POPUP_PRODUCT_TO_CART_ADDED} from '../../config/index';
 
 
 export default () => View => {
@@ -52,11 +51,10 @@ export default () => View => {
                 productCount={this.state.productCount}
                 productToCartAdded={this.props.productToCartAdded}
                 sumTotal={this.state.sumTotal}
-                setTimer={::this.setTimer}
-                clearTimer={::this.clearTimer}
                 onResetProductToCartAdded={this.props.onResetProductToCartAdded}
                 productTitleToCartAdded={this.props.productTitleToCartAdded}
                 cart={this.props.cart}
+                onCheckout={::this.onCheckout}
             />
 
         }
@@ -80,17 +78,12 @@ export default () => View => {
             }))
         }
 
-
-        setTimer() {
-            this.timerId = setTimeout(() => {
-                this.props.onResetProductToCartAdded();
-            }, TIMEOUT_RESET_POPUP_PRODUCT_TO_CART_ADDED);
+        onCheckout(e) {
+            if (!this.props.cart.length) {
+                e.preventDefault();
+            }
         }
 
-
-        clearTimer() {
-            clearTimeout(this.timerId);
-        }
 
         /***************************************************************************
          * CONTROLLER LOGIC END

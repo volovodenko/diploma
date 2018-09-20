@@ -1,4 +1,5 @@
 import * as t from './actionTypes';
+import {TIMEOUT_RESET_POPUP_PRODUCT_TO_CART_ADDED} from '../../../config';
 
 
 /*************************************************************************
@@ -9,8 +10,16 @@ const putProductIntoCart = (data) => ({
     payload: data
 });
 
+let timerId;
+
 export const onPutProductIntoCart = (data) => dispatch => {
+    clearTimeout(timerId);
+
     dispatch(putProductIntoCart(data));
+
+    timerId = setTimeout(() => {
+        dispatch(resetProductToCartAdded());
+    }, TIMEOUT_RESET_POPUP_PRODUCT_TO_CART_ADDED);
 };
 
 

@@ -12,10 +12,6 @@ export default () => View => {
         constructor(props) {
             super(props);
 
-            if (!this.props.carsLoaded) {
-                this.props.getCars();
-            }
-
             window.scrollTo(0, 0); //обнулить прокрутку
         }
 

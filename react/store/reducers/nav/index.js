@@ -19,6 +19,14 @@ export default function (stateStore = initialState, action) {
             };
 
         /****************************************************************************/
+        case t.CLEAR_NAV_HISTORY:
+            return {
+                ...stateStore,
+                navHistorySlug: {},
+                navHistoryTitle: {},
+            };
+
+        /****************************************************************************/
 
         default:
             return stateStore;

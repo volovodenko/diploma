@@ -31,6 +31,7 @@ export default () => Controller => {
 
         static propTypes = {
             cart: PropTypes.array.isRequired,
+
             onClearCart: PropTypes.func.isRequired,
         };
     }

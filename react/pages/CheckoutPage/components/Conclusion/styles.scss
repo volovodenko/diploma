@@ -1,0 +1,27 @@
+.conclusion {
+  width: 100%;
+
+  h3 {
+    text-align: center;
+    letter-spacing: 1.1px;
+    padding: 5px 0;
+    border-bottom: 1px solid black;
+  }
+
+}
+
+.paymentTotal {
+  font-weight: bold;
+  margin-top: 5px;
+  span {
+    margin: 0 5px;
+    color: rgb(12, 5, 55);
+  }
+}
+
+.manager {
+  font-weight: bold;
+  margin-top: 10px;
+  border-top: 1px solid black;
+  padding: 5px 0;
+}

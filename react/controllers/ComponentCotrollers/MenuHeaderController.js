@@ -13,6 +13,7 @@ export default () => View => {
             super(props);
 
             this.props.getMenu();
+            this.props.getCars();
 
         }
 

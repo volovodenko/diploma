@@ -21,7 +21,7 @@ export default () => Controller => {
     @connect(
         mapStateToProps,
         {
-            onResetProductToCartAdded,
+            onResetProductToCartAdded
         }
     )
     class CartShortcutIconContainer extends Component {

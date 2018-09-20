@@ -11,6 +11,7 @@ import CarSubCategoriesItemPage from '../../../../pages/CarSubCategoriesItemPage
 
 import CartPage from '../../../../pages/CartPage';
 import ProductPage from '../../../../pages/ProductPage';
+import CheckoutPage from '../../../../pages/CheckoutPage';
 import NotFoundPage from '../../../../pages/NotFoundPage';
 import Loader from '../../../Loader';
 
@@ -45,6 +46,11 @@ export default class Content extends Component {
                            render={location => <ProductPage location={location}/>}
                     />
                     <Route exact path='/cart' render={() => <CartPage />}/>
+
+                    <Route exact path='/checkout'
+                           render={location => <CheckoutPage location={location}/>}
+                    />
+
                     <Route component={NotFoundPage}/>
                 </Switch>
 

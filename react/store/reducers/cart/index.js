@@ -59,12 +59,11 @@ export default function (stateStore = initialState, action) {
                 return item;
             });
 
-
             localStorage.setItem('cart', JSON.stringify(cart));
 
             return {
                 ...stateStore,
-                cart
+                cart,
             };
         }
 
@@ -82,7 +81,7 @@ export default function (stateStore = initialState, action) {
 
             return {
                 ...stateStore,
-                cart
+                cart,
             };
         }
 
@@ -94,7 +93,7 @@ export default function (stateStore = initialState, action) {
 
             return {
                 ...stateStore,
-                cart
+                cart,
             };
         }
 

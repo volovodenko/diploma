@@ -13,34 +13,19 @@ export default () => View => {
         constructor(props) {
             super(props);
 
-            let product = null;
-            const partSlug = this.props.location.match.params.partSlug;
-
-            if (this.props.productListLoaded) {
-                this.props.productList.forEach(item => {
-                    product = item.products.find(item => item.slug === partSlug)
-                })
-            }
-
-            //если продукта нет в списке продуктов => загружаем
-            if (!product) {
-                this.props.getProductItem(partSlug);
-                product = null;
-            }
-
+            const historyNavData = {
+                ...this.props.navHistoryTitle,
+                ...this.props.navHistorySlug
+            };
 
             this.state = {
-                product,
+                product: null,
 
                 buyQuantity: '1',
                 selectDropDownActive: false,
-                dropDownVisible: false
-            };
+                dropDownVisible: false,
 
-
-            this.historyNavData = {
-                ...this.props.navHistoryTitle,
-                ...this.props.navHistorySlug
+                historyNavData
             };
 
 
@@ -67,14 +52,40 @@ export default () => View => {
 
 
         static getDerivedStateFromProps(props) {
+            const partSlug = props.location.match.params.partSlug;
 
-            if (props.productItemLoaded) {
+            if (props.productItemLoaded &&
+                props.productItem.slug === partSlug
+            ) {
                 return {
                     product: props.productItem
                 }
             }
 
-            return null;
+
+            let product = null;
+            const historyNavData = {
+                ...props.navHistoryTitle,
+                ...props.navHistorySlug
+            };
+
+            props.productList.forEach(item => {
+                product = item.products.find(item => item.slug === partSlug)
+            });
+
+            //если продукта нет в списке продуктов => загружаем
+            if (!product) {
+                props.getProductItem(partSlug);
+
+                return null;
+            }
+
+            return {
+                product,
+                historyNavData
+            }
+
+
         }
 
 
@@ -99,7 +110,7 @@ export default () => View => {
                     inputQuantity={this.inputQuantity}
                     dropDownArrow={this.dropDownArrow}
                     dropDown={this.dropDown}
-                    historyNavData={this.historyNavData}
+                    historyNavData={this.state.historyNavData}
                     navRender={this.getNavRender()}
                 />
                 : null
@@ -200,8 +211,8 @@ export default () => View => {
             this.props.onPutProductIntoCart(order);
         }
 
-        getNavRender(){
-            return this.historyNavData.hasOwnProperty('car');
+        getNavRender() {
+            return this.state.historyNavData.hasOwnProperty('car');
         }
 
         /***************************************************************************

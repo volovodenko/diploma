@@ -1,2 +1,3 @@
 export const SAVE_HISTORY_SLUG = '@nav/SAVE_HISTORY_SLUG';
 export const SAVE_HISTORY_TITLE = '@nav/SAVE_HISTORY_TITLE';
+export const CLEAR_NAV_HISTORY = '@nav/CLEAR_NAV_HISTORY';

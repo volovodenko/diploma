@@ -5,6 +5,7 @@
   background: #000;
   position: absolute;
   top: 52px;
+  overflow: hidden;
 
   .expand {
     width: 100%;
@@ -13,17 +14,24 @@
     background: #2187e7;
     position: absolute;
     box-shadow: 0 0 10px 1px rgba(0, 198, 255, 0.7);
-    animation: fullExpand 7s ease-out;
+    left: 0;
+    animation: fullExpand 4s infinite linear;
   }
 
 }
 
 @keyframes fullExpand {
   0% {
-    width: 0;
+    left: -100%;
   }
 
+
+  50% {
+    left: 0;
+  }
+
+
   100% {
-    width: 100%;
+    left: 100%;
   }
 }

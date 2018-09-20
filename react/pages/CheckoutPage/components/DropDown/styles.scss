@@ -1,0 +1,29 @@
+.dropDown {
+  position: absolute;
+  width: 260px;
+  padding: 3px;
+  top: 30px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid blue;
+  z-index: 1000;
+
+  ul {
+    list-style: none;
+    max-height: 140px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: left;
+
+    li {
+      padding: 5px;
+      border-radius: 3px;
+
+      &:hover {
+        color: #999;
+        background-color: #10055e;
+        cursor: default;
+      }
+    }
+  }
+}
