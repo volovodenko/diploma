@@ -3,6 +3,69 @@ import * as t from './actionTypes';
 
 
 /*************************************************************************
+ * GET DELIVERY METHODS
+ *************************************************************************/
+const deliveryMethodsFetchRequest = () => ({
+    type: t.DELIVERY_METHODS_FETCH_REQUEST
+});
+
+const deliveryMethodsFetchSuccess = (data) => ({
+    type: t.DELIVERY_METHODS_FETCH_SUCCESS,
+    payload: data
+});
+
+const deliveryMethodsFetchFail = (error) => ({
+    type: t.DELIVERY_METHODS_FETCH_FAIL,
+    payload: error
+});
+
+export const getDeliveryMethods = () => dispatch => {
+    dispatch(deliveryMethodsFetchRequest());
+
+    httpRequest('getDeliveryMethods')
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(deliveryMethodsFetchSuccess(res.data));
+            }
+        })
+        .catch(err => {
+            dispatch(deliveryMethodsFetchFail(err.response.data.error));
+        });
+};
+
+
+/*************************************************************************
+ * GET TRANSPORTERS
+ *************************************************************************/
+const transportersFetchRequest = () => ({
+    type: t.TRANSPORTERS_FETCH_REQUEST
+});
+
+const transportersFetchSuccess = (data) => ({
+    type: t.TRANSPORTERS_FETCH_SUCCESS,
+    payload: data
+});
+
+const transportersFetchFail = (error) => ({
+    type: t.TRANSPORTERS_FETCH_FAIL,
+    payload: error
+});
+
+export const getTransporters = () => dispatch => {
+    dispatch(transportersFetchRequest());
+
+    httpRequest('getTransporters')
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(transportersFetchSuccess(res.data));
+            }
+        })
+        .catch(err => {
+            dispatch(transportersFetchFail(err.response.data.error));
+        });
+};
+
+/*************************************************************************
  * GET TRANSPORTER CITIES
  *************************************************************************/
 const transporterCitiesFetchRequest = () => ({

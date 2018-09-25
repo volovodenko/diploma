@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './styles.scss';
 import ProductListItem from './components/ProductListItem';
-import ProductListController from '../../controllers/ComponentCotrollers/ProductListController';
+import ProductListController from '../../controllers/ComponentCotrollers/Main/ProductListController';
 
 
 const ProductList  =  props => (

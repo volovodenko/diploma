@@ -21,3 +21,10 @@
   max-width: 1280px;
 }
 
+
+@media (max-device-width: 1030px) {
+  .wrapper {
+    height: 50px;
+  }
+}
+

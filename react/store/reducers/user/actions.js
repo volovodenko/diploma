@@ -4,6 +4,38 @@ import {LOGIN_FORM_HIDE} from '../loginForm/actionTypes';
 
 
 /*************************************************************************
+ * VALIDATE USER NAME
+ *************************************************************************/
+const validateNameRequest = () => ({
+    type: t.VALIDATE_NAME_REQUEST
+});
+
+const validateNameSuccess = () => ({
+    type: t.VALIDATE_NAME_SUCCESS
+});
+
+const validateNameFail = () => ({
+    type: t.VALIDATE_NAME_FAIL
+});
+
+
+export const validateNameExist = (data) => dispatch => {
+    dispatch(validateNameRequest());
+
+    httpRequest('validateName', 'POST', data)
+        .then(res => {
+            if (checkResponse(res)) {
+                res.data.message === 'Success'
+                    ? dispatch(validateNameSuccess())
+                    : dispatch(validateNameFail(res.data.message));
+            }
+        })
+        .catch(err => {
+            dispatch(validateNameFail(err.response.data.error));
+        });
+};
+
+/*************************************************************************
  * VALIDATE EMAIL
  *************************************************************************/
 const validateEmailRequest = () => ({
@@ -129,4 +161,42 @@ const setClearErrorLogin = () => ({
 
 export const clearErrorLogin = () => dispatch => {
     dispatch(setClearErrorLogin());
+};
+
+/*************************************************************************
+ * SAVE OrderTab DATA
+ *************************************************************************/
+const saveOrderTab = data => ({
+    type: t.SAVE_ORDER_TAB_DATA,
+    payload: data
+});
+
+export const onSaveOrderTab = data => dispatch => {
+    dispatch(saveOrderTab(data));
+};
+
+
+/*************************************************************************
+ * SAVE PaymentTab DATA
+ *************************************************************************/
+const savePaymentTab = data => ({
+    type: t.SAVE_PAYMENT_TAB_DATA,
+    payload: data
+});
+
+export const onSavePaymentTab = data => dispatch => {
+    dispatch(savePaymentTab(data));
+};
+
+
+/*************************************************************************
+ * SAVE DeliveryTab DATA
+ *************************************************************************/
+const saveDeliveryTab = data => ({
+    type: t.SAVE_DELIVERY_TAB_DATA,
+    payload: data
+});
+
+export const onSaveDeliveryTab = data => dispatch => {
+    dispatch(saveDeliveryTab(data));
 };

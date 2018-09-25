@@ -80,4 +80,21 @@
     }
   }
 
+
+
 }
+
+
+@media (max-device-width: 1030px) {
+  .search {
+    height: 50px;
+    padding: 5px 10px;
+
+    .popular {
+      display: none;
+    }
+
+  }
+
+}
+

@@ -13,6 +13,7 @@ export default () => Controller => {
     const mapStateToProps = state => {
         return {
             cart: state.cart.cart,
+            sumTotal: state.cart.sumTotal,
         };
     };
 
@@ -31,6 +32,7 @@ export default () => Controller => {
 
         static propTypes = {
             cart: PropTypes.array.isRequired,
+            sumTotal: PropTypes.string.isRequired,
 
             onClearCart: PropTypes.func.isRequired,
         };

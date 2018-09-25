@@ -3,7 +3,8 @@ import classNames from 'classnames';
 
 
 import styles from './styles.scss';
-import RegisterFormController from '../../../../../../controllers/ComponentCotrollers/RegisterFormController';
+import RegisterFormController
+    from '../../../../../../controllers/ComponentCotrollers/GlobalModals/RegisterFormController';
 import Icons from './components/Icons';
 
 
@@ -16,7 +17,7 @@ export default class RegisterForm extends Component {
             <Fragment>
                 <h3>Регистрация</h3>
 
-                <label>Имя:
+                <label>Имя пользователя (логин):
                     <input
                         type='text'
                         ref={this.props.nameRegister}
@@ -24,10 +25,12 @@ export default class RegisterForm extends Component {
                         title={
                             !this.props.nameValid
                                 ? 'Имя должно быть больше 2-х знаков'
+                                : this.props.nameExists
+                                ? 'Пользователь с таким именем уже существует'
                                 : ''
                         }
                     />
-                    <Icons state={this.props.nameValid} />
+                    <Icons state={this.props.nameValid && !this.props.nameExists}/>
 
                 </label>
 
@@ -44,7 +47,7 @@ export default class RegisterForm extends Component {
                                 : ''
                         }
                     />
-                    <Icons state={this.props.emailValid && !this.props.emailExists} />
+                    <Icons state={this.props.emailValid && !this.props.emailExists}/>
                 </label>
 
                 <label>Пароль:
@@ -58,7 +61,7 @@ export default class RegisterForm extends Component {
                                 : ''
                         }
                     />
-                    <Icons state={this.props.passwordValid} />
+                    <Icons state={this.props.passwordValid}/>
                 </label>
 
                 <label>Подтвердите пароль:
@@ -72,7 +75,7 @@ export default class RegisterForm extends Component {
                                 : ''
                         }
                     />
-                    <Icons state={this.props.cPasswordValid} />
+                    <Icons state={this.props.cPasswordValid}/>
                 </label>
 
                 <button

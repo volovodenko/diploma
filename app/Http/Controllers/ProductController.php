@@ -44,7 +44,7 @@ class ProductController extends Controller
         }, $productsObject->toArray());
 
 
-//        sleep(15);
+//        sleep(5);
 
         return response($products, 200);
     }

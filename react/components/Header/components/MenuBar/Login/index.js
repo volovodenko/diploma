@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import LoginMenuController from '../../../../../controllers/ComponentCotrollers/LoginMenuController';
+import LoginMenuController from '../../../../../controllers/ComponentCotrollers/Header/LoginMenuController';
 import Popup from './components/Popup/index';
 
 

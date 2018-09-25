@@ -14,6 +14,8 @@ class CarController extends Controller
     {
         $cars = Car::all();
 
+//        sleep(5);
+
         return response($cars, 200);
     }
 
@@ -32,7 +34,7 @@ class CarController extends Controller
 
         $carModels = $car->toArray()['car_models'];
 
-//        sleep(2);
+//        sleep(5);
 
         return response($carModels, 200);
     }

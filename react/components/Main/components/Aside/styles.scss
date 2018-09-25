@@ -2,3 +2,9 @@
   width: 250px;
   flex-shrink: 0;
 }
+
+@media (max-device-width: 1030px) {
+  .aside {
+    display: none;
+  }
+}

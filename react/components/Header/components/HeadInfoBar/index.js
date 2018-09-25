@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 
 import styles from './styles.scss';
-import HeadInfoBarController from '../../../../controllers/ComponentCotrollers/HeadInfoBarController';
+import HeadInfoBarController from '../../../../controllers/ComponentCotrollers/Header/HeadInfoBarController';
 import Logo from './components/Logo/index';
 import Search from './components/Search/index';
 import SectionRight from './components/SectionRight/index';

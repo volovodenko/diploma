@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import styles from './styles.scss';
 import NavBar from '../../components/NavBar';
+import PageLoader from '../../components/Loaders/PageLoader';
 import CarModelsPageController from '../../controllers/PageControllers/CarModelsPageController';
 
 
@@ -30,6 +31,7 @@ export default class CarModelsPage extends Component {
                         ))
                     }
                 </ul>
+               <PageLoader styles={styles}/>
             </div>
         )
 

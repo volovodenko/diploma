@@ -9,6 +9,8 @@ import user from './reducers/user';
 import loginForm from './reducers/loginForm';
 import nav from './reducers/nav';
 import transporter from './reducers/transporter';
+import checkout from './reducers/checkout';
+import errorMessage from './reducers/errorMessage';
 
 
 export default combineReducers(
@@ -20,7 +22,9 @@ export default combineReducers(
         user,
         loginForm,
         nav,
-        transporter
+        transporter,
+        checkout,
+        errorMessage
     }
 )
 

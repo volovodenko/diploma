@@ -13,36 +13,13 @@ export default () => View => {
             super(props);
 
             window.scrollTo(0, 0); //обнулить прокрутку
-
-            this.state = {
-                sumTotal: 0
-            };
-
         }
-
-
-        static getDerivedStateFromProps(props) {
-            let sumTotal = 0;
-
-            if (props.cart.length) {
-                props.cart.forEach(item => {
-                    sumTotal += (item.price * item.buyQuantity);
-                });
-
-                sumTotal = (sumTotal / 100).toFixed(2);
-            }
-
-            return {
-                sumTotal
-            }
-        }
-
 
         render() {
             return <View
                 cart={this.props.cart}
                 clearCart={::this.clearCart}
-                sumTotal={this.state.sumTotal}
+                sumTotal={this.props.sumTotal}
             />
 
         }

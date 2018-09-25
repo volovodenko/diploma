@@ -1,4 +1,5 @@
-.home {
+.content {
+
   h1 {
     border-bottom: 1px solid black;
     letter-spacing: 2px;
@@ -7,56 +8,13 @@
   }
 }
 
-.parts {
+.cars {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
 
-
-  li {
-    display: block;
-    border: 3px solid darkblue;
-    padding: 5px;
-    margin: 15px;
-    background-color: #474a51;
-    border-radius: 5px;
-    width: 150px;
-    height: 150px;
-
-
-
-
-
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      outline: 0!important;
-
-
-      img {
-        margin: 0 auto;
-        width: 120px;
-        height: 80px;
-      }
-
-      span {
-        display: block;
-        text-align: center;
-        padding: 5px 0;
-
-      }
-    }
-
-    &:hover {
-      border-color: yellow;
-    }
-  }
-
-
+.loader {
+  top: 38px;
 }

@@ -5,8 +5,9 @@ import styles from './styles.scss';
 import NavBar from '../../components/NavBar';
 import ProductsList from '../../components/ProductsList';
 import Pagination from '../../components/Pagination';
-import CarSubCategoriesList from './components/CarSubCategoriesList'
-import CarSubCategoriesPageController from '../../controllers/PageControllers/CarSubCategoriesPageController'
+import CarSubCategoriesList from '../../components/Pages/CarSubCategories/CarSubCategoriesList';
+import PageLoader from '../../components/Loaders/PageLoader';
+import CarSubCategoriesPageController from '../../controllers/PageControllers/CarSubCategoriesPageController';
 
 
 @CarSubCategoriesPageController()
@@ -53,6 +54,8 @@ export default class CarSubCategoriesPage extends Component {
                     pageRangeDisplayed={this.props.pageRangeDisplayed}
                     onChange={this.props.handlePageChange}
                 />
+
+                <PageLoader styles={styles}/>
             </div>
         )
 

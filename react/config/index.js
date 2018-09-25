@@ -5,6 +5,8 @@ export const PAGE_RANGE_DISPLAYED = 3;
 
 export const TIMEOUT_RESET_POPUP_PRODUCT_TO_CART_ADDED = 3000;
 
+export const TIMEOUT_ERROR_MESSAGE = 5000;
+
 export const TYPE_PAYMENTS = [
     {
         id: 1,
@@ -43,10 +45,3 @@ export const DELIVERY_METHOD_LIST = [
     {id: 1, title: 'Доставка перевозчиком'},
     {id: 2, title: 'Самовывоз (г.Киев, ул. М.Коцюбинского, 14)'},
 ];
-
-
-export const TRANSPORTER_LIST = [
-    {id: 1, title: 'Новая почта'},
-    {id: 2, title: 'Автолюкс'},
-];
-

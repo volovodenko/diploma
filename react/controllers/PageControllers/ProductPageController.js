@@ -94,8 +94,7 @@ export default () => View => {
                 return <NotFoundPage/>
             }
 
-            return this.state.product
-                ? <View
+            return <View
                     product={this.state.product}
                     setDropDownActive={::this.setDropDownActive}
                     setDropDownInactive={::this.setDropDownInactive}
@@ -112,8 +111,7 @@ export default () => View => {
                     dropDown={this.dropDown}
                     historyNavData={this.state.historyNavData}
                     navRender={this.getNavRender()}
-                />
-                : null
+                />;
         }
 
         /***************************************************************************

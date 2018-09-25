@@ -3,8 +3,8 @@ import React, {Component, Fragment} from 'react';
 
 import styles from './styles.scss';
 import CartPageController from '../../controllers/PageControllers/CartPageController';
-import CartItem from './components/CartItem';
-import CartFooter from './components/CartFooter';
+import CartItem from '../../components/Pages/Cart/CartItem';
+import CartFooter from '../../components/Pages/Cart/CartFooter';
 
 
 @CartPageController()

@@ -1,4 +1,5 @@
 import initialState from './initialState';
+import calcSumTotal from '../../../helpers/calcSumTotal';
 import * as t from './actionTypes';
 
 export default function (stateStore = initialState, action) {
@@ -23,11 +24,15 @@ export default function (stateStore = initialState, action) {
                 cart = [...stateStore.cart, action.payload];
             }
 
+            const sumTotal = calcSumTotal(cart);
+
             localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('sumTotal', JSON.stringify(sumTotal));
 
             return {
                 ...stateStore,
                 cart,
+                sumTotal,
                 productTitleToCartAdded: action.payload.title,
                 productToCartAdded: true
             };
@@ -59,11 +64,14 @@ export default function (stateStore = initialState, action) {
                 return item;
             });
 
+            const sumTotal = calcSumTotal(cart);
             localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('sumTotal', JSON.stringify(sumTotal));
 
             return {
                 ...stateStore,
                 cart,
+                sumTotal
             };
         }
 
@@ -77,23 +85,29 @@ export default function (stateStore = initialState, action) {
 
             const cart = stateStore.cart.filter(item => item.id !== action.payload.id);
 
+            const sumTotal = calcSumTotal(cart);
             localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('sumTotal', JSON.stringify(sumTotal));
 
             return {
                 ...stateStore,
                 cart,
+                sumTotal
             };
         }
 
         /****************************************************************************/
         case t.CLEAR_CART: {
             const cart = [];
+            const sumTotal = '0';
 
             localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('sumTotal', JSON.stringify(sumTotal));
 
             return {
                 ...stateStore,
                 cart,
+                sumTotal
             };
         }
 

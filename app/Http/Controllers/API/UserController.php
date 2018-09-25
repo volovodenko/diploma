@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use App\PaymentTypes;
+use App\DeliveryMethod;
+use App\Transporter;
 
 class UserController extends Controller
 {
@@ -22,7 +25,20 @@ class UserController extends Controller
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['name'] = $user->name;
-            $success['id'] = $user->id;
+            $success['email'] = $user->email;
+            $success['fio'] = $user->fio;
+            $success['phone'] = $user->phone;
+            $success['payment'] = PaymentTypes::find($user->payment_type_id)->type;
+            $success['paymentId'] = $user->payment_type_id;
+            $success['deliveryMethod'] = DeliveryMethod::find($user->delivery_method_id)->title;
+            $success['deliveryMethodId'] = $user->delivery_method_id;
+            $success['transporter'] = Transporter::find($user->transporter_id)->title;
+            $success['transporterId'] = $user->transporter_id;
+            $success['deliveryAddress'] = $user->delivery_city;
+            $success['deliveryAddressRef'] = $user->delivery_city_ref;
+            $success['deliveryWarehouse'] = $user->delivery_warehouse;
+            $success['deliveryWarehouseRef'] = $user->delivery_warehouse_ref;
+
 
             return response()->json(['success' => $success], 200);
 
@@ -55,7 +71,7 @@ class UserController extends Controller
 
         $success['token'] = $user->createToken('MyApp')->accessToken;
         $success['name'] = $user->name;
-        $success['id'] = $user->id;
+        $success['email'] = $user->email;
 
         return response()->json(['success' => $success], 200);
     }
@@ -74,20 +90,30 @@ class UserController extends Controller
     }
 
 
+    public function validateName(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|min:3|max:255|unique:users',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()], 200);
+        }
+
+        return response()->json(['message' => 'Success'], 200);
+    }
+
+
     public function validateEmail(Request $request)
     {
-        $emailPattern = "/^[-._a-z0-9]+@[a-z0-9]+\.[a-z]+$/";
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
 
-        if (!preg_match($emailPattern, $request->email)) {
-            return response()->json(['message' => 'Email not valid'], 200);
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()], 200);
         }
 
-        $email = User::where('email', "$request->email")->get();
-
-        if (empty($email->toArray())) {
-            return response()->json(['message' => 'Success'], 200);
-        }
-
-        return response()->json(['message' => 'Email exist'], 200);
+        return response()->json(['message' => 'Success'], 200);
     }
 }

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from '../../styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import DropDown from '../DropDown';
-import Loader from '../../../../../../SelectLoader';
+import Loader from '../../../../../../Loaders/SelectLoader';
 
 
 export default props => (

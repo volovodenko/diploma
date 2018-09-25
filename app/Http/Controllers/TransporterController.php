@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Transporter;
 use \GuzzleHttp\Client;
 
 class TransporterController extends Controller
@@ -12,6 +13,12 @@ class TransporterController extends Controller
     private $urlAutoLux = "http://api.autolux.ua/office/offices_by_territorial_units"
     . "/?access_token=";
 
+
+    public function getTransporters(){
+        $transporters = Transporter::all();
+
+        return response($transporters, 200);
+    }
 
     public function getCities(Client $client, Request $request)
     {
@@ -107,7 +114,7 @@ class TransporterController extends Controller
 
     protected function getCitiesAutoLux($client)
     {
-        //получаем инфо с access_token (с моего промежуточного серева)
+        //получить инфо с access_token (с моего промежуточного серева)
         $res1 = $client->request("GET", "https://intense-stream-77990.herokuapp.com/");
 
         $accessToken = json_decode($res1->getBody())->access_token;

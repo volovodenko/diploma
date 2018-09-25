@@ -103,3 +103,21 @@
 
 
 }
+
+
+@media (max-device-width: 1030px) {
+  .cart {
+    .cartIcon {
+      & > a {
+        padding: 0;
+        padding-left: 7px;
+      }
+    }
+
+    .cartLinks {
+      padding: 5px 0;
+    }
+
+  }
+
+}

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-import NavFilterController from '../../../../../controllers/ComponentCotrollers/NavFilterController';
+import NavFilterController from '../../../../../controllers/ComponentCotrollers/Main/NavFilterController';
 import CarSelect from './components/CarSelect';
 import CarModelSelect from './components/CarModelSelect';
 import CarCategorySelect from './components/CarCategorySelect';

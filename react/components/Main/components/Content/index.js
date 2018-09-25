@@ -13,7 +13,6 @@ import CartPage from '../../../../pages/CartPage';
 import ProductPage from '../../../../pages/ProductPage';
 import CheckoutPage from '../../../../pages/CheckoutPage';
 import NotFoundPage from '../../../../pages/NotFoundPage';
-import Loader from '../../../Loader';
 
 
 export default class Content extends Component {
@@ -53,9 +52,6 @@ export default class Content extends Component {
 
                     <Route component={NotFoundPage}/>
                 </Switch>
-
-                <Loader/>
-
             </section>
         );
     }

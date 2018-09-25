@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
+Route::post('validateName', 'API\UserController@validateName');
 Route::post('validateEmail', 'API\UserController@validateEmail');
 Route::post('details', 'API\UserController@details')->middleware('auth:api');
 
@@ -31,13 +32,22 @@ Route::get('getProductList/{carModelSlug}', 'ProductController@getProductList');
 Route::get('getProductItem/{partSlug}', 'ProductController@getProductItem');
 
 
+Route::get('getTransporters', 'TransporterController@getTransporters');
 Route::post('transporter/getCities', 'TransporterController@getCities');
 Route::post('transporter/getWarehouses', 'TransporterController@getWarehouses');
 
 
+Route::get('getPayments', 'PaymentController@getPayments');
+Route::get('getDeliveryMethods', 'DeliveryMethodController@getDeliveryMethods');
 
-//Route::get('catalog/to', 'MenuController@test1');
-//Route::get('catalog/{man}', 'MenuController@test2');
+
+Route::post('saveOrder', 'OrderController@saveOrder')->middleware('user:api');
+
+
+
+
+
+
 
 Route::any('/{catchAll}', function () {
     return response()->json(['message' => 'API: Not Found!'], 404);

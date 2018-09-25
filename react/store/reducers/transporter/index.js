@@ -5,6 +5,46 @@ export default function (stateStore = initialState, action) {
 
     switch (action.type) {
 
+        case t.DELIVERY_METHODS_FETCH_REQUEST:
+            return {
+                ...stateStore,
+                deliveryMethodsIsLoading: true,
+            };
+        case t.DELIVERY_METHODS_FETCH_SUCCESS:
+
+            return {
+                ...stateStore,
+                deliveryMethods: action.payload,
+                deliveryMethodsIsLoading: false,
+                deliveryMethodsLoaded: true
+            };
+        case t.DELIVERY_METHODS_FETCH_FAIL:
+            return {
+                ...stateStore,
+                deliveryMethodsIsLoading: false
+            };
+
+        /****************************************************************************/
+        case t.TRANSPORTERS_FETCH_REQUEST:
+            return {
+                ...stateStore,
+                transportersIsLoading: true,
+            };
+        case t.TRANSPORTERS_FETCH_SUCCESS:
+
+            return {
+                ...stateStore,
+                transporters: action.payload,
+                transportersIsLoading: false,
+                transportersLoaded: true
+            };
+        case t.TRANSPORTERS_FETCH_FAIL:
+            return {
+                ...stateStore,
+                transportersIsLoading: false
+            };
+
+        /****************************************************************************/
         case t.TRANSPORTER_CITIES_FETCH_REQUEST:
             return {
                 ...stateStore,

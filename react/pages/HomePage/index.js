@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-import CarModelsList from './componets/CarModelsList';
+import CarsList from '../../components/Pages/Home/CarsList';
+import FakeList from '../../components/Pages/Home/FakeList';
+import PageLoader from '../../components/Loaders/PageLoader';
 import HomePageController from '../../controllers/PageControllers/HomePageController';
 
 
@@ -10,12 +12,17 @@ import HomePageController from '../../controllers/PageControllers/HomePageContro
 export default class HomePage extends Component {
 
     render() {
+
         return (
-            <div className={styles.home}>
+            <div className={styles.content}
+                 ref={this.props.contentRef}
+            >
                 <h1>Каталог автозапчастей</h1>
-                <ul className={styles.parts}>
-                    <CarModelsList carsList={this.props.carsList}/>
+                <ul className={styles.cars}>
+                    <CarsList carsList={this.props.carsList}/>
+                    <FakeList fakeList={this.props.fakeList}/>
                 </ul>
+                <PageLoader styles={styles}/>
             </div>
         );
     }
