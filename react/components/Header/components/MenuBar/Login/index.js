@@ -62,12 +62,11 @@ export default class Login extends Component {
                 }
 
                 {
-                    this.props.popupVisible
-                        ? <Popup
-                            userName={this.props.userName}
-                            logout={this.props.logout}
-                        />
-                        : null
+                    this.props.popupVisible &&
+                    <Popup
+                        userName={this.props.userName}
+                        logout={this.props.logout}
+                    />
                 }
             </div>
         )

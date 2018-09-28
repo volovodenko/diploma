@@ -3,6 +3,11 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 
+import {
+    onSaveComment
+} from '../../../store/reducers/comment/actions';
+
+
 export default () => Controller => {
 
     const mapStateToProps = state => {
@@ -13,7 +18,9 @@ export default () => Controller => {
 
     @connect(
         mapStateToProps,
-        null
+        {
+            onSaveComment
+        }
     )
     class CommentPostFormContainer extends Component {
 
@@ -25,6 +32,8 @@ export default () => Controller => {
 
         static propTypes = {
             userLoggedIn: PropTypes.bool.isRequired,
+
+            onSaveComment: PropTypes.func.isRequired,
         };
     }
 

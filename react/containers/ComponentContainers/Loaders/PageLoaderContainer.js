@@ -14,6 +14,9 @@ export default () => Controller => {
             productItemIsLoading: state.product.productItemIsLoading,
 
             orderDataIsSending: state.checkout.orderDataIsSending,
+
+            aboutContentIsLoading: state.pageContent.aboutContentIsLoading,
+            paymentContentIsLoading: state.pageContent.paymentContentIsLoading,
         };
     };
 
@@ -36,6 +39,9 @@ export default () => Controller => {
             productListIsLoading: PropTypes.bool.isRequired,
             productItemIsLoading: PropTypes.bool.isRequired,
             orderDataIsSending: PropTypes.bool.isRequired,
+
+            aboutContentIsLoading: PropTypes.bool.isRequired,
+            paymentContentIsLoading: PropTypes.bool.isRequired,
         };
     }
 

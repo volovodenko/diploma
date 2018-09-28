@@ -24,17 +24,13 @@ export default props => (
             />
         </div>
         {
-            props.carsVisible
-                ?
-                props.carsLoaded
-                    ? <DropDown
-                        selectTitle='Выберите марку'
-                        itemsList={props.carsList}
-                        setItem={props.setCar}
-                        dropDownClose={props.carsDropDownToggle}
-                    />
-                    : null
-                : null
+            props.carsVisible && props.carsLoaded &&
+            <DropDown
+                selectTitle='Выберите марку'
+                itemsList={props.carsList}
+                setItem={props.setCar}
+                dropDownClose={props.carsDropDownToggle}
+            />
         }
     </li>
 )

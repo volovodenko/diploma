@@ -5,7 +5,8 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import CartShortcutIconController from '../../../../../../../../controllers/ComponentCotrollers/Cart/CartShortcutIconController';
+import CartShortcutIconController
+    from '../../../../../../../../controllers/ComponentCotrollers/Cart/CartShortcutIconController';
 import ProductOrderPopup from './components/ProductOrderPopup/index';
 import ProductAddedPopup from './components/ProductAddedPopup/index';
 
@@ -40,12 +41,10 @@ export default class Cart extends Component {
                             aria-hidden='true'
                         >
                             {
-                                this.props.productCount > 0
-                                    ?
-                                    <span>
-                                        {this.props.productCount}
-                                    </span>
-                                    : null
+                                (this.props.productCount > 0) &&
+                                <span>
+                                    {this.props.productCount}
+                                </span>
                             }
 
                         </i>
@@ -62,14 +61,12 @@ export default class Cart extends Component {
                     </Link>
 
                     {
-                        this.props.popupVisible && !this.props.productToCartAdded
-                            ? <ProductOrderPopup {...this.props}/>
-                            : null
+                        (this.props.popupVisible && !this.props.productToCartAdded) &&
+                        <ProductOrderPopup {...this.props}/>
                     }
                     {
-                        this.props.productToCartAdded
-                            ? <ProductAddedPopup {...this.props}/>
-                            : null
+                        this.props.productToCartAdded &&
+                        <ProductAddedPopup {...this.props}/>
                     }
 
                 </div>

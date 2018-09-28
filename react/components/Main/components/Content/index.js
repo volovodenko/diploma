@@ -12,6 +12,11 @@ import CarSubCategoriesItemPage from '../../../../pages/CarSubCategoriesItemPage
 import CartPage from '../../../../pages/CartPage';
 import ProductPage from '../../../../pages/ProductPage';
 import CheckoutPage from '../../../../pages/CheckoutPage';
+import AboutPage from '../../../../pages/AboutPage';
+import PaymentPage from '../../../../pages/PaymentPage';
+import ContactsPage from '../../../../pages/ContactsPage';
+import WarrantyPage from '../../../../pages/WarrantyPage';
+import ArticlesPage from '../../../../pages/ArticlesPage';
 import NotFoundPage from '../../../../pages/NotFoundPage';
 
 
@@ -48,6 +53,23 @@ export default class Content extends Component {
 
                     <Route exact path='/checkout'
                            render={location => <CheckoutPage location={location}/>}
+                    />
+
+
+                    <Route exact path='/about'
+                           render={location => <AboutPage location={location}/>}
+                    />
+                    <Route exact path='/payment'
+                           render={location => <PaymentPage location={location}/>}
+                    />
+                    <Route exact path='/contacts'
+                           render={location => <ContactsPage location={location}/>}
+                    />
+                    <Route exact path='/warranty'
+                           render={location => <WarrantyPage location={location}/>}
+                    />
+                    <Route exact path='/articles'
+                           render={location => <ArticlesPage location={location}/>}
                     />
 
                     <Route component={NotFoundPage}/>

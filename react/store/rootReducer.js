@@ -11,6 +11,8 @@ import nav from './reducers/nav';
 import transporter from './reducers/transporter';
 import checkout from './reducers/checkout';
 import errorMessage from './reducers/errorMessage';
+import comment from './reducers/comment';
+import pageContent from './reducers/pageContent';
 
 
 export default combineReducers(
@@ -24,7 +26,9 @@ export default combineReducers(
         nav,
         transporter,
         checkout,
-        errorMessage
+        errorMessage,
+        comment,
+        pageContent
     }
 )
 

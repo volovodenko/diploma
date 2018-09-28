@@ -11,15 +11,16 @@ export default () => View => {
 
         render() {
 
-            return this.props.carsIsLoading ||
-            this.props.carModelsCatalogIsLoading ||
-            this.props.carCategoriesCatalogIsLoading ||
-            this.props.productListIsLoading ||
-            this.props.productItemIsLoading ||
-            this.props.orderDataIsSending
-
-                ? <View styles={this.props.styles}/>
-                : null
+            return (this.props.carsIsLoading ||
+                    this.props.carModelsCatalogIsLoading ||
+                    this.props.carCategoriesCatalogIsLoading ||
+                    this.props.productListIsLoading ||
+                    this.props.productItemIsLoading ||
+                    this.props.orderDataIsSending ||
+                    this.props.aboutContentIsLoading ||
+                    this.props.paymentContentIsLoading
+                ) &&
+                <View styles={this.props.styles}/>
         }
 
         /***************************************************************************

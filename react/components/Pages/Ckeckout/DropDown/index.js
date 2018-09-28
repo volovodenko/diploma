@@ -19,13 +19,12 @@ export default class DropDown extends Component {
 
             >
                 {
-                    this.props.searchVisible
-                        ? <Search
-                            onSearch={this.props.onSearch}
-                            inputSearchRef={this.props.inputSearchRef}
-                            onKeyDown={this.props.onKeyDown}
-                        />
-                        : null
+                    this.props.searchVisible &&
+                    <Search
+                        onSearch={this.props.onSearch}
+                        inputSearchRef={this.props.inputSearchRef}
+                        onKeyDown={this.props.onKeyDown}
+                    />
                 }
                 <ul>
                     {

@@ -80,11 +80,7 @@ class OrderController extends Controller
     public function saveOrderAnonymousUser($request)
     {
 
-        //Save anonymous user
-        $user = AnonymousUser::where('phone', $request->phone)->first();
-
-        $newUser = !$user ? new AnonymousUser() : $user;
-
+        $newUser = new AnonymousUser();
 
         //Save data for new user
         $this->saveUserData($newUser, $request, true);

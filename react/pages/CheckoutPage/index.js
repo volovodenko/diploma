@@ -19,49 +19,48 @@ export default class CheckoutPage extends Component {
         return (
             <div className={styles.checkout}>
                 {
-                    this.props.activePage !== 5
-                        ? <HeaderTabs activePage={this.props.activePage}/>
-                        : null
+                    this.props.activePage !== 5 &&
+                    <HeaderTabs activePage={this.props.activePage}/>
+
                 }
 
 
                 {
-                    this.props.activePage === 1
-                        ? <OrderTab
-                            activePage={this.props.activePage}
-                            nextPage={this.props.nextPage}
-                        />
-                        : null
+                    this.props.activePage === 1 &&
+                    <OrderTab
+                        activePage={this.props.activePage}
+                        nextPage={this.props.nextPage}
+                    />
                 }
+
                 {
-                    this.props.activePage === 2
-                        ? <PaymentTab
-                            prevPage={this.props.prevPage}
-                            nextPage={this.props.nextPage}
-                        />
-                        : null
+                    this.props.activePage === 2 &&
+                    <PaymentTab
+                        prevPage={this.props.prevPage}
+                        nextPage={this.props.nextPage}
+                    />
                 }
+
                 {
-                    this.props.activePage === 3
-                        ? <DeliveryTab
-                            prevPage={this.props.prevPage}
-                            nextPage={this.props.nextPage}
-                        />
-                        : null
+                    this.props.activePage === 3 &&
+                    <DeliveryTab
+                        prevPage={this.props.prevPage}
+                        nextPage={this.props.nextPage}
+                    />
                 }
+
                 {
-                    this.props.activePage === 4
-                        ? <FinishTab
-                            activePage={this.props.activePage}
-                            prevPage={this.props.prevPage}
-                            nextPage={this.props.nextPage}
-                        />
-                        : null
+                    this.props.activePage === 4 &&
+                    <FinishTab
+                        activePage={this.props.activePage}
+                        prevPage={this.props.prevPage}
+                        nextPage={this.props.nextPage}
+                    />
                 }
+
                 {
-                    this.props.activePage === 5
-                        ? <ConclusionTab/>
-                        : null
+                    this.props.activePage === 5 &&
+                    <ConclusionTab/>
                 }
 
             </div>

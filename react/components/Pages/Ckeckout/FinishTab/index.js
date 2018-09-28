@@ -18,29 +18,25 @@ export default class FinishTab extends Component {
                     <ul className={styles.infoLeft}>
                         <li>Телефон:</li>
                         {
-                            this.props.email.length
-                                ? <li>E-mail:</li>
-                                : null
+                            this.props.email.length &&
+                            <li>E-mail:</li>
                         }
 
                         <li>Способ доставки:</li>
                         {
-                            !this.props.selfDelivery
-                                ?
-                                <Fragment>
-                                    <li>Перевозчик:</li>
-                                    <li>Адрес доставки:</li>
-                                    <li>Склад:</li>
-                                </Fragment>
-                                : null
+                            !this.props.selfDelivery &&
+                            <Fragment>
+                                <li>Перевозчик:</li>
+                                <li>Адрес доставки:</li>
+                                <li>Склад:</li>
+                            </Fragment>
                         }
 
                         <li>Получатель:</li>
                         <li>Способ оплаты:</li>
                         {
-                            this.props.comment.length
-                                ? <li>Комментарий:</li>
-                                : null
+                            this.props.comment.length &&
+                            <li>Комментарий:</li>
                         }
 
                     </ul>
@@ -48,29 +44,25 @@ export default class FinishTab extends Component {
                         <li>{this.props.phone}&nbsp;</li>
 
                         {
-                            this.props.email.length
-                                ? <li>{this.props.email}&nbsp;</li>
-                                : null
+                            this.props.email.length &&
+                            <li>{this.props.email}&nbsp;</li>
                         }
 
                         <li>{this.props.deliveryMethod}</li>
                         {
-                            !this.props.selfDelivery
-                                ?
-                                <Fragment>
-                                    <li>{this.props.transporter}</li>
-                                    <li>{this.props.deliveryAddress}</li>
-                                    <li>{this.props.deliveryWarehouse}</li>
-                                </Fragment>
-                                : null
+                            !this.props.selfDelivery &&
+                            <Fragment>
+                                <li>{this.props.transporter}</li>
+                                <li>{this.props.deliveryAddress}</li>
+                                <li>{this.props.deliveryWarehouse}</li>
+                            </Fragment>
                         }
 
                         <li>{this.props.fio}</li>
                         <li>{this.props.payment}</li>
                         {
-                            this.props.comment.length
-                                ? <li>{this.props.comment}</li>
-                                : null
+                            this.props.comment.length &&
+                            <li>{this.props.comment}</li>
                         }
                     </ul>
                 </div>

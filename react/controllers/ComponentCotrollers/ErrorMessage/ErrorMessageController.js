@@ -77,14 +77,12 @@ export default () => View => {
 
 
         render() {
-            return this.state.errorVisible
-                ?
+            return this.state.errorVisible &&
                 <View
                     errorMessage={this.state.errorMessage}
                     errorActive={this.state.errorActive}
                     errorFixed={this.state.errorFixed}
                 />
-                : null
         }
 
         /***************************************************************************

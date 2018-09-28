@@ -52,6 +52,10 @@ export default () => View => {
 
 
         static getDerivedStateFromProps(props) {
+            if (props.productItemFetchFail){
+                return null;
+            }
+
             const partSlug = props.location.match.params.partSlug;
 
             if (props.productItemLoaded &&
@@ -74,7 +78,7 @@ export default () => View => {
             });
 
             //если продукта нет в списке продуктов => загружаем
-            if (!product) {
+            if (!product && !props.productItemIsLoading) {
                 props.getProductItem(partSlug);
 
                 return null;

@@ -28,19 +28,18 @@ export default class Search extends Component {
                            ref={this.props.inputSearch}
                     />
                     {
-                        this.props.clearIconVisible
-                            ? <i
-                                className={
-                                    classNames(
-                                        fontAwesome.fa,
-                                        fontAwesome['fa-times'],
-                                        fontAwesome['fa-lg'],
-                                        styles.timesIcon
-                                    )
-                                }
-                                onClick={this.props.clearInput}
-                            />
-                            : null
+                        this.props.clearIconVisible &&
+                        <i
+                            className={
+                                classNames(
+                                    fontAwesome.fa,
+                                    fontAwesome['fa-times'],
+                                    fontAwesome['fa-lg'],
+                                    styles.timesIcon
+                                )
+                            }
+                            onClick={this.props.clearInput}
+                        />
                     }
                     <i
                         className={
@@ -55,16 +54,14 @@ export default class Search extends Component {
                 </div>
 
                 {
-                    !this.props.headInfoFixed
-                        ?
-                        <div className={styles.popular}>
-                            <span>Популярные запросы:</span>
-                            <span className={styles.value} onClick={this.props.setInputValue}>ГБО</span>
-                            <span className={styles.value} onClick={this.props.setInputValue}>масло</span>
-                            <span className={styles.value} onClick={this.props.setInputValue}>свечи</span>
-                            <span className={styles.value} onClick={this.props.setInputValue}>тосол</span>
-                        </div>
-                        : null
+                    !this.props.headInfoFixed &&
+                    <div className={styles.popular}>
+                        <span>Популярные запросы:</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>ГБО</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>масло</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>свечи</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>тосол</span>
+                    </div>
                 }
 
             </div>

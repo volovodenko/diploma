@@ -72,7 +72,6 @@ export default () => View => {
                     .filter(item => item.parent_id === parentId);
 
 
-
                 const subCategoriesIdArray = subCategoriesList
                     .map(item => item.car_category_id);
 
@@ -144,11 +143,7 @@ export default () => View => {
 
 
         loadDataFromServer() {
-
-            if (!this.props.carsLoaded) {
-                this.props.getCars();
-            }
-
+            this.props.carsLoaded || this.props.getCars();
 
             //если список моделей для этой машины не загружен => загрузить список моделей для этой машины
             if (!this.props.carModelsCatalogList.some(item => item.car === this.car)) {

@@ -1,19 +1,18 @@
 export default props => {
-    if (props.subCategoryTitle) {
-        return props.subCategoryTitle
-    }
+    switch (props) {
+        case props.subCategoryTitle:
+            return props.subCategoryTitle;
 
-    if (props.categoryTitle) {
-        return props.categoryTitle;
-    }
+        case props.categoryTitle:
+            return props.categoryTitle;
 
-    if (props.modelTitle) {
-        return props.modelTitle;
-    }
+        case props.modelTitle:
+            return props.modelTitle;
 
-    if (props.carTitle) {
-        return props.carTitle
-    }
+        case props.carTitle:
+            return props.carTitle;
 
-    return null;
+        default:
+            return null;
+    }
 }

@@ -1,0 +1,122 @@
+.contact {
+
+  h1 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    letter-spacing: 2px;
+    padding: 5px 0;
+  }
+
+  p {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+}
+
+.container {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    text-align: center;
+  }
+
+  .left {
+    width: 50%;
+
+  }
+
+  .right {
+    width: 50%;
+
+    .address {
+      display: block;
+
+      a{
+        color: darkblue;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 170px;
+
+    .leftInfo {
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .rightInfo {
+      list-style: none;
+
+      li {
+        line-height: 20px;
+
+        a {
+          color: darkblue;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.logo {
+  width: 20px;
+  height: 20px;
+
+  &.kyivstar {
+    background: url('/storage/img/icons/mobile/icons.png') no-repeat -7px 0;
+  }
+
+  &.mts {
+    background: url('/storage/img/icons/mobile/icons.png') no-repeat -7px -30px;
+  }
+
+  &.life {
+    background: url('/storage/img/icons/mobile/icons.png') no-repeat -7px -57px;
+  }
+
+  &.email {
+    font-size: 18px;
+  }
+
+}
+
+.schedule {
+  display: flex;
+
+  .scheduleLeft {
+    width: 50%;
+  }
+
+  .scheduleRight {
+    width: 50%;
+  }
+}
+
+.scheduleList {
+  list-style: none;
+  text-align: center;
+
+}

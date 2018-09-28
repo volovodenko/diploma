@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(DeliveryMethodsTableSeeder::class);
         $this->call(TransportersTableSeeder::class);
 
+        $this->call(PageContentSeeder::class);
+
 
 
 

@@ -60,9 +60,7 @@ export default () => View => {
         setInputValue(e) {
             this.inputSearch.current.value = e.currentTarget.innerHTML;
 
-            if (!this.state.clearIconVisible) {
-                this.setState({clearIconVisible: true});
-            }
+            this.state.clearIconVisible || this.setState({clearIconVisible: true});
         }
 
         /***************************************************************************

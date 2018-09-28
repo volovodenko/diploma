@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from '../../styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import DropDown from '../DropDown';
-import Loader from '../../../../../../Loaders/SelectLoader/index';
+import Loader from '../../../../../../Loaders/SpinLoader/index';
 
 
 export default props => (
@@ -29,23 +29,21 @@ export default props => (
                 }
                 aria-hidden='true'
             />
-            {props.carCategoriesFilterIsLoading ? <Loader/> : null}
+
+            {props.carCategoriesFilterIsLoading && <Loader/>}
+
         </div>
         {
-            props.carCategoryVisible
-                ?
-                props.carCategoriesFilterLoaded
-                    ? <DropDown
-                        selectTitle='Выберите категорию'
-                        itemsList={
-                            props.carCategoriesFilterList
-                                .filter(item => item.parent_id === 0)
-                        }
-                        setItem={props.setCarCategory}
-                        dropDownClose={props.carCategoriesDropDownToggle}
-                    />
-                    : null
-                : null
+            props.carCategoryVisible && props.carCategoriesFilterLoaded &&
+            <DropDown
+                selectTitle='Выберите категорию'
+                itemsList={
+                    props.carCategoriesFilterList
+                        .filter(item => item.parent_id === 0)
+                }
+                setItem={props.setCarCategory}
+                dropDownClose={props.carCategoriesDropDownToggle}
+            />
         }
     </li>
 )

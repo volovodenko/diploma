@@ -18,17 +18,9 @@ export default () => View => {
 
             window.scrollTo(0, 0); //обнулить прокрутку
 
-            if (!this.props.paymentsDataLoaded) {
-                this.props.getPayments();
-            }
-
-            if (!this.props.deliveryMethodsLoaded){
-                this.props.getDeliveryMethods();
-            }
-
-            if (!this.props.transportersLoaded) {
-                this.props.getTransporters();
-            }
+            this.props.paymentsDataLoaded || this.props.getPayments();
+            this.props.deliveryMethodsLoaded || this.props.getDeliveryMethods();
+            this.props.transportersLoaded || this.props.getTransporters();
 
         }
 

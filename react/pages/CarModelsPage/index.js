@@ -31,7 +31,9 @@ export default class CarModelsPage extends Component {
                         ))
                     }
                 </ul>
+
                <PageLoader styles={styles}/>
+
             </div>
         )
 

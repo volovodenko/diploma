@@ -49,8 +49,8 @@ export default () => View => {
 
 
         render() {
-            return this.state.countPages > 1
-                ? <View
+            return (this.state.countPages > 1) &&
+                <View
                     countPages={this.state.countPages}
                     arrayPages={this.state.arrayPages}
                     firstPage={::this.firstPage}
@@ -60,8 +60,6 @@ export default () => View => {
                     lastPage={::this.lastPage}
                     activePage={this.props.activePage}
                 />
-                : null
-
         }
 
         /***************************************************************************

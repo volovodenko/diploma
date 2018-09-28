@@ -10,25 +10,23 @@ const Buttons = props => (
 
     <div className={styles.buttons}>
         {
-            props.activePage === 1
-                ? null
-                :
-                <button
-                    onClick={props.prevPage}
-                    className={props.inActive ? styles.inactive : null}
-                >
-                    <i className={
-                        classNames(
-                            fontAwesome.fa,
-                            fontAwesome['fa-angle-left'],
-                            fontAwesome['fa-lg'],
-                            styles.prev,
-                        )
-                    }
-                       aria-hidden='true'
-                    />
-                    <span>Назад</span>
-                </button>
+            !(props.activePage === 1) &&
+            <button
+                onClick={props.prevPage}
+                className={props.inActive ? styles.inactive : null}
+            >
+                <i className={
+                    classNames(
+                        fontAwesome.fa,
+                        fontAwesome['fa-angle-left'],
+                        fontAwesome['fa-lg'],
+                        styles.prev,
+                    )
+                }
+                   aria-hidden='true'
+                />
+                <span>Назад</span>
+            </button>
         }
 
 

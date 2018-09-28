@@ -35,15 +35,13 @@ const DeliveryMethod = props => (
             </div>
         </div>
         {
-            props.deliveryMethodDropDownVisible
-                ?
-                <DropDown
-                    searchVisible={false}
-                    itemsList={props.deliveryMethods}
-                    setItem={props.setDeliveryMethod}
-                    dropDownClose={props.deliveryMethodDropDownToggle}
-                />
-                : null
+            props.deliveryMethodDropDownVisible &&
+            <DropDown
+                searchVisible={false}
+                itemsList={props.deliveryMethods}
+                setItem={props.setDeliveryMethod}
+                dropDownClose={props.deliveryMethodDropDownToggle}
+            />
         }
     </li>
 );

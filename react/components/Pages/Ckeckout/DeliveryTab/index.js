@@ -33,9 +33,8 @@ export default class DeliveryTab extends Component {
                     <DeliveryMethod {...this.props}/>
 
                     {
-                        this.props.transporterFormVisible
-                            ? <TransporterForm {...this.props}/>
-                            : null
+                        this.props.transporterFormVisible &&
+                        <TransporterForm {...this.props}/>
                     }
 
                     <li>

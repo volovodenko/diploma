@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 
+import {COMMENT_MAX_LENGTH} from '../../../config';
 import CommentPostFormContainer from '../../../containers/ComponentContainers/Product/CommentPostFormContainer';
 
 
@@ -13,7 +14,7 @@ export default () => View => {
             super(props);
 
             this.state = {
-                symbolsLeft: 250
+                symbolsLeft: COMMENT_MAX_LENGTH
             };
 
             this.formRef = React.createRef();
@@ -40,17 +41,15 @@ export default () => View => {
 
         changeSymbolsLeft() {
             const textLength = this.formRef.current.value.trim().length;
-            const maxLength = 250;
 
             this.setState({
-                symbolsLeft: maxLength - textLength
+                symbolsLeft: COMMENT_MAX_LENGTH - textLength
             })
         }
 
         keyDown(e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
-
                 this.saveComment();
             }
         }
@@ -59,21 +58,19 @@ export default () => View => {
             const comment = this.formRef.current.value.trim();
 
 
-
-            // const data = {
-            //     comment
-            // };
-
-
-            if (this.props.userLoggedIn && this.state.symbolsLeft < 250 && this.state.symbolsLeft >= 0) {
+            if (this.props.userLoggedIn && this.state.symbolsLeft < COMMENT_MAX_LENGTH && this.state.symbolsLeft >= 0) {
                 this.formRef.current.value = '';
                 this.formRef.current.blur();
-                // this.props.onSaveComment(data);
 
-                console.log(comment);
+                const data = {
+                    comment,
+                    product_id: this.props.productId
+                };
+
+                this.props.onSaveComment(data);
 
                 this.setState({
-                    symbolsLeft: 250
+                    symbolsLeft: COMMENT_MAX_LENGTH
                 })
             }
 

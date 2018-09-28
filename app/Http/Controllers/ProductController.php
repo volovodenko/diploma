@@ -8,6 +8,7 @@ use App\ProductCarModelCarCategory;
 use App\Manufacturer;
 use App\Product;
 
+
 class ProductController extends Controller
 {
 
@@ -32,7 +33,7 @@ class ProductController extends Controller
 
 
         $products = array_map(function ($item) {
-            $manufacturer = Manufacturer::find($item['product']['manufacturer_id']);
+            $manufacturer = $this->getManufacturer($item['product']['manufacturer_id']);
 
             $item['product']['manufacturer'] = $manufacturer->title;
             $item['product']['car_category_id'] = $item['car_category_id'];
@@ -53,21 +54,32 @@ class ProductController extends Controller
     public function getProductItem($partSlug) {
         //В реквесте: partSlug - слаг запчасти
 
-        $product = Product::where('slug', $partSlug)
-        ->first();
+        $product = $this->getProductBySlug($partSlug);
 
         if (!$product){
             return response()->json(['message' => 'API: Product not found'], 404);
         }
 
-        $manufacturer = Manufacturer::find($product->manufacturer_id);
+        $manufacturer = $this->getManufacturer($product->manufacturer_id);
 
         $product->manufacturer = $manufacturer->title;
         unset($product->manufacturer_id);
 
+
 //        sleep(5);
 
         return response($product, 200);
+    }
+
+
+
+    public function getProductBySlug($slug){
+        return Product::where('slug', $slug)->first();
+    }
+
+
+    public function getManufacturer($manufacturerId){
+        return Manufacturer::find($manufacturerId);
     }
 
 }

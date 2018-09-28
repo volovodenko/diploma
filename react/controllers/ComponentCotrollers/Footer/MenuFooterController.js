@@ -10,11 +10,11 @@ export default () => View => {
     class MenuFooterController extends Component {
 
         render() {
-            return this.props.menuLoaded
-                ? <View
+
+            return this.props.menuLoaded &&
+                <View
                     menuList={this.props.menuList}
                 />
-                : null
         }
 
         /***************************************************************************

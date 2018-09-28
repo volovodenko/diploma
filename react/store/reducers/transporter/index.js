@@ -74,26 +74,23 @@ export default function (stateStore = initialState, action) {
             };
         case t.TRANSPORTER_WAREHOUSES_FETCH_SUCCESS: {
 
-            // const
-            const cities = stateStore.transporterCities
-                .find(item => item.transporter === action.payload.transporter)
-                .cities
-                .map(item => {
-                    if (item.id === action.payload.id) {
-                        item.warehouses = action.payload.warehouses;
-                    }
-
-                    return item;
-                });
-
             const transporterCities = stateStore.transporterCities
-                .map(item => {
+                .reduce((accumulator, item) => {
+
                     if (item.transporter === action.payload.transporter) {
-                        item.cities = cities;
+                        item.cities.map(item => {
+                            if (item.id === action.payload.id) {
+                                item.warehouses = action.payload.warehouses;
+                            }
+
+                            return item;
+                        });
                     }
 
-                    return item;
-                });
+                    accumulator.push(item);
+
+                    return accumulator;
+                }, []);
 
 
             return {

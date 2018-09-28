@@ -45,16 +45,12 @@ export default () => View => {
                 }
 
 
-                let paymentHeader = state.paymentHeader;
-                let paymentInfo = state.paymentInfo;
-
-                if (!state.paymentHeader) {
-                    paymentHeader = selectedPayment.header;
-                }
-
-                if (!state.paymentInfo) {
-                    paymentInfo = selectedPayment.payment_info;
-                }
+                let paymentHeader = state.paymentHeader
+                    ? state.paymentHeader
+                    : selectedPayment.header;
+                let paymentInfo = state.paymentInfo
+                    ? state.paymentInfo
+                    : selectedPayment.payment_info;
 
                 return {
                     paymentId,

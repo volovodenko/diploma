@@ -14,7 +14,7 @@ export default class PageLoader extends Component {
                 className={
                     classNames(
                         styles.loader,
-                        this.props.styles.loader
+                        this.props.styles ? this.props.styles.loader : null
                     )
                 }
             >

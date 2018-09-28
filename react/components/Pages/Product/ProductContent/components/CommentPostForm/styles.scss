@@ -2,7 +2,6 @@
   margin-top: 5px;
   padding: 10px 15px 15px;
   border: 1px solid black;
-  //background-color: #0c0537;
   border-radius: 5px;
 }
 
@@ -11,10 +10,9 @@
   justify-content: space-between;
 
   & > textarea {
-    color: white;
+    color: #cfcfcf;
     resize: none;
     font: inherit;
-    overflow-y: hidden;
     height: 80px;
     width: 97%;
     outline: 0;
@@ -23,6 +21,7 @@
     border-radius: 5px;
     padding: 5px;
     letter-spacing: 0.5px;
+    overflow-y: auto;
   }
 
   & > span {
@@ -37,7 +36,7 @@
 }
 
 .postButton {
-  margin-top:10px;
+  margin-top: 10px;
   width: 100%;
   text-align: center;
 
@@ -56,7 +55,6 @@
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
     outline: 0 !important;
 
-
     &:disabled {
       background-color: #161a1d;
       color: #bbb;
@@ -67,7 +65,6 @@
         color: #bbb;
         cursor: not-allowed;
       }
-
 
     }
 

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from '../../../../styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import DropDown from '../../../../../DropDown/index';
-import Loader from '../../../../../../../Loaders/SelectLoader/index';
+import Loader from '../../../../../../../Loaders/SpinLoader/index';
 
 
 const Warehouse = props => (
@@ -40,23 +40,18 @@ const Warehouse = props => (
                     }
                     aria-hidden='true'
                 />
-                {
-                    props.transporterWarehousesIsLoading
-                        ? <Loader/>
-                        : null
-                }
+
+                {props.transporterWarehousesIsLoading && <Loader/>}
             </div>
         </div>
         {
-            props.deliveryWarehouseDropDownVisible
-                ?
-                <DropDown
-                    searchVisible={true}
-                    itemsList={props.deliveryWarehouseList}
-                    setItem={props.setDeliveryWarehouse}
-                    dropDownClose={props.deliveryWarehouseDropDownToggle}
-                />
-                : null
+            props.deliveryWarehouseDropDownVisible &&
+            <DropDown
+                searchVisible={true}
+                itemsList={props.deliveryWarehouseList}
+                setItem={props.setDeliveryWarehouse}
+                dropDownClose={props.deliveryWarehouseDropDownToggle}
+            />
         }
     </li>
 );

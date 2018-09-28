@@ -4,16 +4,15 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import SelectQuantity from '../../../../../../components/SelectQuantity';
+import SelectQuantity from '../../../../../../../SelectQuantity/index';
 
 
 export default ({product, ...props}) => (
     <div className={styles.buyButton}>
 
         {
-            product.amount > 0
-                ? <SelectQuantity {...props} styles={styles} />
-                : null
+            (product.amount > 0) &&
+            <SelectQuantity {...props} styles={styles} />
         }
 
         <button

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from '../../../../styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import DropDown from '../../../../../DropDown/index';
-import Loader from '../../../../../../../Loaders/SelectLoader/index';
+import Loader from '../../../../../../../Loaders/SpinLoader/index';
 
 
 const Address = props => (
@@ -40,24 +40,19 @@ const Address = props => (
                     }
                     aria-hidden='true'
                 />
-                {
-                    props.transporterCitiesIsLoading
-                        ? <Loader/>
-                        : null
-                }
+
+                {props.transporterCitiesIsLoading && <Loader/>}
 
             </div>
         </div>
         {
-            props.deliveryAddressDropDownVisible
-                ?
-                <DropDown
-                    searchVisible={true}
-                    itemsList={props.deliveryAddressList}
-                    setItem={props.setDeliveryAddress}
-                    dropDownClose={props.deliveryAddressDropDownToggle}
-                />
-                : null
+            props.deliveryAddressDropDownVisible &&
+            <DropDown
+                searchVisible={true}
+                itemsList={props.deliveryAddressList}
+                setItem={props.setDeliveryAddress}
+                dropDownClose={props.deliveryAddressDropDownToggle}
+            />
         }
     </li>
 );

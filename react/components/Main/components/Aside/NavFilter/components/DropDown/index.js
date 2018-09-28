@@ -4,7 +4,8 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import NavFilterDropDownController from '../../../../../../../controllers/ComponentCotrollers/Main/NavFilterDropDownController';
+import NavFilterDropDownController
+    from '../../../../../../../controllers/ComponentCotrollers/Main/NavFilterDropDownController';
 
 
 @NavFilterDropDownController()
@@ -33,16 +34,16 @@ export default class DropDown extends Component {
                 </div>
                 <ul>
                     {
-                        this.props.itemsListEqual
-                            ? <li onClick={this.props.setItem()}>{this.props.selectTitle}</li>
-                            : null
+                        this.props.itemsListEqual &&
+                        <li onClick={this.props.setItem()}>{this.props.selectTitle}</li>
                     }
 
-                    {this.props.itemsList.map(item => (
-                        <li key={item.id} onClick={this.props.setItem(item.id, item.title, item.slug)}>
-                            {item.title}
-                        </li>
-                    ))
+                    {
+                        this.props.itemsList.map(item => (
+                            <li key={item.id} onClick={this.props.setItem(item.id, item.title, item.slug)}>
+                                {item.title}
+                            </li>
+                        ))
                     }
                 </ul>
             </div>

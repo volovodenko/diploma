@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
 import styles from './styles.scss';
-import CommentPostFormController from '../../../../controllers/ComponentCotrollers/Product/CommentPostFormController';
+import {COMMENT_MAX_LENGTH} from '../../../../../../config/index';
+import CommentPostFormController from '../../../../../../controllers/ComponentCotrollers/Product/CommentPostFormController';
 
 
 @CommentPostFormController()
@@ -33,7 +34,7 @@ export default class CommentPostForm extends Component {
                     <button
                         disabled={
                             !this.props.userLoggedIn ||
-                            this.props.symbolsLeft === 250 ||
+                            this.props.symbolsLeft === COMMENT_MAX_LENGTH ||
                             this.props.symbolsLeft < 0
                         }
                         onClick={this.props.saveComment}
@@ -46,13 +47,5 @@ export default class CommentPostForm extends Component {
 
 
         )
-
     }
-
-    /***************************************************************************
-     *
-     **************************************************************************/
-
-
-
 }

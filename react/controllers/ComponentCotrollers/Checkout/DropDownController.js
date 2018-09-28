@@ -47,11 +47,7 @@ export default () => View => {
          **************************************************************************/
 
         handleClickOutside(e) {
-            if (
-                !e.composedPath().includes(this.dropDownRef.current)
-            ) {
-                this.props.dropDownClose()
-            }
+            e.composedPath().includes(this.dropDownRef.current) || this.props.dropDownClose();
         }
 
         onSearch() {
@@ -68,9 +64,7 @@ export default () => View => {
         }
 
         onKeyDown(e) {
-            if (e.keyCode === 27) {
-                this.props.dropDownClose();
-            }
+            !(e.keyCode === 27) || this.props.dropDownClose();
         }
 
 

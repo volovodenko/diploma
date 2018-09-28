@@ -24,18 +24,16 @@ export default props => (
             />
         </div>
         {
-            props.carSubCategoryVisible
-                ?
-                <DropDown
-                    selectTitle='Выберите подкатегорию'
-                    itemsList={
-                        props.carCategoriesFilterList
-                            .filter(item => item.parent_id === props.carCategoryId)
-                    }
-                    setItem={props.setCarSubCategory}
-                    dropDownClose={props.carSubCategoriesDropDownToggle}
-                />
-                : null
+            props.carSubCategoryVisible &&
+            <DropDown
+                selectTitle='Выберите подкатегорию'
+                itemsList={
+                    props.carCategoriesFilterList
+                        .filter(item => item.parent_id === props.carCategoryId)
+                }
+                setItem={props.setCarSubCategory}
+                dropDownClose={props.carSubCategoriesDropDownToggle}
+            />
         }
     </li>
 )

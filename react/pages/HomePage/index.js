@@ -18,10 +18,12 @@ export default class HomePage extends Component {
                  ref={this.props.contentRef}
             >
                 <h1>Каталог автозапчастей</h1>
+
                 <ul className={styles.cars}>
                     <CarsList carsList={this.props.carsList}/>
                     <FakeList fakeList={this.props.fakeList}/>
                 </ul>
+
                 <PageLoader styles={styles}/>
             </div>
         );

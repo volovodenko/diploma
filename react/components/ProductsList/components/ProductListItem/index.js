@@ -17,7 +17,7 @@ export default class ProductListItem extends Component {
                 <Image item={this.props.item}/>
                 <Content {...this.props}/>
 
-                {this.props.dropDownVisible ? <SelectQuantityDropDown {...this.props} styles={styles}/> : null}
+                {this.props.dropDownVisible && <SelectQuantityDropDown {...this.props} styles={styles}/>}
 
             </li>
         )

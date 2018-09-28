@@ -62,9 +62,8 @@ export default class Phones extends Component {
                 />
 
                 {
-                    this.props.popupVisible
-                        ? <Popup headInfoFixed={this.props.headInfoFixed}/>
-                        : null
+                    this.props.popupVisible &&
+                    <Popup headInfoFixed={this.props.headInfoFixed}/>
                 }
 
             </div>

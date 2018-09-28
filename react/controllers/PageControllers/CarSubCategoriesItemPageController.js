@@ -188,10 +188,7 @@ export default () => View => {
             const currentCar = props.location.match.params.car;
             const currentModel = props.location.match.params.model;
 
-            if (!this.props.carsLoaded) {
-                this.props.getCars();
-            }
-
+            this.props.carsLoaded || this.props.getCars();
 
             //если список моделей для этой машины не загружен => загрузить список моделей для этой машины
             if (!this.props.carModelsCatalogList.some(item => item.car === currentCar)) {

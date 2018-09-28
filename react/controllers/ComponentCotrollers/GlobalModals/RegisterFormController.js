@@ -109,15 +109,9 @@ export default () => View => {
         validatePassword() {
             const password = this.passwordRegister.current.value;
 
-            password.length > 4
-                ?
-                this.setState({
-                    passwordValid: true
-                })
-                :
-                this.setState({
-                    passwordValid: false
-                });
+            this.setState({
+                passwordValid: password.length > 4
+            })
         }
 
 
@@ -125,15 +119,9 @@ export default () => View => {
             const password = this.passwordRegister.current.value;
             const cPassword = this.cPasswordRegister.current.value;
 
-            cPassword.length > 4 && cPassword === password
-                ?
-                this.setState({
-                    cPasswordValid: true
-                })
-                :
-                this.setState({
-                    cPasswordValid: false
-                });
+            this.setState({
+                cPasswordValid: cPassword.length > 4 && cPassword === password
+            })
         }
 
 

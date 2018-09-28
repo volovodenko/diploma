@@ -96,30 +96,15 @@ export default () => View => {
          **************************************************************************/
 
         handleClickOutside(e) {
-            if (!e.composedPath().includes(this.filter.current)) {
-
-                this.toggleAllDropDown()
-            }
+            e.composedPath().includes(this.filter.current) || this.toggleAllDropDown();
         }
 
 
         toggleAllDropDown(e = null) {
-
-            if (this.state.carsVisible && e !== 'cars') {
-                this.carsDropDownToggle();
-            }
-
-            if (this.state.carModelsVisible && e !== 'carModels') {
-                this.carModelsDropDownToggle();
-            }
-
-            if (this.state.carCategoryVisible && e !== 'carCategory') {
-                this.carCategoriesDropDownToggle();
-            }
-
-            if (this.state.carSubCategoryVisible && e !== 'carSubCategory') {
-                this.carSubCategoriesDropDownToggle();
-            }
+            !(this.state.carsVisible && e !== 'cars') || this.carsDropDownToggle();
+            !(this.state.carModelsVisible && e !== 'carModels') || this.carModelsDropDownToggle();
+            !(this.state.carCategoryVisible && e !== 'carCategory') || this.carCategoriesDropDownToggle();
+            !(this.state.carSubCategoryVisible && e !== 'carSubCategory') || this.carSubCategoriesDropDownToggle();
         }
 
 
@@ -317,9 +302,8 @@ export default () => View => {
 
 
         getParts(e) {
-            if (this.state.buttonClassName === '') { //если элемент не активен
-                e.preventDefault(); //никуда не переходить
-            }
+            //если элемент не активен
+            !(this.state.buttonClassName === '') || e.preventDefault(); //никуда не переходить
         }
 
 

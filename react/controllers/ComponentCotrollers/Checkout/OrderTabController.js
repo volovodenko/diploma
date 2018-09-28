@@ -97,11 +97,7 @@ export default () => View => {
 
 
         nextPage(){
-            if (!this.props.cart.length){
-                return;
-            }
-
-            if (this.getErrorPage()) {
+            if (!this.props.cart.length || this.getErrorPage()){
                 return;
             }
 

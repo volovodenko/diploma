@@ -15,12 +15,11 @@ export default class Pagination extends Component {
         return (
             <ul className={styles.pagination}>
                 {
-                    this.props.activePage > 1
-                        ? <ArrowLeft
-                            firstPage={this.props.firstPage}
-                            prevPage={this.props.prevPage}
-                        />
-                        : null
+                    (this.props.activePage > 1) &&
+                    <ArrowLeft
+                        firstPage={this.props.firstPage}
+                        prevPage={this.props.prevPage}
+                    />
                 }
 
                 <PageNumbers
@@ -31,12 +30,11 @@ export default class Pagination extends Component {
 
 
                 {
-                    this.props.activePage < this.props.countPages
-                        ? <ArrowRight
-                            nextPage={this.props.nextPage}
-                            lastPage={this.props.lastPage}
-                        />
-                        : null
+                    (this.props.activePage < this.props.countPages) &&
+                    <ArrowRight
+                        nextPage={this.props.nextPage}
+                        lastPage={this.props.lastPage}
+                    />
                 }
 
             </ul>

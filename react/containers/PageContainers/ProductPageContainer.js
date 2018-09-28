@@ -21,6 +21,7 @@ export default () => Controller => {
 
             productItemLoaded: state.product.productItemLoaded,
             productItem: state.product.productItem,
+            productItemIsLoading: state.product.productItemIsLoading,
             productItemFetchFail: state.product.productItemFetchFail,
 
             navHistoryTitle: state.nav.navHistoryTitle,
@@ -47,6 +48,7 @@ export default () => Controller => {
 
             productItemLoaded: PropTypes.bool.isRequired,
             productItem: PropTypes.object.isRequired,
+            productItemIsLoading: PropTypes.bool.isRequired,
             productItemFetchFail: PropTypes.bool.isRequired,
 
             navHistoryTitle: PropTypes.object.isRequired,

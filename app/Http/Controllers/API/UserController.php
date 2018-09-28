@@ -32,7 +32,7 @@ class UserController extends Controller
             $success['paymentId'] = $user->payment_type_id;
             $success['deliveryMethod'] = DeliveryMethod::find($user->delivery_method_id)->title;
             $success['deliveryMethodId'] = $user->delivery_method_id;
-            $success['transporter'] = Transporter::find($user->transporter_id)->title;
+            $success['transporter'] = $user->transporter_id ? Transporter::find($user->transporter_id)->title : '';
             $success['transporterId'] = $user->transporter_id;
             $success['deliveryAddress'] = $user->delivery_city;
             $success['deliveryAddressRef'] = $user->delivery_city_ref;

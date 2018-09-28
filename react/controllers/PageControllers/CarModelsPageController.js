@@ -16,9 +16,7 @@ export default () => View => {
 
             this.props.onSaveHistorySlug({car: this.car});
 
-            if (!this.props.carsLoaded) {
-                this.props.getCars();
-            }
+            this.props.carsLoaded || this.props.getCars();
 
             //если список моделей для этой машины не загружен => загрузить список моделей для этой машины
             if (!this.props.carModelsCatalogList.some(item => item.car === this.car)) {
@@ -52,9 +50,7 @@ export default () => View => {
 
 
         componentWillUnmount() {
-            if (this.props.carModelsCatalogFetchFail) {
-                this.props.onClearFetchErrors();
-            }
+            !this.props.carModelsCatalogFetchFail || this.props.onClearFetchErrors();
         }
 
 

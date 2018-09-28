@@ -4,8 +4,10 @@ import React from 'react';
 import styles from  './styles.scss';
 
 
-export default () => {
+const NotFoundPage = () => {
     window.scrollTo(0, 0); //обнулить прокрутку
 
-    return <p className={styles.notFound}>Ошибка 404. Страница не найдена</p>;
+    return <p className={styles.notFound}>Упс...что то пошло не так. Страница не найдена</p>;
 };
+
+export default NotFoundPage;

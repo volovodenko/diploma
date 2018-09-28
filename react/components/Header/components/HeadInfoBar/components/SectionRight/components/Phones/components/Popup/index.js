@@ -66,10 +66,10 @@ export default ({headInfoFixed}) => (
                 <span>Украина, Киев</span>
                 <span>ул. М.Коцюбинского, 14</span>
                 <span>
-                            <a href='https://www.google.com/maps/@50.4455254,30.5022157,18.67z' target='_blank'>
-                                показать на карте
-                            </a>
-                        </span>
+                    <a href='https://www.google.com/maps/@50.4455254,30.5022157,18.67z' target='_blank'>
+                        показать на карте
+                    </a>
+                </span>
             </div>
         </div>
 

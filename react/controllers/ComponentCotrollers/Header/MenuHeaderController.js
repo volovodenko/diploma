@@ -18,11 +18,10 @@ export default () => View => {
         }
 
         render() {
-            return this.props.menuLoaded
-                ? <View
+            return this.props.menuLoaded &&
+                <View
                     menuList={this.props.menuList}
                 />
-                : null
         }
 
         /***************************************************************************

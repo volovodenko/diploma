@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import {onSaveHistoryTitle} from '../../../store/reducers/nav/actions';
 
+
 export default () => Controller => {
 
     const mapStateToProps = state => {

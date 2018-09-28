@@ -6,15 +6,13 @@ import ProductListItem from './components/ProductListItem';
 import ProductListController from '../../controllers/ComponentCotrollers/Main/ProductListController';
 
 
-const ProductList  =  props => (
+const ProductList = props => (
     <ul className={styles.productList}>
         {
-            props.productList.length > props.itemsCountPerPage
-                ?
-                <div>
-                    Показано позиций {props.from}-{props.to} из {props.productList.length}
-                </div>
-                : null
+            (props.productList.length > props.itemsCountPerPage) &&
+            <div>
+                Показано позиций {props.from}-{props.to} из {props.productList.length}
+            </div>
         }
 
         {props.productListSlice.map(item =>
@@ -26,4 +24,4 @@ const ProductList  =  props => (
     </ul>
 );
 
-export default ProductListController(ProductList);
+export default ProductListController()(ProductList);

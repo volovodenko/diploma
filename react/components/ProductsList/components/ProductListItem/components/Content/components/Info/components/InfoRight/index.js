@@ -9,63 +9,57 @@ export default ({item}) => (
     <ul className={styles.infoRight}>
         <li className={styles.amount}>
             {
-                item.amount === 0
-                    ?
-                    <Fragment>
-                        <i
-                            className={
-                                classNames(
-                                    fontAwesome.fa,
-                                    fontAwesome['fa-times-circle-o'],
-                                    fontAwesome['fa-lg'],
-                                    styles.timesCircle
-                                )
-                            }
-                            aria-hidden='true'
-                        />
-                        <span>Нет в наличии</span>
-                    </Fragment>
-                    : null
+                (item.amount === 0) &&
+                <Fragment>
+                    <i
+                        className={
+                            classNames(
+                                fontAwesome.fa,
+                                fontAwesome['fa-times-circle-o'],
+                                fontAwesome['fa-lg'],
+                                styles.timesCircle
+                            )
+                        }
+                        aria-hidden='true'
+                    />
+                    <span>Нет в наличии</span>
+                </Fragment>
             }
-            {
-                item.amount <= 10 && item.amount > 0
-                    ?
-                    <Fragment>
-                        <i
-                            className={
-                                classNames(
-                                    fontAwesome.fa,
-                                    fontAwesome['fa-arrow-circle-o-down'],
-                                    fontAwesome['fa-lg'],
-                                    styles.arrowCircleDown
-                                )
-                            }
-                            aria-hidden='true'
-                        />
-                        <span>Заканчивается</span>
-                    </Fragment>
-                    : null
 
+            {
+                (item.amount <= 10 && item.amount > 0) &&
+                <Fragment>
+                    <i
+                        className={
+                            classNames(
+                                fontAwesome.fa,
+                                fontAwesome['fa-arrow-circle-o-down'],
+                                fontAwesome['fa-lg'],
+                                styles.arrowCircleDown
+                            )
+                        }
+                        aria-hidden='true'
+                    />
+                    <span>Заканчивается</span>
+                </Fragment>
             }
-            {
-                item.amount > 10
-                    ?
-                    <Fragment>
-                        <i
-                            className={
-                                classNames(
-                                    fontAwesome.fa,
-                                    fontAwesome['fa-check-circle-o'],
-                                    fontAwesome['fa-lg'],
-                                    styles.checkCircle
-                                )
-                            }
-                            aria-hidden='true'
-                        />
-                        <span>В наличии</span>
-                    </Fragment>
-                    : null
 
+            {
+                (item.amount > 10) &&
+                <Fragment>
+                    <i
+                        className={
+                            classNames(
+                                fontAwesome.fa,
+                                fontAwesome['fa-check-circle-o'],
+                                fontAwesome['fa-lg'],
+                                styles.checkCircle
+                            )
+                        }
+                        aria-hidden='true'
+                    />
+                    <span>В наличии</span>
+                </Fragment>
             }
         </li>
 

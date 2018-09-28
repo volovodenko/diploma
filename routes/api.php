@@ -44,9 +44,14 @@ Route::get('getDeliveryMethods', 'DeliveryMethodController@getDeliveryMethods');
 Route::post('saveOrder', 'OrderController@saveOrder')->middleware('user:api');
 
 
+Route::post('saveComment', 'CommentController@saveComment')->middleware('auth:api');
+Route::get('getComments/{productId}', 'CommentController@getComments')->middleware('user:api');
 
 
+Route::post('saveVote', 'VoteController@saveVote')->middleware('auth:api');
 
+
+Route::get('getPageContent/{page}', 'PageContentController@getPageContent');
 
 
 Route::any('/{catchAll}', function () {

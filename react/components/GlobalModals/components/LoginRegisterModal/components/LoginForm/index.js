@@ -30,19 +30,17 @@ export default class LoginForm extends Component {
                 </button>
                 <span onClick={this.props.openRegisterForm}>Регистрация</span>
                 {
-                    this.props.errorVisible
-                        ?
-                        <div
-                            className={
-                                classNames(
-                                    styles.error,
-                                    this.props.errorHide ? styles.hide : null
-                                )
-                            }
-                        >
-                            {this.props.error}
-                        </div>
-                        : null
+                    this.props.errorVisible &&
+                    <div
+                        className={
+                            classNames(
+                                styles.error,
+                                this.props.errorHide ? styles.hide : null
+                            )
+                        }
+                    >
+                        {this.props.error}
+                    </div>
                 }
 
             </Fragment>

@@ -42,33 +42,28 @@ export default class NavBar extends Component {
 
 
                         {
-                            this.props.modelTitle
-                                ? <ModelTitle {...this.props}/>
-                                : null
+                            this.props.modelTitle &&
+                            <ModelTitle {...this.props}/>
                         }
 
                         {
-                            this.props.categoryTitle
-                                ? <CategoryTitle {...this.props}/>
-                                : null
+                            this.props.categoryTitle &&
+                            <CategoryTitle {...this.props}/>
                         }
 
                         {
-                            this.props.subCategoryTitle
-                                ? <SubCategoryTitle {...this.props}/>
-                                : null
+                            this.props.subCategoryTitle &&
+                            <SubCategoryTitle {...this.props}/>
                         }
 
 
                     </ul>
                 </nav>
                 {
-                    !this.props.productPage
-                        ?
-                        <h1 className={styles.header}>
-                            <HeaderTitle {...this.props}/>
-                        </h1>
-                        : null
+                    !this.props.productPage &&
+                    <h1 className={styles.header}>
+                        <HeaderTitle {...this.props}/>
+                    </h1>
                 }
 
             </Fragment>

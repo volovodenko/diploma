@@ -57,9 +57,7 @@ export default () => View => {
 
 
         keyDown(e) {
-            if (e.keyCode === 27) {
-                this.props.dropDownClose();
-            }
+            !(e.keyCode === 27) || this.props.dropDownClose();
         }
 
 

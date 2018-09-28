@@ -16,9 +16,8 @@ export default class ConclusionTab extends Component {
                 <div className={styles.paymentTotal}>Итого к оплате:<span>{this.props.sumTotal}</span>грн.</div>
                 <div className={styles.orderNumber}>Номер заказа:<span>#{this.props.orderNumber}</span></div>
                 {
-                    !this.props.selfDelivery
-                        ? <div>Доставка оплачивается отдельно, при получении товара.</div>
-                        : null
+                    !this.props.selfDelivery &&
+                    <div>Доставка оплачивается отдельно, при получении товара.</div>
                 }
 
                 {
