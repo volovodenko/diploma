@@ -15,7 +15,7 @@ export default class LoginForm extends Component {
         return (
             <Fragment>
                 <h3>Вход</h3>
-                <label>E-mail:<input type='email' ref={this.props.emailLogin}/></label>
+                <label>E-mail или логин:<input type='text' ref={this.props.userName}/></label>
                 <label>Пароль:<input type='password' ref={this.props.passwordLogin}/></label>
                 <button
                     onClick={this.props.login}

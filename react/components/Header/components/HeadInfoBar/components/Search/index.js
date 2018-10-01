@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import SearchController from '../../../../../../controllers/ComponentCotrollers/Header/SearchController';
+import SpinLoader from '../../../../../Loaders/SpinLoader';
 
 
 @SearchController()
@@ -21,12 +23,21 @@ export default class Search extends Component {
                     )
                 }
             >
-                <div className={styles.input}>
+                <div
+                    className={styles.input}
+                    ref={this.props.formSearch}
+                >
                     <input type='text'
                            placeholder='Поиск запчастей'
                            onChange={this.props.onChangeInput}
                            ref={this.props.inputSearch}
                     />
+
+                    {
+                        this.props.searchIsLoading &&
+                        <SpinLoader styles={styles}/>
+                    }
+
                     {
                         this.props.clearIconVisible &&
                         <i
@@ -38,9 +49,10 @@ export default class Search extends Component {
                                     styles.timesIcon
                                 )
                             }
-                            onClick={this.props.clearInput}
+                            onClick={this.props.onClearInput}
                         />
                     }
+
                     <i
                         className={
                             classNames(
@@ -50,6 +62,7 @@ export default class Search extends Component {
                                 styles.searchIcon
                             )
                         }
+                        onClick={this.props.onChangeInput}
                     />
                 </div>
 
@@ -57,11 +70,38 @@ export default class Search extends Component {
                     !this.props.headInfoFixed &&
                     <div className={styles.popular}>
                         <span>Популярные запросы:</span>
-                        <span className={styles.value} onClick={this.props.setInputValue}>ГБО</span>
-                        <span className={styles.value} onClick={this.props.setInputValue}>масло</span>
-                        <span className={styles.value} onClick={this.props.setInputValue}>свечи</span>
-                        <span className={styles.value} onClick={this.props.setInputValue}>тосол</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>Авео</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>вал</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>ролик</span>
+                        <span className={styles.value} onClick={this.props.setInputValue}>фильтр</span>
                     </div>
+                }
+
+                {
+                    (this.props.dropDownVisible && this.props.searchLoaded) &&
+                    <ul className={
+                        classNames(
+                            styles.dropDown,
+                            this.props.headInfoFixed ? styles.dropDownFixed : null
+                        )
+                    }
+                    >
+                        {
+                            !this.props.searchList.length
+                                ? <li>Нет совпадений</li>
+                                :
+                                this.props.searchList.map(item => (
+                                    <li key={item.id}>
+                                        <Link
+                                            onClick={this.props.linkClick}
+                                            to={`/parts/${item.slug}`}
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    </li>
+                                ))
+                        }
+                    </ul>
                 }
 
             </div>

@@ -55,6 +55,8 @@ export default () => View => {
                 cart={this.props.cart}
                 sumTotal={this.props.sumTotal}
 
+                userLoggedIn={this.props.userLoggedIn}
+
                 //From CheckoutPageController
                 activePage={this.props.activePage}
                 nextPage={::this.nextPage}

@@ -17,6 +17,8 @@ export default () => Controller => {
 
             aboutContentIsLoading: state.pageContent.aboutContentIsLoading,
             paymentContentIsLoading: state.pageContent.paymentContentIsLoading,
+
+            ordersListIsLoading: state.user.ordersListIsLoading,
         };
     };
 
@@ -42,6 +44,9 @@ export default () => Controller => {
 
             aboutContentIsLoading: PropTypes.bool.isRequired,
             paymentContentIsLoading: PropTypes.bool.isRequired,
+
+            ordersListIsLoading: PropTypes.bool.isRequired,
+
         };
     }
 

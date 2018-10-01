@@ -18,6 +18,7 @@ Route::post('register', 'API\UserController@register');
 Route::post('validateName', 'API\UserController@validateName');
 Route::post('validateEmail', 'API\UserController@validateEmail');
 Route::post('details', 'API\UserController@details')->middleware('auth:api');
+Route::post('saveUserData', 'API\UserController@saveUserData')->middleware('auth:api');
 
 
 Route::get('getMenu', 'MenuController@getMenu');
@@ -30,6 +31,7 @@ Route::post('getCarCategories', 'CarController@getCarCategoriesByCarModelSlug');
 
 Route::get('getProductList/{carModelSlug}', 'ProductController@getProductList');
 Route::get('getProductItem/{partSlug}', 'ProductController@getProductItem');
+Route::post('addToFavorites', 'ProductController@addToFavorites')->middleware('auth:api');
 
 
 Route::get('getTransporters', 'TransporterController@getTransporters');
@@ -42,6 +44,7 @@ Route::get('getDeliveryMethods', 'DeliveryMethodController@getDeliveryMethods');
 
 
 Route::post('saveOrder', 'OrderController@saveOrder')->middleware('user:api');
+Route::get('getOrdersList', 'OrderController@getOrdersList')->middleware('auth:api');
 
 
 Route::post('saveComment', 'CommentController@saveComment')->middleware('auth:api');
@@ -52,6 +55,9 @@ Route::post('saveVote', 'VoteController@saveVote')->middleware('auth:api');
 
 
 Route::get('getPageContent/{page}', 'PageContentController@getPageContent');
+
+
+Route::post('getSearch', 'SearchController@getSearch');
 
 
 Route::any('/{catchAll}', function () {

@@ -18,7 +18,7 @@ export default class FinishTab extends Component {
                     <ul className={styles.infoLeft}>
                         <li>Телефон:</li>
                         {
-                            this.props.email.length &&
+                            !this.props.email.length ||
                             <li>E-mail:</li>
                         }
 
@@ -35,7 +35,7 @@ export default class FinishTab extends Component {
                         <li>Получатель:</li>
                         <li>Способ оплаты:</li>
                         {
-                            this.props.comment.length &&
+                            !this.props.comment.length ||
                             <li>Комментарий:</li>
                         }
 
@@ -44,7 +44,7 @@ export default class FinishTab extends Component {
                         <li>{this.props.phone}&nbsp;</li>
 
                         {
-                            this.props.email.length &&
+                            !this.props.email.length ||
                             <li>{this.props.email}&nbsp;</li>
                         }
 
@@ -61,7 +61,7 @@ export default class FinishTab extends Component {
                         <li>{this.props.fio}</li>
                         <li>{this.props.payment}</li>
                         {
-                            this.props.comment.length &&
+                            !this.props.comment.length ||
                             <li>{this.props.comment}</li>
                         }
                     </ul>

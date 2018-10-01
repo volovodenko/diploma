@@ -20,7 +20,7 @@ export default () => View => {
                 errorHide: false
             };
 
-            this.emailLogin = React.createRef();
+            this.userName = React.createRef();
             this.passwordLogin = React.createRef();
         }
 
@@ -68,7 +68,7 @@ export default () => View => {
 
         render() {
             return <View
-                emailLogin={this.emailLogin}
+                userName={this.userName}
                 passwordLogin={this.passwordLogin}
                 openRegisterForm={this.props.openRegisterForm}
                 errorVisible={this.state.errorVisible}
@@ -84,7 +84,7 @@ export default () => View => {
          **************************************************************************/
 
         login() {
-            const email = this.emailLogin.current.value.trim();
+            const userName = this.userName.current.value.toLowerCase().trim();
             const password = this.passwordLogin.current.value;
 
 
@@ -92,8 +92,8 @@ export default () => View => {
             clearTimeout(this.timerId2);
             this.setErrorHide = false;
 
-            if (!email.length) {
-                const message = 'Поле "E-mail" должно быть заполнено';
+            if (!userName.length) {
+                const message = 'Поле "E-mail или логин" должно быть заполнено';
 
                 this.setState(() => ({
                     errorVisible: true,
@@ -118,7 +118,7 @@ export default () => View => {
             }
 
             const data = {
-                email,
+                userName,
                 password
             };
 

@@ -28,6 +28,23 @@ const initialState = {
 
     deliveryWarehouse: localStorage.getItem('deliveryWarehouse') ? localStorage.getItem('deliveryWarehouse') : '',
     deliveryWarehouseRef: localStorage.getItem('deliveryWarehouseRef') ? localStorage.getItem('deliveryWarehouseRef') : '',
+
+
+    userDataIsSaving: false,
+    userDataSaved: false,
+    userDataSavingFail: false,
+
+
+    ordersList: [],
+    ordersListIsLoading: false,
+    ordersListLoaded: false,
+    ordersListFetchFail: false,
+
+
+    favoritesIsAdding: false,
+    favoritesExist: false,
+    favoritesAdded: false,
+    favoritesAddFail: false,
 };
 
 export default initialState;

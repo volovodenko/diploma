@@ -17,6 +17,7 @@ import PaymentPage from '../../../../pages/PaymentPage';
 import ContactsPage from '../../../../pages/ContactsPage';
 import WarrantyPage from '../../../../pages/WarrantyPage';
 import ArticlesPage from '../../../../pages/ArticlesPage';
+import ProfilePage from '../../../../pages/ProfilePage';
 import NotFoundPage from '../../../../pages/NotFoundPage';
 
 
@@ -70,6 +71,10 @@ export default class Content extends Component {
                     />
                     <Route exact path='/articles'
                            render={location => <ArticlesPage location={location}/>}
+                    />
+
+                    <Route exact path='/profile/:tab?'
+                           render={location => <ProfilePage location={location}/>}
                     />
 
                     <Route component={NotFoundPage}/>

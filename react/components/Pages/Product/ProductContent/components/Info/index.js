@@ -2,10 +2,11 @@ import React from 'react';
 
 
 import styles from './styles.scss';
-import SelectQuantityDropDown from '../../../../../SelectQuantityDropDown/index';
-import Characteristics from './components/Characteristics/index';
-import BuyButton from './components/BuyButton/index';
-import Price from './components/Price/index';
+import SelectQuantityDropDown from '../../../../../SelectQuantityDropDown';
+import Characteristics from './components/Characteristics';
+import BuyButton from './components/BuyButton';
+import Price from './components/Price';
+import FavoriteButton from './components/FavoriteButton';
 
 
 export default ({product, ...props}) => (
@@ -21,6 +22,7 @@ export default ({product, ...props}) => (
 
         <Characteristics product={product}/>
 
+        <FavoriteButton addToFavorites={props.addToFavorites} product={product}/>
     </div>
 
 );

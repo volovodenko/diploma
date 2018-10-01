@@ -84,6 +84,45 @@
 
 }
 
+.dropDown {
+  width: 100%;
+  min-height: 50px;
+  max-height: 170px;
+  top: -17px;
+  background-color: #10055e;
+  list-style: none;
+  padding: 10px;
+  border: 2px solid cornflowerblue;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px black,
+  -2px 0 5px black;
+  overflow-y: auto;
+  color: #999;
+  z-index: 1000;
+  position: relative;
+
+  &.dropDownFixed{
+    top: 0;
+  }
+
+  & > li {
+    padding: 3px 0;
+
+    a {
+      color: #999;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.spin {
+  right: 60px;
+}
+
 
 @media (max-device-width: 1030px) {
   .search {

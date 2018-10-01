@@ -11,4 +11,9 @@ class Order extends Model
         'id' => 'integer',
         'user_id' => 'integer',
     ];
+
+    public function orderProduct()
+    {
+        return $this->hasMany('App\OrderProduct');
+    }
 }

@@ -183,7 +183,154 @@ export default function (stateStore = initialState, action) {
             };
 
         /****************************************************************************/
+        case t.SAVE_USER_PHONE:
+            return {
+                ...stateStore,
+                phone: action.payload.phone,
+            };
 
+        /****************************************************************************/
+        case t.SAVE_USER_DATA_REQUEST:
+            return {
+                ...stateStore,
+                userDataIsSaving: true
+            };
+        case t.SAVE_USER_DATA_SUCCESS: {
+
+            const phone = action.payload.phone ? action.payload.phone : '';
+            const fio = action.payload.fio ? action.payload.fio : '';
+            const payment = action.payload.payment ? action.payload.payment : '';
+            const paymentId = action.payload.paymentId ? action.payload.paymentId : 0;
+            const deliveryMethodId = action.payload.deliveryMethodId ? action.payload.deliveryMethodId : 0;
+            const deliveryMethod = action.payload.deliveryMethod ? action.payload.deliveryMethod : '';
+            const transporterId = action.payload.transporterId ? action.payload.transporterId : 0;
+            const transporter = action.payload.transporter ? action.payload.transporter : '';
+            const deliveryAddress = action.payload.deliveryCity ? action.payload.deliveryCity : '';
+            const deliveryAddressRef = action.payload.deliveryCityRef ? action.payload.deliveryCityRef : '';
+            const deliveryWarehouse = action.payload.deliveryWarehouse ? action.payload.deliveryWarehouse : '';
+            const deliveryWarehouseRef = action.payload.deliveryWarehouseRef ? action.payload.deliveryWarehouseRef : '';
+
+
+            //запись в localStorage
+            localStorage.setItem('phone', phone);
+            localStorage.setItem('fio', fio);
+            localStorage.setItem('payment', payment);
+            localStorage.setItem('paymentId', paymentId);
+            localStorage.setItem('deliveryMethodId', deliveryMethodId);
+            localStorage.setItem('deliveryMethod', deliveryMethod);
+            localStorage.setItem('transporterId', transporterId);
+            localStorage.setItem('transporter', transporter);
+            localStorage.setItem('deliveryAddress', deliveryAddress);
+            localStorage.setItem('deliveryAddressRef', deliveryAddressRef);
+            localStorage.setItem('deliveryWarehouse', deliveryWarehouse);
+            localStorage.setItem('deliveryWarehouseRef', deliveryWarehouseRef);
+
+            return {
+                ...stateStore,
+                userDataIsSaving: false,
+                userDataSaved: true
+            };
+        }
+
+        case t.SAVE_USER_DATA_FAIL:
+            return {
+                ...stateStore,
+                userDataIsSaving: false,
+                userDataSavingFail: true
+            };
+
+        /****************************************************************************/
+        case t.REFRESH_USER_DETAIL: {
+
+            const phone = localStorage.getItem('phone') ? localStorage.getItem('phone') : '';
+            const fio = localStorage.getItem('fio') ? localStorage.getItem('fio') : '';
+
+            const payment = localStorage.getItem('payment') ? localStorage.getItem('payment') : '';
+            const paymentId = localStorage.getItem('paymentId') ? +localStorage.getItem('paymentId') : 0;
+
+            const email = localStorage.getItem('email') ? localStorage.getItem('email') : '';
+
+            const deliveryMethodId = localStorage.getItem('deliveryMethodId')
+                ? +localStorage.getItem('deliveryMethodId') : 0;
+            const deliveryMethod = localStorage.getItem('deliveryMethod')
+                ? localStorage.getItem('deliveryMethod') : '';
+
+            const transporterId = localStorage.getItem('transporterId')
+                ? +localStorage.getItem('transporterId') : 0;
+            const transporter = localStorage.getItem('transporter')
+                ? localStorage.getItem('transporter') : '';
+
+            const deliveryAddress = localStorage.getItem('deliveryAddress')
+                ? localStorage.getItem('deliveryAddress') : '';
+            const deliveryAddressRef = localStorage.getItem('deliveryAddressRef')
+                ? localStorage.getItem('deliveryAddressRef') : '';
+
+            const deliveryWarehouse = localStorage.getItem('deliveryWarehouse')
+                ? localStorage.getItem('deliveryWarehouse') : '';
+            const deliveryWarehouseRef = localStorage.getItem('deliveryWarehouseRef')
+                ? localStorage.getItem('deliveryWarehouseRef') : '';
+
+            return {
+                ...stateStore,
+                phone,
+                fio,
+                payment,
+                paymentId,
+                email,
+                deliveryMethodId,
+                deliveryMethod,
+                transporterId,
+                transporter,
+                deliveryAddress,
+                deliveryAddressRef,
+                deliveryWarehouse,
+                deliveryWarehouseRef
+            };
+        }
+
+
+        /****************************************************************************/
+        case t.ORDERS_LIST_FETCH_REQUEST:
+            return {
+                ...stateStore,
+                ordersListIsLoading: true
+            };
+        case t.ORDERS_LIST_FETCH_SUCCESS:
+            return {
+                ...stateStore,
+                ordersList: action.payload,
+                ordersListIsLoading: false,
+                ordersListLoaded: true
+            };
+        case t.ORDERS_LIST_FETCH_FAIL:
+            return {
+                ...stateStore,
+                ordersListIsLoading: false,
+                ordersListFetchFail: true,
+            };
+
+        /****************************************************************************/
+
+        case t.ADD_TO_FAVORITES_REQUEST:
+            return {
+                ...stateStore,
+                favoritesIsAdding: true
+            };
+        case t.ADD_TO_FAVORITES_SUCCESS:
+            return {
+                ...stateStore,
+                favoritesIsAdding: false,
+                favoritesExist: action.payload.message !== 'Success',
+                favoritesAdded: action.payload.message === 'Success'
+            };
+        case t.ADD_TO_FAVORITES_FAIL:
+            return {
+                ...stateStore,
+                favoritesIsAdding: false,
+                favoritesAddFail: true,
+            };
+
+        /****************************************************************************/
         default:
             return stateStore;
     }

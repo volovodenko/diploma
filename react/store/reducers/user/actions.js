@@ -200,3 +200,125 @@ const saveDeliveryTab = data => ({
 export const onSaveDeliveryTab = data => dispatch => {
     dispatch(saveDeliveryTab(data));
 };
+
+
+/*************************************************************************
+ * SAVE USER PHONE
+ *************************************************************************/
+const saveUserPhone = data => ({
+    type: t.SAVE_USER_PHONE,
+    payload: data
+});
+
+export const onSaveUserPhone = data => dispatch => {
+    dispatch(saveUserPhone(data));
+};
+
+
+/*************************************************************************
+ * USER DATA SAVE REQUEST
+ *************************************************************************/
+const userDataSaveRequest = () => ({
+    type: t.SAVE_USER_DATA_REQUEST
+});
+
+const userDataSaveSuccess = (data) => ({
+    type: t.SAVE_USER_DATA_SUCCESS,
+    payload: data
+});
+
+const userDataSaveFail = () => ({
+    type: t.SAVE_USER_DATA_FAIL
+});
+
+
+export const saveUserData = (data) => dispatch => {
+    dispatch(userDataSaveRequest());
+
+    httpRequest('saveUserData', 'POST', data)
+        .then(res => {
+            if (checkResponse(res)) {
+                res.data.message === 'Success'
+                    ? dispatch(userDataSaveSuccess(data))
+                    : dispatch(userDataSaveFail(res.data.message));
+            }
+        })
+        .catch(err => {
+            dispatch(userDataSaveFail(err.response.data.error));
+        });
+};
+
+/*************************************************************************
+ * REFRESH USER DETAIL
+ *************************************************************************/
+const refreshUserDetail = () => ({
+    type: t.REFRESH_USER_DETAIL,
+});
+
+export const onRefreshUserDetail = () => dispatch => {
+    dispatch(refreshUserDetail());
+};
+
+
+/*************************************************************************
+ * GET ORDERS LIST
+ *************************************************************************/
+const ordersListFetchRequest = () => ({
+    type: t.ORDERS_LIST_FETCH_REQUEST
+});
+
+
+const ordersListFetchSuccess = (data) => ({
+    type: t.ORDERS_LIST_FETCH_SUCCESS,
+    payload: data
+});
+
+const ordersListFetchFail = () => ({
+    type: t.ORDERS_LIST_FETCH_FAIL,
+});
+
+export const getOrdersList = () => dispatch => {
+    dispatch(ordersListFetchRequest());
+
+    httpRequest('getOrdersList')
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(ordersListFetchSuccess(res.data));
+            }
+        })
+        .catch(err => {
+            dispatch(ordersListFetchFail(err.response.data.error));
+        });
+
+};
+
+
+/*************************************************************************
+ * ADD TO FAVORITES
+ *************************************************************************/
+const addToFavoritesRequest = () => ({
+    type: t.ADD_TO_FAVORITES_REQUEST,
+});
+
+const addToFavoritesSuccess = (data) => ({
+    type: t.ADD_TO_FAVORITES_SUCCESS,
+    payload: data
+});
+
+const addToFavoritesFail = () => ({
+    type: t.ADD_TO_FAVORITES_FAIL,
+});
+
+export const addToFavorites = (data) => dispatch => {
+    dispatch(addToFavoritesRequest());
+
+    httpRequest('addToFavorites', 'POST', data)
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(addToFavoritesSuccess(res.data))
+            }
+        })
+        .catch(err => {
+            dispatch(addToFavoritesFail(err.response.data.error));
+        });
+};

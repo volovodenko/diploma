@@ -21,7 +21,11 @@ const DeliveryMethod = props => (
                 onClick={props.deliveryMethodDropDownToggle}
             >
                         <span>
-                            {props.currentDeliveryMethod}
+                            {
+                                props.currentDeliveryMethod.length > 25
+                                    ? props.currentDeliveryMethod.slice(0, 25) + '...'
+                                    : props.currentDeliveryMethod
+                            }
                         </span>
                 <i
                     className={

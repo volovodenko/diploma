@@ -8,7 +8,7 @@ import TransporterForm from './components/TransporterForm/index';
 import DeliveryTabController from '../../../../controllers/ComponentCotrollers/Checkout/DeliveryTabController'
 
 
-@DeliveryTabController()
+@DeliveryTabController(true)
 export default class DeliveryTab extends Component {
 
     render() {

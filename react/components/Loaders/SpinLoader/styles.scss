@@ -1,7 +1,7 @@
 .loader {
   bottom: calc(50% - 10px);
   position: absolute;
-  right: 25px;
+
   width: 20px;
   height: 20px;
   border: 3px solid darkblue;
@@ -12,6 +12,10 @@
   -webkit-animation: loader 0.6s infinite linear;
   -moz-animation: loader 0.6s infinite linear;
   animation: loader 0.6s infinite linear;
+}
+
+.pos {
+  right: 25px;
 }
 
 @-webkit-keyframes loader {

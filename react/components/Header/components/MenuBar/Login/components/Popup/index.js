@@ -19,8 +19,7 @@ export default props => (
                 className={
                     classNames(
                         fontAwesome.fa,
-                        fontAwesome['fa-history'],
-                        fontAwesome['fa-lg'],
+                        fontAwesome['fa-history']
                     )
                 }
                 aria-hidden='true'

@@ -85,7 +85,9 @@ export default () => View => {
                 deliveryWarehouseRef: this.selfDelivery ? '' : this.props.deliveryWarehouseRef,
             };
 
+
             this.props.sendFinishTabData(data);
+            this.props.onRefreshUserDetail();
         }
 
         /***************************************************************************

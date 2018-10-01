@@ -18,7 +18,8 @@ export default () => View => {
                     this.props.productItemIsLoading ||
                     this.props.orderDataIsSending ||
                     this.props.aboutContentIsLoading ||
-                    this.props.paymentContentIsLoading
+                    this.props.paymentContentIsLoading ||
+                    this.props.ordersListIsLoading
                 ) &&
                 <View styles={this.props.styles}/>
         }

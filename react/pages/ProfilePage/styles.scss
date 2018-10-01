@@ -1,0 +1,23 @@
+.profile {
+
+
+  h1 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    letter-spacing: 2px;
+    padding: 5px 0;
+  }
+}
+
+.content {
+  border: 2px solid #10055e;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 5px 10px 20px;
+  position: relative;
+}
+
+
+.loader {
+  top: 38px;
+}

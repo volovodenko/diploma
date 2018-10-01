@@ -5,11 +5,13 @@ import classNames from 'classnames';
 import styles from './styles.scss';
 
 
-export default (props) => <div
+const SpinLoader = (props) => <div
     className={
         classNames(
             styles.loader,
-            props.styles ? props.styles.spin : null
+            props.styles ? props.styles.spin : styles.pos
         )
     }
 />;
+
+export default SpinLoader;

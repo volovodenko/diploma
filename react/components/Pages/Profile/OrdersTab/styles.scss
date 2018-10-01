@@ -1,0 +1,41 @@
+.orders {
+  width: 100%;
+  margin-top: 15px;
+  list-style: none;
+
+
+  li {
+    padding: 5px 0 10px;
+    border-bottom: 1px solid black;
+  }
+
+  .null {
+    padding : 0;
+    text-align: center;
+    border-bottom: none;
+  }
+
+
+
+  .top {
+    margin-bottom: 10px;
+
+    a {
+      color: #0c0537;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .bottom {
+
+    span {
+      color: #0c0537;
+    }
+
+  }
+
+}

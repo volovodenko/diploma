@@ -6,6 +6,10 @@ import PropTypes from 'prop-types';
 import {
     sendFinishTabData
 } from '../../../store/reducers/checkout/actions';
+import {
+    onRefreshUserDetail
+} from '../../../store/reducers/user/actions';
+
 
 
 export default () => Controller => {
@@ -41,6 +45,7 @@ export default () => Controller => {
         mapStateToProps,
         {
             sendFinishTabData,
+            onRefreshUserDetail
         }
     )
     class FinishTabContainer extends Component {
@@ -75,6 +80,7 @@ export default () => Controller => {
             orderDataSent: PropTypes.bool.isRequired,
 
             sendFinishTabData: PropTypes.func.isRequired,
+            onRefreshUserDetail: PropTypes.func.isRequired,
         };
     }
 

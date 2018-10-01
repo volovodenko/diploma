@@ -17,6 +17,7 @@ export default () => Controller => {
         return {
             phone: state.user.phone,
             fio: state.user.fio,
+            userLoggedIn: state.user.userLoggedIn,
             comment: state.checkout.comment,
 
             cart: state.cart.cart,
@@ -41,6 +42,7 @@ export default () => Controller => {
         static propTypes = {
             phone: PropTypes.string.isRequired,
             fio: PropTypes.string.isRequired,
+            userLoggedIn: PropTypes.bool.isRequired,
             comment: PropTypes.string.isRequired,
 
             cart: PropTypes.array.isRequired,

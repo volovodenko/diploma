@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\AnonymousUser;
 use App\Order;
 use App\OrderProduct;
-use App\User;
 use Validator;
 
 
@@ -16,14 +14,9 @@ class OrderController extends Controller
     private $newOrder;
 
 
-    public function __construct()
-    {
-        $this->newOrder = new Order();
-    }
-
-
     public function saveOrder(Request $request)
     {
+        $this->newOrder = new Order();
 
         $validator = Validator::make($request->all(), [
             'order' => 'required|array',
@@ -61,13 +54,9 @@ class OrderController extends Controller
 
     public function saveOrderAuthUser($request)
     {
-        $user = User::find(Auth::user()->id);
-
-        //Save data for exist user
-        $this->saveUserData($user, $request);
 
         //Save new order data
-        $this->saveNewOrderData($user->id, $request->sumTotal, $request->comment);
+        $this->saveNewOrderData(Auth::user()->id, $request);
 
         //Save order products
         $this->saveNewOrderProducts($request->order);
@@ -80,13 +69,8 @@ class OrderController extends Controller
     public function saveOrderAnonymousUser($request)
     {
 
-        $newUser = new AnonymousUser();
-
-        //Save data for new user
-        $this->saveUserData($newUser, $request, true);
-
         //Save new order data
-        $this->saveNewOrderData($newUser->id, $request->sumTotal, $request->comment,true);
+        $this->saveNewOrderData(0, $request, true);
 
         //Save order products
         $this->saveNewOrderProducts($request->order);
@@ -96,37 +80,26 @@ class OrderController extends Controller
     }
 
 
-    protected function saveUserData($user, $request, $newUser = false){
-        $user->fio = $request->fio;
-        $user->phone = $request->phone;
-        $user->payment_type_id = $request->paymentId;
-        $user->delivery_method_id = $request->deliveryMethodId;
-        $user->transporter_id = $request->transporterId;
-        $user->delivery_city = $request->deliveryCity;
-        $user->delivery_city_ref = $request->deliveryCityRef;
-        $user->delivery_warehouse = $request->deliveryWarehouse;
-        $user->delivery_warehouse_ref = $request->deliveryWarehouseRef;
-
-        if ($newUser){
-            $user->email = $request->email;
-        }
-
-        $user->save();
-
-        return;
-    }
-
-
-    protected function saveNewOrderData($userId, $sumTotal, $comment, $anonymous = false)
+    protected function saveNewOrderData($userId, $request, $anonymous = false)
     {
 
         if ($anonymous) {
             $this->newOrder->anonymous = true;
         }
 
+        $this->newOrder->fio = $request->fio;
+        $this->newOrder->phone = $request->phone;
+        $this->newOrder->email = $request->email;
         $this->newOrder->user_id = $userId;
-        $this->newOrder->sum_total = $sumTotal;
-        $this->newOrder->comment = $comment;
+        $this->newOrder->sum_total = $request->sumTotal;
+        $this->newOrder->comment = $request->comment;
+        $this->newOrder->payment_type_id = $request->paymentId;
+        $this->newOrder->delivery_method_id = $request->deliveryMethodId;
+        $this->newOrder->transporter_id = $request->transporterId;
+        $this->newOrder->delivery_city = $request->deliveryCity;
+        $this->newOrder->delivery_city_ref = $request->deliveryCityRef;
+        $this->newOrder->delivery_warehouse = $request->deliveryWarehouse;
+        $this->newOrder->delivery_warehouse_ref = $request->deliveryWarehouseRef;
 
         $this->newOrder->save();
 
@@ -148,6 +121,31 @@ class OrderController extends Controller
         });
 
         return;
+    }
+
+
+    public function getOrdersList()
+    {
+
+        $orders = Order::where('user_id', Auth::user()->id)
+            ->with('orderProduct')
+            ->get();
+
+        $ordersList = array_map(function ($item){
+            $order = new \stdClass();
+
+            $order->order = $item['id'];
+            $order->date = $item['created_at'];
+            $order->numberProducts = count($item['order_product']);
+            $order->sumTotal = $item['sum_total'];
+
+            return $order;
+        }, $orders->toArray());
+
+//        sleep(5);
+
+        return response()->json($ordersList, 200);
+
     }
 
 

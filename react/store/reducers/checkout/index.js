@@ -43,6 +43,7 @@ export default function (stateStore = initialState, action) {
             return {
                 ...stateStore,
                 orderNumber: action.payload.order ? action.payload.order : 0,
+                comment: '',
                 orderDataIsSending: false,
                 orderDataSent: true,
             };

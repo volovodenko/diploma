@@ -11,6 +11,14 @@ import {
     onPutProductIntoCart
 } from '../../store/reducers/cart/actions';
 
+import {
+    addToFavorites
+} from '../../store/reducers/user/actions';
+
+import {
+    onSaveErrorMessage
+} from '../../store/reducers/errorMessage/actions';
+
 
 export default () => Controller => {
 
@@ -25,14 +33,18 @@ export default () => Controller => {
             productItemFetchFail: state.product.productItemFetchFail,
 
             navHistoryTitle: state.nav.navHistoryTitle,
-            navHistorySlug: state.nav.navHistorySlug
+            navHistorySlug: state.nav.navHistorySlug,
+
+            userLoggedIn: state.user.userLoggedIn,
         };
     };
 
     @connect(
         mapStateToProps,
         {
-            getProductItem, onClearProductItem, onPutProductIntoCart
+            getProductItem, onClearProductItem, onPutProductIntoCart,
+            addToFavorites,
+            onSaveErrorMessage
         }
     )
     class ProductPageContainer extends Component {
@@ -54,9 +66,15 @@ export default () => Controller => {
             navHistoryTitle: PropTypes.object.isRequired,
             navHistorySlug: PropTypes.object.isRequired,
 
+            userLoggedIn: PropTypes.bool.isRequired,
+
             getProductItem: PropTypes.func.isRequired,
             onClearProductItem: PropTypes.func.isRequired,
             onPutProductIntoCart: PropTypes.func.isRequired,
+
+            addToFavorites: PropTypes.func.isRequired,
+
+            onSaveErrorMessage: PropTypes.func.isRequired,
         };
     }
 

@@ -1,0 +1,6 @@
+export const SEARCH_FETCH_REQUEST = '@Search/SEARCH_FETCH_REQUEST';
+export const SEARCH_FETCH_SUCCESS = '@Search/SEARCH_FETCH_SUCCESS';
+export const SEARCH_FETCH_FAIL = '@Search/SEARCH_FETCH_FAIL';
+
+
+export const CLEAR_SEARCH_LIST = '@Search/CLEAR_SEARCH_LIST';

@@ -13,6 +13,7 @@ import checkout from './reducers/checkout';
 import errorMessage from './reducers/errorMessage';
 import comment from './reducers/comment';
 import pageContent from './reducers/pageContent';
+import search from './reducers/search';
 
 
 export default combineReducers(
@@ -28,7 +29,8 @@ export default combineReducers(
         checkout,
         errorMessage,
         comment,
-        pageContent
+        pageContent,
+        search
     }
 )
 

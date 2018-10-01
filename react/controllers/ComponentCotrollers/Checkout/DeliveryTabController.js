@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import DeliveryTabContainer from '../../../containers/ComponentContainers/Checkout/DeliveryTabContainer';
 
 
-export default () => View => {
+export default (editMode = false) => View => {
 
     @DeliveryTabContainer()
     class DeliveryTabController extends Component {
@@ -37,7 +37,9 @@ export default () => View => {
                 deliveryWarehouseDropDownVisible: false,
                 deliveryWarehouseList: [],
 
-                fio: this.props.fio
+                fio: this.props.fio,
+
+                editMode: editMode
             };
 
             this.emailRef = React.createRef();
@@ -46,6 +48,10 @@ export default () => View => {
 
 
         static getDerivedStateFromProps(props, state) {
+            if (!state.editMode) {
+                return null;
+            }
+
             let deliveryMethodId = state.deliveryMethodId;
             let currentDeliveryMethod = state.currentDeliveryMethod;
             let currentTransporter = state.currentTransporter;
@@ -164,26 +170,19 @@ export default () => View => {
 
             }
 
+            if (props.transportersLoaded && !state.currentTransporter.length) {
+                return {
+                    transporterId: props.transporters[0].id,
+                    currentTransporter: props.transporters[0].title,
+                    deliveryAddress: 'Выберите город',
+                    deliveryWarehouse: 'Выберите склад',
+                    deliveryAddressRef: '',
+                    deliveryWarehouseRef: ''
+                }
+            }
+
 
             return null;
-        }
-
-
-        componentWillUnmount() {
-            const data = {
-                email: this.state.email.trim(),
-                deliveryMethodId: this.state.deliveryMethodId,
-                deliveryMethod: this.state.currentDeliveryMethod,
-                transporterId: this.state.transporterId,
-                transporter: this.state.currentTransporter,
-                deliveryAddress: this.state.deliveryAddress,
-                deliveryAddressRef: this.state.deliveryAddressRef,
-                deliveryWarehouse: this.state.deliveryWarehouse,
-                deliveryWarehouseRef: this.state.deliveryWarehouseRef,
-                fio: this.state.fio.trim()
-            };
-
-            this.props.onSaveDeliveryTab(data);
         }
 
 
@@ -198,6 +197,7 @@ export default () => View => {
 
                 deliveryMethods={this.props.deliveryMethods}
                 currentDeliveryMethod={this.state.currentDeliveryMethod}
+                deliveryMethodId={this.state.deliveryMethodId}
                 deliveryMethodDropDownToggle={::this.deliveryMethodDropDownToggle}
                 setDeliveryMethod={::this.setDeliveryMethod}
                 deliveryMethodDropDownVisible={this.state.deliveryMethodDropDownVisible}
@@ -206,12 +206,14 @@ export default () => View => {
                 transporterFormVisible={this.state.transporterFormVisible}
                 transporters={this.getTransporters()}
                 currentTransporter={this.state.currentTransporter}
+                transporterId={this.state.transporterId}
                 transporterDropDownVisible={this.state.transporterDropDownVisible}
                 transporterDropDownToggle={::this.transporterDropDownToggle}
                 setTransporter={::this.setTransporter}
 
 
                 deliveryAddress={this.state.deliveryAddress}
+                deliveryAddressRef={this.state.deliveryAddressRef}
                 deliveryAddressDropDownVisible={this.state.deliveryAddressDropDownVisible}
                 deliveryAddressList={this.state.deliveryAddressList}
                 deliveryAddressDropDownToggle={::this.deliveryAddressDropDownToggle}
@@ -220,6 +222,7 @@ export default () => View => {
 
 
                 deliveryWarehouse={this.state.deliveryWarehouse}
+                deliveryWarehouseRef={this.state.deliveryWarehouseRef}
                 deliveryWarehouseDropDownVisible={this.state.deliveryWarehouseDropDownVisible}
                 deliveryWarehouseList={this.state.deliveryWarehouseList}
                 deliveryWarehouseDropDownToggle={::this.deliveryWarehouseDropDownToggle}
@@ -234,8 +237,12 @@ export default () => View => {
 
                 //From CheckoutPageController
                 activePage={this.props.activePage}
-                prevPage={this.props.prevPage}
+                prevPage={::this.prevPage}
                 nextPage={::this.nextPage}
+
+                saveDeliveryData={::this.saveDeliveryData}
+                cancelEditDelivery={::this.cancelEditDelivery}
+                enableEditDelivery={::this.enableEditDelivery}
             />
 
         }
@@ -386,27 +393,60 @@ export default () => View => {
 
 
         nextPage() {
-            if (this.getErrorPage()) {
-                return;
-            }
-
+            this.saveDeliveryData();
             this.props.nextPage();
         }
 
 
-        getErrorPage() {
-            let errorEmail = false;
+        prevPage() {
+            this.saveDeliveryData(true, true);
+            this.props.prevPage();
+        }
 
-            if (this.state.email.length) {
-                errorEmail = !this.validateEmail()
+
+        saveDeliveryData(withEmail = true, prev = false) {
+            if (!prev) {
+                if (this.getErrorPage(withEmail)) {
+                    return false;
+                }
             }
 
-            if (errorEmail) {
-                this.props.onSaveErrorMessage({
-                    message: 'Введите корректный E-mail'
-                });
-                return errorEmail;
+
+            const data = {
+                email: this.state.email.trim(),
+                deliveryMethodId: this.state.deliveryMethodId,
+                deliveryMethod: this.state.currentDeliveryMethod,
+                transporterId: this.state.transporterId,
+                transporter: this.state.currentTransporter,
+                deliveryAddress: this.state.deliveryAddress,
+                deliveryAddressRef: this.state.deliveryAddressRef,
+                deliveryWarehouse: this.state.deliveryWarehouse,
+                deliveryWarehouseRef: this.state.deliveryWarehouseRef,
+                fio: this.state.fio.trim()
+            };
+
+            this.props.onSaveDeliveryTab(data);
+
+            return true;
+        }
+
+
+        getErrorPage(withEmail) {
+            if (withEmail) {
+                let errorEmail = false;
+
+                if (this.state.email.length) {
+                    errorEmail = !this.validateEmail()
+                }
+
+                if (errorEmail) {
+                    this.props.onSaveErrorMessage({
+                        message: 'Введите корректный E-mail'
+                    });
+                    return errorEmail;
+                }
             }
+
 
             const errorFio = this.state.fio.trim().split(' ').length < 2;
 
@@ -452,6 +492,37 @@ export default () => View => {
             const email = this.emailRef.current.value.toLowerCase();
 
             return re.test(email);
+        }
+
+
+        cancelEditDelivery() {
+
+            this.setState(() => ({
+                editMode: false,
+                deliveryMethodId: this.props.deliveryMethodId,
+                currentDeliveryMethod: this.props.deliveryMethod,
+
+
+                transporterId: this.props.transporterId,
+                currentTransporter: this.props.transporter,
+
+
+                deliveryAddress: this.props.deliveryAddress,
+                deliveryAddressRef: this.props.deliveryAddressRef,
+
+                deliveryWarehouse: this.props.deliveryWarehouse,
+                deliveryWarehouseRef: this.props.deliveryWarehouseRef,
+                transporterFormVisible: !this.props.deliveryMethod.toLowerCase().includes('самовывоз'),
+
+                fio: this.props.fio
+            }));
+        }
+
+
+        enableEditDelivery() {
+            this.setState(() => ({
+                editMode: true,
+            }));
         }
 
         /***************************************************************************

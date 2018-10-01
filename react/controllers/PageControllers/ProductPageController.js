@@ -52,7 +52,7 @@ export default () => View => {
 
 
         static getDerivedStateFromProps(props) {
-            if (props.productItemFetchFail){
+            if (props.productItemFetchFail) {
                 return null;
             }
 
@@ -99,23 +99,24 @@ export default () => View => {
             }
 
             return <View
-                    product={this.state.product}
-                    setDropDownActive={::this.setDropDownActive}
-                    setDropDownInactive={::this.setDropDownInactive}
-                    dropDownVisibleToggle={::this.dropDownVisibleToggle}
-                    onChangeInput={::this.onChangeInput}
-                    setBuyQuantity={::this.setBuyQuantity}
-                    inputQuantityFocus={::this.inputQuantityFocus}
-                    addToCart={::this.addToCart}
-                    dropDownVisible={this.state.dropDownVisible}
-                    selectDropDownActive={this.state.selectDropDownActive}
-                    buyQuantity={this.state.buyQuantity}
-                    inputQuantity={this.inputQuantity}
-                    dropDownArrow={this.dropDownArrow}
-                    dropDown={this.dropDown}
-                    historyNavData={this.state.historyNavData}
-                    navRender={this.getNavRender()}
-                />;
+                product={this.state.product}
+                setDropDownActive={::this.setDropDownActive}
+                setDropDownInactive={::this.setDropDownInactive}
+                dropDownVisibleToggle={::this.dropDownVisibleToggle}
+                onChangeInput={::this.onChangeInput}
+                setBuyQuantity={::this.setBuyQuantity}
+                inputQuantityFocus={::this.inputQuantityFocus}
+                addToCart={::this.addToCart}
+                dropDownVisible={this.state.dropDownVisible}
+                selectDropDownActive={this.state.selectDropDownActive}
+                buyQuantity={this.state.buyQuantity}
+                inputQuantity={this.inputQuantity}
+                dropDownArrow={this.dropDownArrow}
+                dropDown={this.dropDown}
+                historyNavData={this.state.historyNavData}
+                navRender={this.getNavRender()}
+                addToFavorites={::this.addToFavorites}
+            />;
         }
 
         /***************************************************************************
@@ -213,9 +214,30 @@ export default () => View => {
             this.props.onPutProductIntoCart(order);
         }
 
+
         getNavRender() {
             return this.state.historyNavData.hasOwnProperty('car');
         }
+
+
+        addToFavorites = (product) => () => {
+            if (!this.props.userLoggedIn) {
+                const data ={
+                    message: 'Эта функция доступна только зарегистрированным пользователям'
+                };
+
+                this.props.onSaveErrorMessage(data);
+
+                return;
+            }
+
+            const data ={
+                message: `Товар "${product.title}" добавлен в избранное`
+            };
+
+            this.props.onSaveErrorMessage(data);
+            this.props.addToFavorites({product_id: product.id});
+        };
 
         /***************************************************************************
          * CONTROLLER LOGIC END
