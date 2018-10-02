@@ -26,6 +26,23 @@ export default () => View => {
         }
 
 
+        shouldComponentUpdate(nextProps) {
+
+            if (!this.props.userLoggedIn && nextProps.userLoggedIn) {
+                //если пользоваттель залогинился на этой вкладке
+                this.setState({
+                    phone: nextProps.phone,
+                    fio: nextProps.fio,
+                    comment: nextProps.comment,
+                });
+
+                return false;
+            }
+
+            return true;
+        }
+
+
         componentWillUnmount() {
             const data = {
                 phone: this.state.phone,
@@ -60,6 +77,8 @@ export default () => View => {
                 //From CheckoutPageController
                 activePage={this.props.activePage}
                 nextPage={::this.nextPage}
+
+                loginFormShow={this.props.loginFormShow}
             />
 
         }
@@ -98,14 +117,13 @@ export default () => View => {
         }
 
 
-        nextPage(){
-            if (!this.props.cart.length || this.getErrorPage()){
+        nextPage() {
+            if (!this.props.cart.length || this.getErrorPage()) {
                 return;
             }
 
             this.props.nextPage();
         }
-
 
 
         getErrorPage() {

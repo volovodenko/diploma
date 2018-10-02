@@ -115,7 +115,59 @@ class ProductController extends Controller
 
         $newFavorite->save();
 
-        return response()->json(['message' => 'Success'], 200);
+        return response()->json(["message" => "Success"], 200);
+
+    }
+
+
+    public function getFavorites()
+    {
+
+        $favoritesList = $this->getUserFavorites();
+
+//        sleep(5);
+
+
+        return response()->json($favoritesList, 200);
+    }
+
+
+    protected function getUserFavorites(){
+        $userId = Auth::user()->id;
+
+        $favorites = Favorite::where('user_id', $userId)
+            ->with('product')
+            ->get();
+
+        $favoritesProduct = array_map(function ($item) {
+            $manufacturer = $this->getManufacturer($item['product']['manufacturer_id']);
+            $item['product']['manufacturer'] = $manufacturer->title;
+
+            unset($item['product']['manufacturer_id']);
+
+            return $item['product'];
+
+        }, $favorites->toArray());
+
+        return $favoritesProduct;
+    }
+
+
+    public function deleteFromFavorites($productId)
+    {
+        $userId = Auth::user()->id;
+
+        $userFavoriteProduct = Favorite::where('user_id', $userId)
+            ->where('product_id', $productId)
+            ->first();
+
+        if (!$userFavoriteProduct) {
+            return response()->json(['message' => "API: Product doesn't exist"], 200);
+        }
+
+        $userFavoriteProduct->delete();
+
+        return response()->json(['message' => "Success"], 200);
 
     }
 

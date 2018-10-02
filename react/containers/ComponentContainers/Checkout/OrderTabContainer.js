@@ -9,6 +9,10 @@ import {
 import {
     onSaveErrorMessage
 } from '../../../store/reducers/errorMessage/actions';
+import {
+    loginFormShow
+} from '../../../store/reducers/loginForm/actions';
+
 
 
 export default () => Controller => {
@@ -29,7 +33,8 @@ export default () => Controller => {
         mapStateToProps,
         {
             onSaveOrderTab,
-            onSaveErrorMessage
+            onSaveErrorMessage,
+            loginFormShow
         }
     )
     class OrderTabContainer extends Component {
@@ -50,6 +55,7 @@ export default () => Controller => {
 
             onSaveOrderTab: PropTypes.func.isRequired,
             onSaveErrorMessage: PropTypes.func.isRequired,
+            loginFormShow: PropTypes.func.isRequired,
         };
     }
 

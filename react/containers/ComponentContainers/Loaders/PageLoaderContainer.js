@@ -19,6 +19,8 @@ export default () => Controller => {
             paymentContentIsLoading: state.pageContent.paymentContentIsLoading,
 
             ordersListIsLoading: state.user.ordersListIsLoading,
+            favoritesListIsLoading: state.user.favoritesListIsLoading,
+            favoriteIsDeleting: state.user.favoriteIsDeleting
         };
     };
 
@@ -46,7 +48,8 @@ export default () => Controller => {
             paymentContentIsLoading: PropTypes.bool.isRequired,
 
             ordersListIsLoading: PropTypes.bool.isRequired,
-
+            favoritesListIsLoading: PropTypes.bool.isRequired,
+            favoriteIsDeleting: PropTypes.bool.isRequired,
         };
     }
 

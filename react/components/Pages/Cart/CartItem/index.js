@@ -59,6 +59,20 @@ export default class CartItem extends Component {
                         />
                         удалить
                     </div>
+                    <div className={styles.move} onClick={this.props.moveToFavorites}>
+                        <i
+                            className={
+                                classNames(
+                                    fontAwesome.fa,
+                                    fontAwesome['fa-star-o'],
+                                    fontAwesome['fa-lg'],
+                                )
+                            }
+                            aria-hidden='true'
+                        />
+
+                        переместить в избранное
+                    </div>
                 </div>
             </li>
         )

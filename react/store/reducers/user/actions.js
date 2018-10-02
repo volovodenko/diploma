@@ -261,7 +261,7 @@ export const onRefreshUserDetail = () => dispatch => {
 
 
 /*************************************************************************
- * GET ORDERS LIST
+ * GET ORDERS HISTORY LIST
  *************************************************************************/
 const ordersListFetchRequest = () => ({
     type: t.ORDERS_LIST_FETCH_REQUEST
@@ -322,3 +322,66 @@ export const addToFavorites = (data) => dispatch => {
             dispatch(addToFavoritesFail(err.response.data.error));
         });
 };
+
+
+/*************************************************************************
+ * DELETE FROM FAVORITES
+ *************************************************************************/
+const deleteFromFavoritesRequest = () => ({
+    type: t.DELETE_FROM_FAVORITES_REQUEST,
+});
+
+const deleteFromFavoritesSuccess = (data) => ({
+    type: t.DELETE_FROM_FAVORITES_SUCCESS,
+    payload: data
+});
+
+const deleteFromFavoritesFail = () => ({
+    type: t.DELETE_FROM_FAVORITES_FAIL,
+});
+
+export const deleteFromFavorites = (productId) => dispatch => {
+    dispatch(deleteFromFavoritesRequest());
+
+    httpRequest(`deleteFromFavorites/${productId}`)
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(deleteFromFavoritesSuccess(res.data))
+            }
+        })
+        .catch(err => {
+            dispatch(deleteFromFavoritesFail(err.response.data.error));
+        });
+};
+
+
+/*************************************************************************
+ * GET USER FAVORITES PRODUCT LIST
+ *************************************************************************/
+const favoritesListFetchRequest = () => ({
+    type: t.FAVORITES_LIST_FETCH_REQUEST,
+});
+
+const favoritesListFetchSuccess = (data) => ({
+    type: t.FAVORITES_LIST_FETCH_SUCCESS,
+    payload: data
+});
+
+const favoritesListFetchFail = () => ({
+    type: t.FAVORITES_LIST_FETCH_FAIL,
+});
+
+export const getFavorites = () => dispatch => {
+    dispatch(favoritesListFetchRequest());
+
+    httpRequest('getFavorites')
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(favoritesListFetchSuccess(res.data))
+            }
+        })
+        .catch(err => {
+            dispatch(favoritesListFetchFail(err.response.data.error));
+        });
+};
+

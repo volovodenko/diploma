@@ -3627,6 +3627,17 @@ a {
       margin: auto 0;
       margin-right: 5px; }
 
+.DeleteFromFavorites-delete__2Y20j {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: midnightblue; }
+  .DeleteFromFavorites-delete__2Y20j i {
+    margin-right: 5px; }
+  .DeleteFromFavorites-delete__2Y20j:hover {
+    color: darkred;
+    cursor: pointer; }
+
 .Pagination-pagination__28a7w {
   list-style: none;
   padding: 10px 0;
@@ -3726,8 +3737,9 @@ a {
             box-shadow: 2px 2px 5px black; }
   .CartItem-item__1R6AM .CartItem-operations__1WhLq {
     font-size: 14px;
-    margin: auto 0; }
-    .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-del__2DmuB {
+    margin: auto 0;
+    width: 100px; }
+    .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-del__2DmuB, .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-move__3Jgnp {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -3736,9 +3748,13 @@ a {
           -ms-flex-direction: column;
               flex-direction: column;
       text-align: center; }
-      .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-del__2DmuB:hover {
+      .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-del__2DmuB:hover, .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-move__3Jgnp:hover {
         color: darkred;
         cursor: pointer; }
+    .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-move__3Jgnp {
+      margin-top: 10px; }
+      .CartItem-item__1R6AM .CartItem-operations__1WhLq .CartItem-move__3Jgnp:hover {
+        color: orange; }
 
 .CartItem-title__xruQz {
   padding: 5px 0 10px; }
@@ -4243,6 +4259,11 @@ a {
         resize: none;
         height: 100px;
         font-family: inherit; }
+    .OrderTab-order__3U72A .OrderTab-sideLeft__25VLr .OrderTab-login__1W5Wk {
+      color: darkblue;
+      text-decoration: underline; }
+      .OrderTab-order__3U72A .OrderTab-sideLeft__25VLr .OrderTab-login__1W5Wk:hover {
+        cursor: pointer; }
     .OrderTab-order__3U72A .OrderTab-sideLeft__25VLr .OrderTab-button__3V7P6 {
       float: right; }
   .OrderTab-order__3U72A .OrderTab-sideRight__WsF5L {
@@ -4896,10 +4917,13 @@ a {
       color: #999;
       cursor: pointer; }
 
-.FavoriteTab-favorite__3EM1F {
+.FavoritesTab-favorite__wzBw3 {
   width: 100%;
   margin-top: 15px;
   list-style: none; }
+
+.FavoritesTab-null__39x1o {
+  text-align: center; }
 
 .Footer-footer__2nhDB {
   background-color: #161a1d;

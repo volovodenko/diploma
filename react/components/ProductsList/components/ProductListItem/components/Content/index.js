@@ -9,7 +9,7 @@ import BuyButton from './components/BuyButton';
 
 export default props => (
     <div className={styles.content}>
-        <Title item={props.item}/>
+        <Title {...props}/>
         <Info item={props.item}/>
         <BuyButton {...props}/>
     </div>

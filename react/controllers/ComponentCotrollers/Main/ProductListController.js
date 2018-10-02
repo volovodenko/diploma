@@ -5,7 +5,14 @@ const ProductListController = () => View => props => {
     const productListSlice = props.productList.slice(from, to);
 
 
-    return View({from, to, productListSlice, productList: props.productList});
+    return View({
+        from,
+        to,
+        productListSlice,
+        productList: props.productList,
+        favorites: props.favorites,
+        deleteFromFavorites: props.deleteFromFavorites
+    });
 };
 
 export default ProductListController;

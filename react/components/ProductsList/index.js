@@ -19,6 +19,8 @@ const ProductList = props => (
             <ProductListItem
                 item={item}
                 key={item.id}
+                favorites={props.favorites}
+                deleteFromFavorites={props.deleteFromFavorites}
             />
         )}
     </ul>

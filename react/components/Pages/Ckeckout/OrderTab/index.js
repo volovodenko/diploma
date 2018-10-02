@@ -17,6 +17,21 @@ export default class OrderTab extends Component {
         return (
             <section className={styles.order}>
                 <div className={styles.sideLeft}>
+                    {
+                        !this.props.userLoggedIn &&
+                        <div>
+                            Вы можете
+                            {' '}
+                            <span
+                                className={styles.login}
+                                onClick={this.props.loginFormShow}
+                            >
+                                войти
+                            </span>
+                            {' '}
+                            или заполнить данные
+                        </div>
+                    }
                     <label>
                         Телефон:
                         <input type='tel'

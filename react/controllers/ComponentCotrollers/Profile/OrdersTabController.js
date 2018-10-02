@@ -14,7 +14,7 @@ export default () => View => {
 
             window.scrollTo(0, 0); //обнулить прокрутку
 
-            this.props.ordersListLoaded || this.props.getOrdersList();
+            this.props.getOrdersList();
         }
 
 

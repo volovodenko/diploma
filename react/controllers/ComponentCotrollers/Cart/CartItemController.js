@@ -41,6 +41,7 @@ export default () => View => {
                 inputQuantity={this.inputQuantity}
                 deleteItem={::this.deleteItem}
                 onChangeQuantity={::this.onChangeQuantity}
+                moveToFavorites={::this.moveToFavorites}
             />
 
         }
@@ -82,8 +83,15 @@ export default () => View => {
             }
         }
 
+
         deleteItem() {
             this.props.onDeleteProductItemFromCart({id: this.props.item.id});
+        }
+
+
+        moveToFavorites(){
+            this.props.addToFavorites({product_id: this.props.item.id});
+            this.deleteItem();
         }
 
         /***************************************************************************

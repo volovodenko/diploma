@@ -1,0 +1,15 @@
+.delete {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: midnightblue;
+
+  i {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    color: darkred;
+    cursor: pointer;
+  }
+}

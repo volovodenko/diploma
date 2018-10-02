@@ -13,8 +13,9 @@
   .operations {
     font-size: 14px;
     margin: auto 0;
+    width: 100px;
 
-    .del {
+    .del, .move {
       display: flex;
       flex-direction: column;
       text-align: center;
@@ -24,6 +25,18 @@
         cursor: pointer;
       }
     }
+
+
+    .move {
+      margin-top: 10px;
+
+      &:hover{
+        color: orange;
+      }
+
+    }
+
+
   }
 }
 

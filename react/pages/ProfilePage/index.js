@@ -6,7 +6,7 @@ import ProfilePageController from '../../controllers/PageControllers/ProfilePage
 import ProfileTabs from '../../components/Pages/Profile/ProfileTabs';
 import OrdersTab from '../../components/Pages/Profile/OrdersTab';
 import DetailTab from '../../components/Pages/Profile/DetailTab';
-import FavoriteTab from '../../components/Pages/Profile/FavoriteTab';
+import FavoriteTab from '../../components/Pages/Profile/FavoritesTab';
 import PageLoader from '../../components/Loaders/PageLoader';
 
 

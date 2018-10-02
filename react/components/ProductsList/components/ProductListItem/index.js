@@ -6,6 +6,7 @@ import ProductListItemController from '../../../../controllers/ComponentCotrolle
 import SelectQuantityDropDown from '../../../SelectQuantityDropDown';
 import Image from './components/Image';
 import Content from './components/Content';
+import DeleteFromFavorites from './components/DeleteFromFavorites';
 
 
 @ProductListItemController()
@@ -19,6 +20,10 @@ export default class ProductListItem extends Component {
 
                 {this.props.dropDownVisible && <SelectQuantityDropDown {...this.props} styles={styles}/>}
 
+                {
+                    this.props.favorites &&
+                    <DeleteFromFavorites deleteFromFavorites={this.props.deleteFromFavorites(this.props.item.id)}/>
+                }
             </li>
         )
 

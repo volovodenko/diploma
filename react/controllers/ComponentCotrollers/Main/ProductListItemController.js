@@ -37,6 +37,7 @@ export default () => View => {
 
 
         render() {
+
             return <View
                 item={this.props.item}
                 addToCart={::this.addToCart}
@@ -51,6 +52,9 @@ export default () => View => {
                 dropDown={this.dropDown}
                 setBuyQuantity={::this.setBuyQuantity}
                 inputQuantityFocus={::this.inputQuantityFocus}
+                favorites={this.props.favorites}
+                deleteFromFavorites={this.props.deleteFromFavorites}
+                linkClick={::this.linkClick}
             />
 
         }
@@ -148,6 +152,11 @@ export default () => View => {
             this.setDropDownActive();
             this.inputQuantity.current.focus();
 
+        }
+
+
+        linkClick(){
+            this.props.favorites && this.props.onClearNavHistory();
         }
 
         /***************************************************************************

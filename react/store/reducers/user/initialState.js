@@ -41,10 +41,22 @@ const initialState = {
     ordersListFetchFail: false,
 
 
-    favoritesIsAdding: false,
-    favoritesExist: false,
-    favoritesAdded: false,
-    favoritesAddFail: false,
+    favoriteIsAdding: false,
+    favoriteExist: false,
+    favoriteAdded: false,
+    favoriteAddFail: false,
+
+
+    favoriteIsDeleting: false,
+    favoriteNotExist: false,
+    favoriteDeleted: false,
+    favoriteDeleteFail: false,
+
+
+    favoritesList: [],
+    favoritesListIsLoading: false,
+    favoritesListLoaded: false,
+    favoritesListFetchFail: false,
 };
 
 export default initialState;

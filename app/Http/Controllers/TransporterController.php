@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transporter;
 use \GuzzleHttp\Client;
+use App\DeliveryMethod;
+
 
 class TransporterController extends Controller
 {
@@ -152,5 +154,13 @@ class TransporterController extends Controller
         }
 
         return $citiesList;
+    }
+
+
+    public function getDeliveryMethods()
+    {
+        $deliveryMethods = DeliveryMethod::all();
+
+        return response($deliveryMethods, 200);
     }
 }

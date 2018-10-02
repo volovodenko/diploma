@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import {
     onPutProductIntoCart
 } from '../../../store/reducers/cart/actions';
+import {
+    onClearNavHistory
+} from '../../../store/reducers/nav/actions';
 
 
 export default () => Controller => {
@@ -13,7 +16,8 @@ export default () => Controller => {
     @connect(
         null,
         {
-            onPutProductIntoCart
+            onPutProductIntoCart,
+            onClearNavHistory
         }
     )
     class ProductListItemContainer extends Component {
@@ -25,7 +29,7 @@ export default () => Controller => {
 
         static propTypes = {
             onPutProductIntoCart: PropTypes.func.isRequired,
-
+            onClearNavHistory: PropTypes.func.isRequired,
         };
     }
 

@@ -147,7 +147,10 @@ export default function (stateStore = initialState, action) {
                 deliveryAddress: '',
                 deliveryAddressRef: '',
                 deliveryWarehouse: '',
-                deliveryWarehouseRef: ''
+                deliveryWarehouseRef: '',
+
+                favoritesList: [],
+                ordersList:[]
             };
 
         /****************************************************************************/
@@ -314,20 +317,61 @@ export default function (stateStore = initialState, action) {
         case t.ADD_TO_FAVORITES_REQUEST:
             return {
                 ...stateStore,
-                favoritesIsAdding: true
+                favoriteIsAdding: true
             };
         case t.ADD_TO_FAVORITES_SUCCESS:
             return {
                 ...stateStore,
-                favoritesIsAdding: false,
-                favoritesExist: action.payload.message !== 'Success',
-                favoritesAdded: action.payload.message === 'Success'
+                favoriteIsAdding: false,
+                favoriteExist: action.payload.message !== 'Success',
+                favoriteAdded: action.payload.message === 'Success',
             };
         case t.ADD_TO_FAVORITES_FAIL:
             return {
                 ...stateStore,
-                favoritesIsAdding: false,
-                favoritesAddFail: true,
+                favoriteIsAdding: false,
+                favoriteAddFail: true,
+            };
+
+        /****************************************************************************/
+        case t.DELETE_FROM_FAVORITES_REQUEST:
+            return {
+                ...stateStore,
+                favoriteIsDeleting: true
+            };
+        case t.DELETE_FROM_FAVORITES_SUCCESS:
+            return {
+                ...stateStore,
+                favoriteIsDeleting: false,
+                favoriteNotExist: action.payload.message !== 'Success',
+                favoriteDeleted: action.payload.message === 'Success',
+            };
+        case t.DELETE_FROM_FAVORITES_FAIL:
+            return {
+                ...stateStore,
+                favoriteIsDeleting: false,
+                favoriteAddFail: true,
+            };
+
+        /****************************************************************************/
+
+        case t.FAVORITES_LIST_FETCH_REQUEST:
+            return {
+                ...stateStore,
+                favoritesListIsLoading: true
+            };
+        case t.FAVORITES_LIST_FETCH_SUCCESS:
+            return {
+                ...stateStore,
+                favoritesList: action.payload,
+                favoritesListIsLoading: false,
+                favoritesListLoaded: true,
+            };
+        case t.FAVORITES_LIST_FETCH_FAIL:
+            return {
+                ...stateStore,
+                favoritesListIsLoading: false,
+                favoritesListFetchFail: true,
             };
 
         /****************************************************************************/
