@@ -38,3 +38,16 @@
 
   }
 }
+
+
+@media (max-device-width: 680px) {
+  .tabs {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
+}

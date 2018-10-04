@@ -7,8 +7,16 @@ import fontAwesome from 'font-awesome/css/font-awesome.css';
 import ucFirst from '../../../../../../../helpers/ucFirst';
 
 
-export default props => (
-    <div className={styles.authPopup}>
+const LoginPopup = (props) => (
+    <div
+        className={
+            classNames(
+                styles.authPopup,
+                props.styles ? props.styles.userPopup : styles.local
+            )
+        }
+        ref={props.userPopupRef}
+    >
 
         <div className={styles.name}>
             {ucFirst(props.userName)}
@@ -71,9 +79,11 @@ export default props => (
                 aria-hidden='true'
             />
             <span onClick={props.logout}>
-                        Выход
-                    </span>
+                Выход
+            </span>
         </div>
 
     </div>
-)
+);
+
+export default LoginPopup;

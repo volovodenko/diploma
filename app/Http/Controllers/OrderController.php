@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Order;
 use App\OrderProduct;
+use App\PaymentTypes;
+use App\DeliveryMethod;
+use App\Transporter;
 use Validator;
 
 
@@ -131,15 +134,23 @@ class OrderController extends Controller
             ->with('orderProduct')
             ->get();
 
-        $ordersList = array_map(function ($item){
+        $ordersList = array_map(function ($item) {
             $order = new \stdClass();
 
             $order->order = $item['id'];
             $order->date = $item['created_at'];
-            $order->numberProducts = count($item['order_product']);
             $order->sumTotal = $item['sum_total'];
 
+            $numberProducts = 0;
+
+            array_walk($item['order_product'], function ($item) use (&$numberProducts) {
+                $numberProducts += $item['buy_quantity'];
+            });
+
+            $order->numberProducts = $numberProducts;
+
             return $order;
+
         }, $orders->toArray());
 
 //        sleep(5);
@@ -148,5 +159,67 @@ class OrderController extends Controller
 
     }
 
+
+    public function getOrder(ProductController $product, $orderId)
+    {
+
+        $orderData = Order::where('user_id', Auth::user()->id)
+            ->with('orderProduct')
+            ->find($orderId);
+
+
+        if (!$orderData) {
+            return response()->json(['message' => 'API: Order not found'], 200);
+        }
+
+
+        $order = new \stdClass();
+
+        $order->id = $orderData->id;
+        $order->fio = $orderData->fio;
+        $order->phone = $orderData->phone;
+        $order->email = $orderData->email;
+        $order->sum_total = $orderData->sum_total;
+        $order->comment = $orderData->comment;
+        $order->payment = PaymentTypes::find($orderData->payment_type_id)->type;
+        $order->delivery = DeliveryMethod::find($orderData->delivery_method_id)->title;
+        $order->created_at = $orderData->created_at;
+
+
+        //если не самовывоз
+        if (!mb_strstr(mb_strtolower($order->delivery), "самовывоз")) {
+            $order->transporter = Transporter::find($orderData->transporter_id)->title;
+            $order->delivery_city = $orderData->delivery_city;
+            $order->delivery_warehouse = $orderData->delivery_warehouse;
+        }
+
+        $numberProducts = 0;
+
+        $order->products = array_map(function ($item) use ($product, &$numberProducts) {
+
+            $currentProduct = $product->getProductById($item['product_id']);
+
+            $item['title'] = $currentProduct->title;
+            $item['slug'] = $currentProduct->slug;
+
+            $item['buyQuantity'] = $item['buy_quantity'];
+            $numberProducts += $item['buy_quantity'];
+
+            unset($item['order_id']);
+            unset($item['product_id']);
+            unset($item['product']);
+            unset($item['buy_quantity']);
+
+            return $item;
+
+        }, $orderData->toArray()['order_product']);
+
+
+        $order->numberProducts = $numberProducts;
+
+
+        return response()->json(['message' => 'Success', 'order' => $order], 200);
+
+    }
 
 }

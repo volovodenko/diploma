@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import Buttons from '../Buttons/index';
+import ProductList from './components/ProductList';
 import OrderTabController from '../../../../controllers/ComponentCotrollers/Checkout/OrderTabController';
 
 
@@ -68,37 +69,12 @@ export default class OrderTab extends Component {
 
                 <div className={styles.sideRight}>
                     <h3>Корзина товаров</h3>
-                    <ul>
-                        {
-                            this.props.cart.map(item =>
-                                <li key={item.id} className={styles.orderItem}>
-                                    <Link
-                                        target='_blank'
-                                        to={`/parts/${item.slug}`}
-                                    >
-                                        {item.title}
-                                    </Link>
-                                    <div className={styles.sum}>
-                                        <ul>
-                                            <li>Цена, грн</li>
-                                            <li>{(item.price / 100).toFixed(2)}</li>
-                                        </ul>
-                                        <ul>
-                                            <li>Кол-во</li>
-                                            <li>{item.buyQuantity}</li>
-                                        </ul>
-                                        <ul>
-                                            <li>Сумма</li>
-                                            <li>{((item.price * item.buyQuantity) / 100).toFixed(2)}</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            )
-                        }
-                    </ul>
-                    <div className={styles.total}>
-                        Итого: <span>{this.props.sumTotal} грн.</span>
-                    </div>
+
+                    <ProductList
+                        products={this.props.cart}
+                        sumTotal={this.props.sumTotal}
+                    />
+
                     <div className={styles.edit}>
                         <Link to='/cart'>
                             <i className={

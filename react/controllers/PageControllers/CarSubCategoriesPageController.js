@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import CarSubCategoriesPageContainer from '../../containers/PageContainers/CarSubCategoriesPageContainer';
 import NotFound from '../../pages/NotFoundPage/index';
 import {ITEMS_COUNT_PER_PAGE, PAGE_RANGE_DISPLAYED} from '../../config/index';
+import getFakeList from '../../helpers/getFakeList';
 
 
 export default () => View => {
@@ -32,11 +33,15 @@ export default () => View => {
                 subCategoriesList: [],
                 products: [],
 
-                carModelCategoryNotFound: false
+                carModelCategoryNotFound: false,
+
+                numInvisibleItems: 0
             };
 
             window.scrollTo(0, 0); //обнулить прокрутку
 
+            this.catalogRef = React.createRef();
+            this.updateDimensions = ::this.updateDimensions;
         }
 
 
@@ -102,6 +107,19 @@ export default () => View => {
             ) {
                 this.props.onClearFetchErrors();
             }
+
+            window.removeEventListener('resize', this.updateDimensions);
+        }
+
+        componentDidUpdate() {
+            if (this.props.carCategoriesCatalogLoaded && !this.state.numInvisibleItems) {
+                this.updateDimensions();
+            }
+        }
+
+        componentDidMount() {
+            window.addEventListener('resize', this.updateDimensions);
+            this.updateDimensions();
         }
 
 
@@ -125,6 +143,9 @@ export default () => View => {
                 itemsCountPerPage={ITEMS_COUNT_PER_PAGE}
                 pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
                 handlePageChange={::this.handlePageChange}
+
+                catalogRef={this.catalogRef}
+                fakeList={getFakeList(this.state.numInvisibleItems)}
             />
 
         }
@@ -167,6 +188,24 @@ export default () => View => {
                 this.props.getProductList(this.carModel);
             }
         }
+
+
+        updateDimensions() {
+            const numItemsInRow = Math.floor(this.catalogRef.current.offsetWidth / 190);
+            const numLastRowItems = this.state.subCategoriesList.length % numItemsInRow;
+            const numInvisibleItems = numLastRowItems === 0 ||
+            this.state.subCategoriesList.length <= numItemsInRow
+                ? 0
+                : numItemsInRow - numLastRowItems;
+
+
+            if (numInvisibleItems !== this.state.numInvisibleItems) {
+                this.setState({
+                    numInvisibleItems
+                });
+            }
+        }
+
 
         /***************************************************************************
          * CONTROLLER LOGIC END

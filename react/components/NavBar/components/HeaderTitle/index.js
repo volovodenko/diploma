@@ -1,18 +1,10 @@
 export default props => {
-    switch (props) {
-        case props.subCategoryTitle:
-            return props.subCategoryTitle;
+    let title = null;
 
-        case props.categoryTitle:
-            return props.categoryTitle;
+    props.carTitle && (title = props.carTitle);
+    props.modelTitle && (title = props.modelTitle);
+    props.categoryTitle && (title = props.categoryTitle);
+    props.subCategoryTitle && (title = props.subCategoryTitle);
 
-        case props.modelTitle:
-            return props.modelTitle;
-
-        case props.carTitle:
-            return props.carTitle;
-
-        default:
-            return null;
-    }
+    return title;
 }

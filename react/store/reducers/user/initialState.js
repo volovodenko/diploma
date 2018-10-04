@@ -57,6 +57,12 @@ const initialState = {
     favoritesListIsLoading: false,
     favoritesListLoaded: false,
     favoritesListFetchFail: false,
+
+    order: {},
+    orderIsLoading: false,
+    orderNumberWrong: false,
+    orderLoaded: false,
+    orderFetchFail: false,
 };
 
 export default initialState;

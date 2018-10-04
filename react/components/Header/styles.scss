@@ -1,3 +1,9 @@
 .header {
-  height: 100px;
+  //height: 100px;
+}
+
+@media (max-device-width: 630px) {
+  .header {
+    //height: 50px;
+  }
 }

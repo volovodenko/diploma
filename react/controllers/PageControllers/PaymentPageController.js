@@ -13,6 +13,8 @@ export default () => View => {
         constructor(props) {
             super(props);
 
+            window.scrollTo(0, 0); //обнулить прокрутку
+
             this.props.paymentContentLoaded || this.props.getPaymentContent();
         }
 

@@ -39,6 +39,8 @@
     }
 
     .cartArrowDown {
+      width: 40px;
+      height: 40px;
       font-size: 30px;
       padding: 3px;
       color: darkgreen;
@@ -107,10 +109,13 @@
 
 @media (max-device-width: 1030px) {
   .cart {
+    margin-left: 0;
+
     .cartIcon {
       & > a {
         padding: 0;
         padding-left: 7px;
+        border-left: 0;
       }
     }
 
@@ -120,4 +125,16 @@
 
   }
 
+}
+
+
+@media (max-device-width: 630px) {
+  .cart {
+    width: auto;
+
+    .cartLinks {
+      display: none;
+    }
+
+  }
 }

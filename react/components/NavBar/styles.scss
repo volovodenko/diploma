@@ -2,11 +2,13 @@
   ul {
     list-style: none;
     display: flex;
-    flex-direction: row;
     font-size: 14px;
+    flex-wrap: wrap;
 
     li {
       margin: 0 2px;
+      white-space: nowrap;
+
 
       &:first-child {
         margin-left: 0;

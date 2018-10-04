@@ -11,3 +11,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-device-width: 1030px) {
+  .wrapper {
+    padding-top: 10px;
+  }
+}

@@ -9,3 +9,16 @@
     border: 2px solid darkblue;
   }
 }
+
+
+@media (max-device-width: 900px) {
+  .image {
+    margin: 0 auto;
+  }
+}
+
+@media (min-device-width: 1030px) and (max-device-width: 1160px) {
+  .image {
+    margin: 0 auto;
+  }
+}

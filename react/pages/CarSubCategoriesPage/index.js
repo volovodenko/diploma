@@ -8,6 +8,7 @@ import Pagination from '../../components/Pagination';
 import CarSubCategoriesList from '../../components/Pages/CarSubCategories/CarSubCategoriesList';
 import PageLoader from '../../components/Loaders/PageLoader';
 import CarSubCategoriesPageController from '../../controllers/PageControllers/CarSubCategoriesPageController';
+import FakeList from '../../components/Pages/Home/FakeList';
 
 
 @CarSubCategoriesPageController()
@@ -16,7 +17,10 @@ export default class CarSubCategoriesPage extends Component {
     render() {
 
         return (
-            <div className={styles.catalog}>
+            <div
+                className={styles.catalog}
+                ref={this.props.catalogRef}
+            >
 
                 <NavBar
                     car={this.props.car}
@@ -31,6 +35,7 @@ export default class CarSubCategoriesPage extends Component {
                         carModelCategory={this.props.carModelCategory}
                         carSubCategoriesList={this.props.carSubCategoriesList}
                     />
+                    <FakeList fakeList={this.props.fakeList}/>
                 </ul>
 
                 <Pagination

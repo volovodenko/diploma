@@ -71,7 +71,7 @@ export default ({product}) => (
                 )
             }
         >
-            {(product.price / 100).toFixed(2)} грн.
+            {(product.price / 100).toFixed(2)} грн
         </li>
 
     </ul>

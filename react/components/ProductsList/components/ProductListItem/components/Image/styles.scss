@@ -7,3 +7,10 @@
     border-radius: 5px;
   }
 }
+
+
+@media (max-device-width: 630px) {
+  .image {
+    display: none;
+  }
+}

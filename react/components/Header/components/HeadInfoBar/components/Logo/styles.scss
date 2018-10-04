@@ -18,9 +18,16 @@
 @media (max-device-width: 1030px) {
   .logo {
     height: 50px;
+    margin-right: 5px;
 
     img {
       height: 50px;
     }
+  }
+}
+
+@media (max-device-width: 560px) {
+  .logo {
+   margin: 0 auto;
   }
 }

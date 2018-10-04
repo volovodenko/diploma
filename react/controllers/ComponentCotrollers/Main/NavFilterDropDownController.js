@@ -39,8 +39,10 @@ export default () => View => {
          **************************************************************************/
 
         onChangeInput() {
-            let val = this.inputSearch.current.value.trim();
-            let itemsList = this.props.itemsList.filter(item => item.title.toLowerCase().indexOf(val) !== -1);
+            let val = this.inputSearch.current.value.toLowerCase().trim();
+            let itemsList = this.props.itemsList.filter(item =>
+                item.title.toLowerCase().indexOf(val) !== -1
+            );
 
             if (!itemsList.length) {
                 itemsList = [{

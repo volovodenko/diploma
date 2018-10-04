@@ -10,6 +10,7 @@ class Order extends Model
     protected $casts = [
         'id' => 'integer',
         'user_id' => 'integer',
+        'created_at' => 'string',
     ];
 
     public function orderProduct()

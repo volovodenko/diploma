@@ -28,3 +28,15 @@
 .comments {
   margin-top: 30px;
 }
+
+@media (max-device-width: 900px) {
+  .partItem {
+    flex-direction: column;
+  }
+}
+
+@media (min-device-width: 1030px) and (max-device-width: 1160px) {
+  .partItem {
+    flex-direction: column;
+  }
+}

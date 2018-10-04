@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 
 
@@ -14,6 +15,8 @@ export default ({headInfoFixed}) => (
             )
         }
     >
-        <img src='/storage/img/logo/logo.png'/>
+        <Link to='/'>
+            <img src='/storage/img/logo/logo.png'/>
+        </Link>
     </div>
 )

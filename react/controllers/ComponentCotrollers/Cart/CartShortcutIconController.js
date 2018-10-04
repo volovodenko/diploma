@@ -58,12 +58,14 @@ export default () => View => {
          **************************************************************************/
 
         popupSetVisible() {
-            if (!this.state.popupVisible) {
-                this.setState(() => ({
-                    popupVisible: true
-                }))
+            if (document.documentElement.offsetWidth <= 800) {
+                return;
             }
 
+            this.state.popupVisible ||
+            this.setState(() => ({
+                popupVisible: true
+            }));
         }
 
         popupSetInvisible() {

@@ -19,9 +19,12 @@ export default class Search extends Component {
                 className={
                     classNames(
                         styles.search,
-                        this.props.headInfoFixed ? styles.fixed : null
+                        this.props.headInfoFixed ? styles.fixed : null,
+                        this.props.styles ? this.props.styles.searchPopup : styles.local,
+                        this.props.searchPopupVisible ? styles.visible : null
                     )
                 }
+                ref={this.props.searchPopupRef}
             >
                 <div
                     className={styles.input}
@@ -82,7 +85,8 @@ export default class Search extends Component {
                     <ul className={
                         classNames(
                             styles.dropDown,
-                            this.props.headInfoFixed ? styles.dropDownFixed : null
+                            this.props.headInfoFixed ? styles.dropDownFixed : null,
+                            this.props.searchPopupVisible ? styles.popup : null
                         )
                     }
                     >

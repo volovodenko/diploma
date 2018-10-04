@@ -3,6 +3,7 @@
   line-height: 30px;
   position: relative;
 
+
   &:hover {
     color: white;
     cursor: pointer;
@@ -42,6 +43,10 @@
     }
   }
 
+}
 
-
+@media (max-device-width: 1030px) {
+  .login {
+    display: none;
+  }
 }

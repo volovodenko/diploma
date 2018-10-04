@@ -87,6 +87,12 @@ class ProductController extends Controller
     }
 
 
+    public function getProductById($id)
+    {
+        return Product::find($id);
+    }
+
+
     public function addToFavorites(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -167,7 +173,9 @@ class ProductController extends Controller
 
         $userFavoriteProduct->delete();
 
-        return response()->json(['message' => "Success"], 200);
+        $favoritesList = $this->getUserFavorites();
+
+        return response()->json(['message' => "Success", 'favoritesList' => $favoritesList], 200);
 
     }
 

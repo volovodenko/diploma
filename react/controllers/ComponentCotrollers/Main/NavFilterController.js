@@ -87,6 +87,9 @@ export default () => View => {
                 buttonClassName={this.state.buttonClassName}
                 buttonLink={this.buttonLink()}
                 getParts={::this.getParts}
+
+                styles={this.props.styles}
+                navFilterPopupRef={this.props.navFilterPopupRef}
             />
 
         }

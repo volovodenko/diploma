@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
+
 import CarModelsPageContainer from '../../containers/PageContainers/CarModelsPageContainer';
 import NotFound from '../../pages/NotFoundPage/index';
+import getFakeList from '../../helpers/getFakeList';
 
 
 export default () => View => {
@@ -29,8 +31,12 @@ export default () => View => {
 
 
             this.state = {
+                numInvisibleItems: 0,
                 carModelsList: []
-            }
+            };
+
+            this.catalogRef = React.createRef();
+            this.updateDimensions = ::this.updateDimensions;
 
         }
 
@@ -51,6 +57,20 @@ export default () => View => {
 
         componentWillUnmount() {
             !this.props.carModelsCatalogFetchFail || this.props.onClearFetchErrors();
+            window.removeEventListener('resize', this.updateDimensions);
+        }
+
+
+        componentDidUpdate() {
+            if (this.props.carModelsCatalogLoaded && !this.state.numInvisibleItems) {
+                this.updateDimensions();
+            }
+        }
+
+
+        componentDidMount() {
+            window.addEventListener('resize', this.updateDimensions);
+            this.updateDimensions();
         }
 
 
@@ -62,6 +82,8 @@ export default () => View => {
             return <View
                 carModelsList={this.state.carModelsList}
                 car={this.car}
+                catalogRef={this.catalogRef}
+                fakeList={getFakeList(this.state.numInvisibleItems)}
             />
 
         }
@@ -69,6 +91,21 @@ export default () => View => {
         /***************************************************************************
          * CONTROLLER LOGIC START
          **************************************************************************/
+
+        updateDimensions() {
+            const numItemsInRow = Math.floor(this.catalogRef.current.offsetWidth / 190);
+            const numLastRowItems = this.state.carModelsList.length % numItemsInRow;
+            const numInvisibleItems = numLastRowItems === 0 ||
+            this.state.carModelsList.length <= numItemsInRow
+                ? 0
+                : numItemsInRow - numLastRowItems;
+
+            if (numInvisibleItems !== this.state.numInvisibleItems) {
+                this.setState({
+                    numInvisibleItems
+                });
+            }
+        }
 
         /***************************************************************************
          * CONTROLLER LOGIC END

@@ -6,7 +6,10 @@ import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 
 
-const ContactsPage = () => (
+const ContactsPage = () => {
+    window.scrollTo(0, 0); //обнулить прокрутку
+
+    return (
     <div className={styles.contact}>
         <h1>Контакты</h1>
 
@@ -141,6 +144,7 @@ const ContactsPage = () => (
         </div>
 
     </div>
-);
+)
+};
 
 export default ContactsPage;

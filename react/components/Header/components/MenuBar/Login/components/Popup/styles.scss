@@ -1,15 +1,19 @@
 .authPopup {
   color: #999;
-  left: 0;
   position: absolute;
   z-index: 1000;
   padding: 10px;
-  top: 40px;
   border-radius: 10px;
   background-color: #161a1d;
   box-shadow: 2px 2px 7px black;
   cursor: default;
   font-size: 14px;
+  line-height: 30px;
+
+  &.local {
+    left: 0;
+    top: 40px;
+  }
 
   &::before {
     content: '';

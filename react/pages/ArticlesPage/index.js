@@ -4,13 +4,17 @@ import React from 'react';
 import styles from './styles.scss';
 
 
-const ArticlesPage = () => (
-    <div className={styles.articles}>
-        <h1>Статьи</h1>
+const ArticlesPage = () => {
+    window.scrollTo(0, 0); //обнулить прокрутку
 
-        <img src='/storage/img/icons/under-construction/uc.png'/>
+    return (
+        <div className={styles.articles}>
+            <h1>Статьи</h1>
 
-    </div>
-);
+            <img src='/storage/img/icons/under-construction/uc.png'/>
+
+        </div>
+    );
+}
 
 export default ArticlesPage;

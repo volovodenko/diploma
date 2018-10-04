@@ -385,3 +385,37 @@ export const getFavorites = () => dispatch => {
         });
 };
 
+
+
+/*************************************************************************
+ * GET ORDERS DETAIL
+ *************************************************************************/
+const orderDetailFetchRequest = () => ({
+    type: t.ORDER_DETAIL_FETCH_REQUEST
+});
+
+
+const orderDetailFetchSuccess = (data) => ({
+    type: t.ORDER_DETAIL_FETCH_SUCCESS,
+    payload: data
+});
+
+const orderDetailFetchFail = () => ({
+    type: t.ORDER_DETAIL_FETCH_FAIL,
+});
+
+export const getOrderDetail = (orderId) => dispatch => {
+    dispatch(orderDetailFetchRequest());
+
+    httpRequest(`getOrder/${orderId}`)
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(orderDetailFetchSuccess(res.data));
+            }
+        })
+        .catch(err => {
+            dispatch(orderDetailFetchFail(err.response.data.error));
+        });
+
+};
+

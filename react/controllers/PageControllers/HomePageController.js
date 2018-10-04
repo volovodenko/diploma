@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 
 import HomePageContainer from '../../containers/PageContainers/HomePageContainer';
+import getFakeList from '../../helpers/getFakeList';
 
 
 export default () => View => {
@@ -57,7 +58,7 @@ export default () => View => {
             return <View
                 carsList={this.state.carsList}
                 contentRef={this.contentRef}
-                fakeList={this.getFakeList()}
+                fakeList={getFakeList(this.state.numInvisibleItems)}
             />
 
         }
@@ -69,25 +70,16 @@ export default () => View => {
         updateDimensions() {
             const numItemsInRow = Math.floor(this.contentRef.current.offsetWidth / 180);
             const numLastRowItems = this.props.carsList.length % numItemsInRow;
-            const numInvisibleItems = numLastRowItems === 0 ? 0 : numItemsInRow - numLastRowItems;
+            const numInvisibleItems = numLastRowItems === 0 ||
+            this.props.carsList.length <= numItemsInRow
+                ? 0
+                : numItemsInRow - numLastRowItems;
 
             if (numInvisibleItems !== this.state.numInvisibleItems) {
                 this.setState({
                     numInvisibleItems
                 });
             }
-        }
-
-
-        getFakeList() {
-            const fakeList = [];
-
-            for (let i = 1; i <= this.state.numInvisibleItems; i++) {
-                fakeList.push(i);
-            }
-
-
-            return fakeList;
         }
 
         /***************************************************************************

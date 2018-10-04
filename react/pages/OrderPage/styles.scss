@@ -1,0 +1,27 @@
+.order {
+
+  h1 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    letter-spacing: 2px;
+    padding: 5px 0;
+  }
+}
+
+.error {
+  margin-top: 10px;
+}
+
+.loader {
+  top: 38px;
+}
+
+.productList {
+  width: 60%;
+}
+
+@media (max-device-width: 630px) {
+  .productList {
+    width: 100%;
+  }
+}

@@ -38,6 +38,7 @@ Route::get('getProductItem/{partSlug}', 'ProductController@getProductItem');
 Route::post('addToFavorites', 'ProductController@addToFavorites')->middleware('auth:api');
 Route::get('getFavorites', 'ProductController@getFavorites')->middleware('auth:api');
 Route::get('deleteFromFavorites/{productId}', 'ProductController@deleteFromFavorites')
+    ->where('productId', '[0-9]+')
     ->middleware('auth:api');
 
 
@@ -55,11 +56,17 @@ Route::get('getPayments', 'PaymentController@getPayments');
 //OrderController
 Route::post('saveOrder', 'OrderController@saveOrder')->middleware('user:api');
 Route::get('getOrdersList', 'OrderController@getOrdersList')->middleware('auth:api');
+Route::get('getOrder/{orderId}', 'OrderController@getOrder')
+    ->where('orderId', '[0-9]+')
+    ->middleware('auth:api');
+
 
 
 //CommentController
 Route::post('saveComment', 'CommentController@saveComment')->middleware('auth:api');
-Route::get('getComments/{productId}', 'CommentController@getComments')->middleware('user:api');
+Route::get('getComments/{productId}', 'CommentController@getComments')
+    ->where('productId', '[0-9]+')
+    ->middleware('user:api');
 
 
 //VoteController

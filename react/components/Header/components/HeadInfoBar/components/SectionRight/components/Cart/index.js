@@ -71,6 +71,7 @@ export default class Cart extends Component {
 
                 </div>
 
+
                 <div
                     className={
                         classNames(
@@ -87,6 +88,7 @@ export default class Cart extends Component {
                         Оформить заказ
                     </Link>
                 </div>
+
 
             </div>
         );

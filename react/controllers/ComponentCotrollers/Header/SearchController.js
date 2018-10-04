@@ -47,6 +47,10 @@ export default () => View => {
                 searchIsLoading={this.props.searchIsLoading}
                 searchLoaded={this.props.searchLoaded}
                 linkClick={::this.linkClick}
+
+                searchPopupRef={this.props.searchPopupRef}
+                searchPopupVisible={this.props.searchPopupVisible}
+                styles={this.props.styles}
             />
 
         }
@@ -64,6 +68,9 @@ export default () => View => {
 
         linkClick(){
             this.props.onClearNavHistory();
+
+            this.props.setSearchPopupInvisible &&
+            this.props.setSearchPopupInvisible();
         }
 
         onChangeInput() {

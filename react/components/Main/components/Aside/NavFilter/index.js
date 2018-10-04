@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classNames from 'classnames';
 
 
 import styles from './styles.scss';
@@ -15,17 +16,27 @@ export default class NavFilter extends Component {
 
     render() {
         return (
-            <ul className={styles.filter} ref={this.props.filter}>
+            <div ref={this.props.navFilterPopupRef}>
+                <ul
+                    className={
+                        classNames(
+                            styles.filter,
+                            this.props.styles ? this.props.styles.navFilter : styles.local
+                        )
+                    }
+                    ref={this.props.filter}
+                >
 
-                <h3>Навигация</h3>
+                    <h3>Навигация</h3>
 
-                <CarSelect {...this.props}/>
-                <CarModelSelect {...this.props}/>
-                <CarCategorySelect {...this.props}/>
-                <CarSubCategorySelect {...this.props}/>
-                <Button {...this.props}/>
+                    <CarSelect {...this.props}/>
+                    <CarModelSelect {...this.props}/>
+                    <CarCategorySelect {...this.props}/>
+                    <CarSubCategorySelect {...this.props}/>
+                    <Button {...this.props}/>
 
-            </ul>
+                </ul>
+            </div>
 
         );
     }

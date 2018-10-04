@@ -20,7 +20,8 @@ export default () => Controller => {
 
             ordersListIsLoading: state.user.ordersListIsLoading,
             favoritesListIsLoading: state.user.favoritesListIsLoading,
-            favoriteIsDeleting: state.user.favoriteIsDeleting
+            favoriteIsDeleting: state.user.favoriteIsDeleting,
+            orderIsLoading: state.user.orderIsLoading,
         };
     };
 
@@ -50,6 +51,7 @@ export default () => Controller => {
             ordersListIsLoading: PropTypes.bool.isRequired,
             favoritesListIsLoading: PropTypes.bool.isRequired,
             favoriteIsDeleting: PropTypes.bool.isRequired,
+            orderIsLoading: PropTypes.bool.isRequired,
         };
     }
 

@@ -150,7 +150,9 @@ export default function (stateStore = initialState, action) {
                 deliveryWarehouseRef: '',
 
                 favoritesList: [],
-                ordersList:[]
+                ordersList: [],
+                order: {},
+                orderLoaded: false
             };
 
         /****************************************************************************/
@@ -345,6 +347,9 @@ export default function (stateStore = initialState, action) {
                 favoriteIsDeleting: false,
                 favoriteNotExist: action.payload.message !== 'Success',
                 favoriteDeleted: action.payload.message === 'Success',
+                favoritesList: action.payload.message === 'Success'
+                    ? action.payload.favoritesList
+                    : stateStore.favoritesList
             };
         case t.DELETE_FROM_FAVORITES_FAIL:
             return {
@@ -372,6 +377,31 @@ export default function (stateStore = initialState, action) {
                 ...stateStore,
                 favoritesListIsLoading: false,
                 favoritesListFetchFail: true,
+            };
+
+        /****************************************************************************/
+        case t.ORDER_DETAIL_FETCH_REQUEST:
+            return {
+                ...stateStore,
+                orderIsLoading: true,
+                orderLoaded: false,
+                order: {}
+            };
+        case t.ORDER_DETAIL_FETCH_SUCCESS:
+            return {
+                ...stateStore,
+                orderIsLoading: false,
+                orderNumberWrong: action.payload.message !== 'Success',
+                orderLoaded: action.payload.message === 'Success',
+                order: action.payload.message === 'Success'
+                    ? action.payload.order
+                    : {}
+            };
+        case t.ORDER_DETAIL_FETCH_FAIL:
+            return {
+                ...stateStore,
+                orderIsLoading: false,
+                orderFetchFail: true,
             };
 
         /****************************************************************************/

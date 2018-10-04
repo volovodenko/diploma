@@ -100,3 +100,10 @@
     border: 0;
   }
 }
+
+@media (max-device-width: 630px) {
+  .detailItem {
+    width: 100%;
+  }
+}
+

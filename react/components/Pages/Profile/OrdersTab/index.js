@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import styles from './styles.scss';
 import OrdersTabController from '../../../../controllers/ComponentCotrollers/Profile/OrdersTabController';
 import {getDate} from '../../../../helpers/getDate';
+import productString from '../../../../helpers/productString';
 
 
 @OrdersTabController()
@@ -27,15 +28,8 @@ export default class OrdersTab extends Component {
                                 <div className={styles.bottom}>
                                     {item.numberProducts}
                                     {' '}
-                                    {item.numberProducts === 1 ? 'товар ' : null}
-                                    {
-                                        item.numberProducts === 2 ||
-                                        item.numberProducts === 3 ||
-                                        item.numberProducts === 4
-                                            ? 'товара '
-                                            : null
-                                    }
-                                    {item.numberProducts >= 5 ? 'товаров ' : null}
+                                    {productString(item.numberProducts)}
+                                    {' '}
                                     на <span>{item.sumTotal} грн.</span>
                                 </div>
                             </li>

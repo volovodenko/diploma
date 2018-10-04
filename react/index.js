@@ -4,7 +4,8 @@ import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 
 
-import Index from './components/App';
+import ErrorBoundary from './components/ErrorBoundary';
+import App from './components/App';
 import configStore from './store/configStore';
 
 const store = configStore();
@@ -12,9 +13,11 @@ const store = configStore();
 
 ReactDom.render(
     <Provider store={store}>
-        <BrowserRouter>
-            <Index/>
-        </BrowserRouter>
+        <ErrorBoundary>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+        </ErrorBoundary>
     </Provider>,
     document.getElementById('wrapper')
 );

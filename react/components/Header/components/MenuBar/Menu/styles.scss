@@ -37,3 +37,16 @@
 
 
 }
+
+@media (max-device-width: 1030px) {
+  .nav {
+    width: 80%;
+  }
+}
+
+@media (max-device-width: 800px) {
+  .nav {
+    width: 100%;
+  }
+
+}

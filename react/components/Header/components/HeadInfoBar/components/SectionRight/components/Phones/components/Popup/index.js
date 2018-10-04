@@ -2,18 +2,20 @@ import React from 'react';
 import classNames from 'classnames';
 
 
-import styles from '../../styles.scss';
+import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 
 
-export default ({headInfoFixed}) => (
+const PhonesPopup = (props) => (
     <div
         className={
             classNames(
                 styles.phonesPopup,
-                headInfoFixed ? styles.fixed : null,
+                props.headInfoFixed ? styles.fixed : null,
+                props.styles ? props.styles.phonesPopup : styles.local
             )
         }
+        ref={props.phonesPopupRef}
     >
 
         <div className={styles.schedule}>
@@ -90,4 +92,6 @@ export default ({headInfoFixed}) => (
         </div>
 
     </div>
-)
+);
+
+export default PhonesPopup;

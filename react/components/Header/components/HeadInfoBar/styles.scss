@@ -21,6 +21,14 @@
   max-width: 1280px;
 }
 
+.adj {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+
+
 
 @media (max-device-width: 1030px) {
   .wrapper {
@@ -28,3 +36,23 @@
   }
 }
 
+@media (max-device-width: 560px) {
+  .wrapper {
+    height: 100px;
+
+    &.fixed {
+      height: 100px;
+    }
+  }
+
+  .info {
+    flex-direction: column;
+  }
+
+  .adj {
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+
+}

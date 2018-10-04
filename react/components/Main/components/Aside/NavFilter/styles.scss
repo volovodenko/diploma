@@ -2,11 +2,14 @@
   margin-top: 5px;
   list-style: none;
   background-color: #161a1d;
-  box-shadow: -2px 2px 7px black, 2px 0 7px black;
   color: #999;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
+
+  &.local {
+    box-shadow: -2px 2px 7px black, 2px 0 7px black;
+  }
 
   h3 {
     text-align: center;
