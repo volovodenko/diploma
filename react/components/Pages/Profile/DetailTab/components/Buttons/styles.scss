@@ -23,3 +23,16 @@
     }
   }
 }
+
+@media (max-device-width: 500px) {
+  .buttons {
+
+
+    button{
+      display: block;
+      margin-bottom: 10px;
+      margin-left: 0;
+    }
+
+  }
+}

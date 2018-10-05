@@ -1,9 +1,12 @@
 .buttons {
   margin-top: 10px;
 
+  button:nth-child(2) {
+    margin-left: 10px;
+  }
+
   button {
     font: inherit;
-    margin-left: 10px;
     padding: 10px 15px;
     border-radius: 5px;
     background-color: darkorange;
@@ -45,5 +48,21 @@
       color: #999;
       cursor: pointer;
     }
+  }
+}
+
+@media (max-device-width: 360px) {
+  .buttons {
+
+
+    button{
+      display: block;
+      margin-bottom: 10px;
+
+      &:nth-child(2) {
+        margin-left: 0;
+      }
+    }
+
   }
 }

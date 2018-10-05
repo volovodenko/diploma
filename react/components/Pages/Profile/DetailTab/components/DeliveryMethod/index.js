@@ -26,7 +26,7 @@ const DeliveryMethod = (props) => (
                         onClick={props.deliveryMethodDropDownToggle}
                     >
                         <span>
-                            { props.currentDeliveryMethod.length > 25
+                            {props.currentDeliveryMethod.length > 25
                                 ? props.currentDeliveryMethod.slice(0, 25) + '...'
                                 : props.currentDeliveryMethod
                             }
@@ -49,6 +49,7 @@ const DeliveryMethod = (props) => (
                             itemsList={props.deliveryMethods}
                             setItem={props.setDeliveryMethod}
                             dropDownClose={props.deliveryMethodDropDownToggle}
+                            styles={styles}
                         />
                     }
 

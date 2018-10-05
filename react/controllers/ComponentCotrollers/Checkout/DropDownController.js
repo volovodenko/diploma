@@ -38,6 +38,8 @@ export default () => View => {
                 searchVisible={this.props.searchVisible}
                 itemsList={this.state.itemsList}
                 setItem={this.props.setItem}
+
+                styles={this.props.styles}
             />
 
         }

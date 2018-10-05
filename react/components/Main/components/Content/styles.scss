@@ -4,3 +4,9 @@
   overflow-x: hidden;
   position: relative;
 }
+
+@media (max-device-width: 1030px) {
+  .content {
+    padding-left: 0;
+  }
+}

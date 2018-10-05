@@ -2,12 +2,15 @@
   position: absolute;
   width: 260px;
   padding: 3px;
-  top: 30px;
   border-radius: 5px;
   background-color: white;
   border: 2px solid blue;
   z-index: 1000;
   line-height: normal;
+
+  &.local {
+    top: 30px;
+  }
 
   ul {
     list-style: none;
@@ -26,5 +29,11 @@
         cursor: default;
       }
     }
+  }
+}
+
+@media (max-device-width: 600px) {
+  .dropDown.local {
+    top: 48px;
   }
 }

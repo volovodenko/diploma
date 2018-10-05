@@ -59,6 +59,9 @@
 
     }
 
+
+
+
     .selectInput {
       margin-left: 10px;
       width: 260px;
@@ -98,7 +101,38 @@
 
     }
 
+    @media (max-device-width: 600px) {
+      .selectItem {
+        flex-direction: column;
+      }
+
+      .selectInput {
+        margin-left: 0;
+      }
+    }
+
   }
 
+}
+
+
+@media (max-device-width: 600px) {
+  .form {
+    flex-direction: column;
+    width: 100%;
+
+    & > li {
+      justify-content: center;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        margin-left: 0;
+      }
+    }
+  }
 }
 

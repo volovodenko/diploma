@@ -98,3 +98,26 @@
     }
   }
 }
+
+
+@media (max-device-width: 480px) {
+  .order {
+
+    .sideLeft {
+      label {
+        flex-direction: column;
+        text-align: left;
+
+        input, textarea {
+          margin-left: 0;
+        }
+      }
+
+      .button {
+        float: none;
+        text-align: center;
+      }
+    }
+  }
+
+}

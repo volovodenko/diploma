@@ -4,3 +4,9 @@
   font-size: 14px;
 }
 
+
+@media (max-device-width: 450px) {
+  .info {
+    flex-direction: column;
+  }
+}

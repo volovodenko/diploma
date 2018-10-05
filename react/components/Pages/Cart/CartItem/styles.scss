@@ -102,3 +102,21 @@
     }
   }
 }
+
+
+@media (max-device-width: 480px) {
+  .item {
+    flex-direction: column;
+
+    .operations{
+      display: flex;
+
+      .del, .move {
+        margin: auto 0;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+}

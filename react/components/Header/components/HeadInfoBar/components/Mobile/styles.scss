@@ -108,3 +108,14 @@
   }
 
 }
+
+@media (max-device-width: 480px) {
+  .navFilter {
+    left: 0;
+
+    &::before {
+      right: calc(100% - 40px);
+    }
+  }
+
+}

@@ -11,14 +11,23 @@
 }
 
 
+
+
+@media (min-device-width: 1030px) and (max-device-width: 1160px) {
+  .image {
+    margin: 0 auto;
+  }
+}
+
 @media (max-device-width: 900px) {
   .image {
     margin: 0 auto;
   }
 }
 
-@media (min-device-width: 1030px) and (max-device-width: 1160px) {
+@media (max-device-width: 490px) {
   .image {
-    margin: 0 auto;
+    width: 250px;
   }
+
 }

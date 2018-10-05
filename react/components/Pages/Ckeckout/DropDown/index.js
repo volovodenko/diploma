@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classNames from 'classnames';
 
 
 import styles from './styles.scss';
@@ -14,7 +15,12 @@ export default class DropDown extends Component {
 
         return (
             <div
-                className={styles.dropDown}
+                className={
+                    classNames(
+                        styles.dropDown,
+                        this.props.styles ? this.props.styles.dropDown : styles.local
+                    )
+                }
                 ref={this.props.dropDownRef}
 
             >
