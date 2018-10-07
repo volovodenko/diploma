@@ -32,5 +32,5 @@ export default Aside;
 
 
 const logout = () => {
-    localStorage.clear();
+    localStorage.removeItem('tokenAdmin');
 };

@@ -12,7 +12,7 @@ export default class App extends Component {
         const tokenCookie = cookieArray.find(item => item.trim().includes('token'));
         const token = tokenCookie.slice(tokenCookie.indexOf('=') + 1, tokenCookie.length);
 
-        localStorage.setItem('token', token);
+        localStorage.setItem('tokenAdmin', token);
         document.cookie='token=';
     }
 
