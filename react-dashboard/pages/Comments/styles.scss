@@ -1,0 +1,169 @@
+.comments {
+  h1 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    letter-spacing: 2px;
+    padding: 5px 0;
+  }
+
+  position: relative;
+}
+
+.commentsList {
+  list-style: none;
+  margin-top: 10px;
+
+}
+
+.item {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment {
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 10px;
+
+  div {
+    display: flex;
+
+    a {
+      text-decoration: none;
+      color: darkblue;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.author {
+  font-weight: bold;
+}
+
+.date {
+  margin-left: 30px;
+}
+
+.product {
+  margin-right: 10px;
+}
+
+.operations {
+
+}
+
+.operations {
+  flex-shrink: 0;
+  width: 100px;
+  font-size: 14px;
+
+  .del, .edit {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &:hover {
+      color: darkred;
+      cursor: pointer;
+    }
+  }
+
+
+  .edit {
+    margin-top: 10px;
+
+    &:hover{
+      color: orange;
+    }
+
+  }
+
+
+}
+
+
+.commentChange {
+  display: flex;
+  justify-content: space-between;
+
+  & > textarea {
+    color: #cfcfcf;
+    resize: none;
+    font: inherit;
+    height: 80px;
+    width: 97%;
+    outline: 0;
+    background-color: #10055e;
+    border: 2px solid cornflowerblue;
+    border-radius: 5px;
+    padding: 5px;
+    letter-spacing: 0.5px;
+    overflow-y: auto;
+  }
+
+  & > span {
+    padding-left: 5px;
+    font-size: 12px;
+  }
+
+  & > .warning {
+    color: darkred;
+  }
+
+}
+
+
+.buttons {
+  margin-top: 10px;
+
+  button {
+    font: inherit;
+    margin-left: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: darkorange;
+    color: rgba(0, 0, 0, 0.7);
+    border: 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+    outline: 0 !important;
+
+    &:disabled {
+      background-color: #161a1d;
+      color: #bbb;
+      box-shadow: none;
+
+      &:hover {
+        background-color: #161a1d;
+        color: #bbb;
+        cursor: not-allowed;
+      }
+
+    }
+
+
+    &:hover {
+      background-color: darkblue;
+      color: #999;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.loader {
+  top: 38px;
+}

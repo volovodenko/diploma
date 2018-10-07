@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Apple-system';
+  src: url("../../fonts/Apple/apple.ttf") format('truetype');
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Apple-system, Arial, sans-serif;
+  font-size: 100%;
+}
+
+:global(#wrapper) {
+  width: 100%;
+  min-height: 100%;
+  background-color: dimgray;
+}
+
+:global(a) {
+  outline: 0 !important;
+}
+
+main{
+  display: flex;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+

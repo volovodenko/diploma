@@ -16,7 +16,7 @@ class CreateCarCategoriesTable extends Migration
         Schema::create('car_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug');
         });
     }
 

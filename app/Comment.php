@@ -12,4 +12,14 @@ class Comment extends Model
         'user_id' => 'integer',
         'product_id' => 'integer',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

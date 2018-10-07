@@ -5,7 +5,7 @@ import Modal from 'react-responsive-modal';
 import styles from './styles.scss';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-import LoginRegisterModalController from '../../../../controllers/ComponentCotrollers/GlobalModals/LoginRegisterModalController';
+import LoginRegisterModalController from '../../../../controllers/ComponentControllers/GlobalModals/LoginRegisterModalController';
 
 
 @LoginRegisterModalController()

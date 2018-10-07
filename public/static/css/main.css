@@ -2560,11 +2560,13 @@ a {
     margin-bottom: 10px; } }
 
 .Logo-logo__DUlbg {
-  height: 70px; }
+  height: 70px;
+  width: 250px; }
   .Logo-logo__DUlbg img {
     height: 70px; }
   .Logo-logo__DUlbg.Logo-fixed__14llM {
-    height: 50px; }
+    height: 50px;
+    width: 179px; }
     .Logo-logo__DUlbg.Logo-fixed__14llM img {
       height: 50px; }
 
@@ -4924,20 +4926,16 @@ a {
   margin-top: 20px; }
 
 .FinishTab-info__MgoX8 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.FinishTab-infoLeft__2kByF, .FinishTab-infoRight__rBGLL {
   list-style: none; }
-  .FinishTab-infoLeft__2kByF li, .FinishTab-infoRight__rBGLL li {
-    margin-bottom: 5px; }
-
-.FinishTab-infoLeft__2kByF {
-  text-align: right; }
-
-.FinishTab-infoRight__rBGLL {
-  margin-left: 10px; }
+  .FinishTab-info__MgoX8 li {
+    margin-bottom: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .FinishTab-info__MgoX8 li span:first-child {
+      width: 140px;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; }
 
 .FinishTab-loader__3BrGh {
   top: 35px; }

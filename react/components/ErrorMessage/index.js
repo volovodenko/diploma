@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 
 import styles from './styles.scss';
-import ErrorMessageController from '../../controllers/ComponentCotrollers/ErrorMessage/ErrorMessageController';
+import ErrorMessageController from '../../controllers/ComponentControllers/ErrorMessage/ErrorMessageController';
 
 
 @ErrorMessageController()

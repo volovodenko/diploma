@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-import FavoritesTabController from '../../../../controllers/ComponentCotrollers/Profile/FavoritesTabController';
+import FavoritesTabController from '../../../../controllers/ComponentControllers/Profile/FavoritesTabController';
 import ProductsList from '../../../ProductsList';
 
 

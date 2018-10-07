@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import MobileController from '../../../../../../controllers/ComponentCotrollers/Header/MobileController';
+import MobileController from '../../../../../../controllers/ComponentControllers/Header/MobileController';
 import PhonesPopup from '../SectionRight/components/Phones/components/Popup';
 import LoginPopup from '../../../MenuBar/Login/components/Popup';
 import NavFilter from '../../../../../Main/components/Aside/NavFilter';

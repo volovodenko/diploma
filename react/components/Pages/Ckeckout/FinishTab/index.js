@@ -4,7 +4,7 @@ import React, {Component, Fragment} from 'react';
 import styles from './styles.scss';
 import Buttons from '../Buttons/index';
 import PageLoader from '../../../Loaders/PageLoader';
-import FinishTabController from '../../../../controllers/ComponentCotrollers/Checkout/FinishTabController';
+import FinishTabController from '../../../../controllers/ComponentControllers/Checkout/FinishTabController';
 
 
 @FinishTabController()
@@ -14,58 +14,61 @@ export default class FinishTab extends Component {
 
         return (
             <section className={styles.finish}>
-                <div className={styles.info}>
-                    <ul className={styles.infoLeft}>
-                        <li>Телефон:</li>
+                    <ul className={styles.info}>
+                        <li>
+                            <span>Телефон:</span>
+                            <span>{this.props.phone}</span>
+                        </li>
                         {
                             !this.props.email.length ||
-                            <li>E-mail:</li>
+                            <li>
+                                <span>E-mail:</span>
+                                <span>{this.props.email}</span>
+                            </li>
                         }
 
-                        <li>Способ доставки:</li>
+                        <li>
+                            <span>Способ доставки:</span>
+                            <span>{this.props.deliveryMethod}</span>
+                        </li>
+
                         {
                             !this.props.selfDelivery &&
                             <Fragment>
-                                <li>Перевозчик:</li>
-                                <li>Адрес доставки:</li>
-                                <li>Склад:</li>
+                                <li>
+                                    <span>Перевозчик:</span>
+                                    <span>{this.props.transporter}</span>
+                                </li>
+                                <li>
+                                    <span>Адрес доставки:</span>
+                                    <span>{this.props.deliveryAddress}</span>
+                                </li>
+                                <li>
+                                    <span>Склад:</span>
+                                    <span>{this.props.deliveryWarehouse}</span>
+                                </li>
                             </Fragment>
                         }
 
-                        <li>Получатель:</li>
-                        <li>Способ оплаты:</li>
+                        <li>
+                            <span>Получатель:</span>
+                            <span>{this.props.fio}</span>
+                        </li>
+                        <li>
+                            <span>Способ оплаты:</span>
+                            <span>{this.props.payment}</span>
+                        </li>
+
+
                         {
                             !this.props.comment.length ||
-                            <li>Комментарий:</li>
+                            <li>
+                                <span>Комментарий:</span>
+                                <span>{this.props.comment}</span>
+                            </li>
                         }
 
                     </ul>
-                    <ul className={styles.infoRight}>
-                        <li>{this.props.phone}&nbsp;</li>
-
-                        {
-                            !this.props.email.length ||
-                            <li>{this.props.email}&nbsp;</li>
-                        }
-
-                        <li>{this.props.deliveryMethod}</li>
-                        {
-                            !this.props.selfDelivery &&
-                            <Fragment>
-                                <li>{this.props.transporter}</li>
-                                <li>{this.props.deliveryAddress}</li>
-                                <li>{this.props.deliveryWarehouse}</li>
-                            </Fragment>
-                        }
-
-                        <li>{this.props.fio}</li>
-                        <li>{this.props.payment}</li>
-                        {
-                            !this.props.comment.length ||
-                            <li>{this.props.comment}</li>
-                        }
-                    </ul>
-                </div>
 
 
                 <Buttons

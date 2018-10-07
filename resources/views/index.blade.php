@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Интернет-магазин автозапчастей</title>
-    <link href="/static/css/main.css" rel="stylesheet"></head>
+    <link href="/static/css/main.css" rel="stylesheet">
+</head>
 <body>
 <div id="wrapper"></div>
 <script type="text/javascript" src="/static/js/main.js"></script>

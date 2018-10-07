@@ -4,24 +4,21 @@
 }
 
 .info {
-  display: flex;
-}
-
-.infoLeft, .infoRight {
   list-style: none;
 
   li {
     margin-bottom: 5px;
+    display: flex;
+
+    span {
+
+      &:first-child{
+        width: 140px;
+        flex-shrink: 0;
+      }
+    }
   }
-}
 
-.infoLeft {
-  text-align: right;
-
-}
-
-.infoRight {
-  margin-left: 10px;
 }
 
 .loader {

@@ -7,7 +7,7 @@ import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import Buttons from '../Buttons/index';
 import ProductList from './components/ProductList';
-import OrderTabController from '../../../../controllers/ComponentCotrollers/Checkout/OrderTabController';
+import OrderTabController from '../../../../controllers/ComponentControllers/Checkout/OrderTabController';
 
 
 @OrderTabController()

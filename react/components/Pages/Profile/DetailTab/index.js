@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import DetailTabController from '../../../../controllers/ComponentCotrollers/Profile/DetailTabController';
+import DetailTabController from '../../../../controllers/ComponentControllers/Profile/DetailTabController';
 import ucFirst from '../../../../helpers/ucFirst';
 import FIO from './components/FIO';
 import Phone from './components/Phone';
@@ -12,7 +12,7 @@ import DeliveryMethod from './components/DeliveryMethod';
 import TransporterForm from './components/TransporterForm';
 import Payment from './components/Payment';
 import Buttons from './components/Buttons';
-import DeliveryTabController from '../../../../controllers/ComponentCotrollers/Checkout/DeliveryTabController';
+import DeliveryTabController from '../../../../controllers/ComponentControllers/Checkout/DeliveryTabController';
 
 
 @DeliveryTabController()

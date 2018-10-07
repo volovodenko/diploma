@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import styles from './styles.scss';
-import ConclusionTabController from '../../../../controllers/ComponentCotrollers/Checkout/ConclusionTabController';
+import ConclusionTabController from '../../../../controllers/ComponentControllers/Checkout/ConclusionTabController';
 
 
 @ConclusionTabController()

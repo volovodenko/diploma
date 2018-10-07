@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 
 import styles from './styles.scss';
-import NavFilterController from '../../../../../controllers/ComponentCotrollers/Main/NavFilterController';
+import NavFilterController from '../../../../../controllers/ComponentControllers/Main/NavFilterController';
 import CarSelect from './components/CarSelect';
 import CarModelSelect from './components/CarModelSelect';
 import CarCategorySelect from './components/CarCategorySelect';

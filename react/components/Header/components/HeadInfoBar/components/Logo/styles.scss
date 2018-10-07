@@ -1,5 +1,6 @@
 .logo {
   height: 70px;
+  width: 250px;
 
   img {
     height: 70px;
@@ -8,6 +9,8 @@
 
   &.fixed {
     height: 50px;
+    width: 179px;
+
     img {
       height: 50px;
     }

@@ -5,7 +5,7 @@ import styles from './styles.scss';
 import ArrowLeft from './components/ArrowLeft';
 import ArrowRight from './components/ArrowRight';
 import PageNumbers from './components/PageNumbers';
-import PaginationController from '../../controllers/ComponentCotrollers/Pagination/PaginationController';
+import PaginationController from '../../controllers/ComponentControllers/Pagination/PaginationController';
 
 
 @PaginationController()

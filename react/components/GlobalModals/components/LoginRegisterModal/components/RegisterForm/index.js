@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import RegisterFormController
-    from '../../../../../../controllers/ComponentCotrollers/GlobalModals/RegisterFormController';
+    from '../../../../../../controllers/ComponentControllers/GlobalModals/RegisterFormController';
 import Icons from './components/Icons';
 
 

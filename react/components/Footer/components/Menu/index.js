@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import MenuFooterController from '../../../../controllers/ComponentCotrollers/Footer/MenuFooterController';
+import MenuFooterController from '../../../../controllers/ComponentControllers/Footer/MenuFooterController';
 
 
 @MenuFooterController()
@@ -18,7 +18,6 @@ export default class MenuFooter extends Component {
                 <ul>
                     <li>
                         <NavLink exact to='/'
-                                 activeClassName={styles.active}
                                  className={
                                      classNames(
                                          fontAwesome.fa,

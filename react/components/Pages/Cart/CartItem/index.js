@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import CartItemController from '../../../../controllers/ComponentCotrollers/Cart/CartItemController';
+import CartItemController from '../../../../controllers/ComponentControllers/Cart/CartItemController';
 
 
 @CartItemController()

@@ -1,0 +1,21 @@
+.actionButton {
+  //color: #999;
+  font-size: 100%;
+  display: block;
+  padding: 5px 10px;
+  margin: 20px auto 0;
+  border-radius: 5px;
+  outline: 0 !important;
+  border: 0;
+  background-color: buttonface;
+  box-shadow: 1px 1px 5px black, -1px 0 5px black;
+  color: black;
+  transition: ease-in-out all .2s;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: darkblue;
+  }
+
+}

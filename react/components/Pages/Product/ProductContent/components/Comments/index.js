@@ -4,7 +4,7 @@ import styles from './styles.scss';
 import CommentsList from './components/CommentsList/index';
 import PreComments from './components/PreComments/index';
 import SpinLoader from '../../../../../Loaders/SpinLoader/index';
-import CommentsController from '../../../../../../controllers/ComponentCotrollers/Product/CommentsController';
+import CommentsController from '../../../../../../controllers/ComponentControllers/Product/CommentsController';
 
 
 @CommentsController()

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 import styles from './styles.scss';
-import OrdersTabController from '../../../../controllers/ComponentCotrollers/Profile/OrdersTabController';
+import OrdersTabController from '../../../../controllers/ComponentControllers/Profile/OrdersTabController';
 import {getDate} from '../../../../helpers/getDate';
 import productString from '../../../../helpers/productString';
 

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './styles.scss';
 import Search from './components/Search/index';
 import DropDownController
-    from '../../../../controllers/ComponentCotrollers/Checkout/DropDownController';
+    from '../../../../controllers/ComponentControllers/Checkout/DropDownController';
 
 
 @DropDownController()

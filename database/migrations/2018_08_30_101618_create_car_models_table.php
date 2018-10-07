@@ -16,7 +16,7 @@ class CreateCarModelsTable extends Migration
         Schema::create('car_models', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->unsignedInteger('car_id');
             $table->foreign('car_id')->references('id')->on('cars');
         });

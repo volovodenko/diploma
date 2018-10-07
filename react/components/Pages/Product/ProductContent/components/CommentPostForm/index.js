@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import styles from './styles.scss';
 import {COMMENT_MAX_LENGTH} from '../../../../../../config/index';
-import CommentPostFormController from '../../../../../../controllers/ComponentCotrollers/Product/CommentPostFormController';
+import CommentPostFormController from '../../../../../../controllers/ComponentControllers/Product/CommentPostFormController';
 
 
 @CommentPostFormController()

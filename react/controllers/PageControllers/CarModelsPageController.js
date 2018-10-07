@@ -93,6 +93,10 @@ export default () => View => {
          **************************************************************************/
 
         updateDimensions() {
+            if (!this.catalogRef.current){
+                return;
+            }
+
             const numItemsInRow = Math.floor(this.catalogRef.current.offsetWidth / 190);
             const numLastRowItems = this.state.carModelsList.length % numItemsInRow;
             const numInvisibleItems = numLastRowItems === 0 ||

@@ -5,7 +5,7 @@ import styles from './styles.scss';
 import Buttons from '../Buttons/index';
 import DeliveryMethod from './components/DeliveryMethod/index';
 import TransporterForm from './components/TransporterForm/index';
-import DeliveryTabController from '../../../../controllers/ComponentCotrollers/Checkout/DeliveryTabController'
+import DeliveryTabController from '../../../../controllers/ComponentControllers/Checkout/DeliveryTabController'
 
 
 @DeliveryTabController(true)

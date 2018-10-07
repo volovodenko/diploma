@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 
 import styles from './styles.scss';
-import LoginFormController from '../../../../../../controllers/ComponentCotrollers/GlobalModals/LoginFormController';
+import LoginFormController from '../../../../../../controllers/ComponentControllers/GlobalModals/LoginFormController';
 
 
 @LoginFormController()

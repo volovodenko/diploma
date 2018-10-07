@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
-import SearchController from '../../../../../../controllers/ComponentCotrollers/Header/SearchController';
+import SearchController from '../../../../../../controllers/ComponentControllers/Header/SearchController';
 import SpinLoader from '../../../../../Loaders/SpinLoader';
 
 

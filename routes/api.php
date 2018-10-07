@@ -67,6 +67,9 @@ Route::post('saveComment', 'CommentController@saveComment')->middleware('auth:ap
 Route::get('getComments/{productId}', 'CommentController@getComments')
     ->where('productId', '[0-9]+')
     ->middleware('user:api');
+Route::get('getComments', 'CommentController@getAllComments');
+Route::post('deleteComment', 'CommentController@deleteComment')->middleware('auth:api');
+Route::post('saveEditedComment', 'CommentController@saveEditedComment')->middleware('auth:api');
 
 
 //VoteController

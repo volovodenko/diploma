@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './styles.scss';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 import NavFilterDropDownController
-    from '../../../../../../../controllers/ComponentCotrollers/Main/NavFilterDropDownController';
+    from '../../../../../../../controllers/ComponentControllers/Main/NavFilterDropDownController';
 
 
 @NavFilterDropDownController()
