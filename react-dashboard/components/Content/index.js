@@ -3,10 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 
 import styles from './styles.scss';
-import Default from '../../pages/Default';
-import Orders from '../../pages/Orders';
-import Order from '../../pages/Order';
-import Comments from '../../pages/Comments';
+import routes from '../../routes';
 
 
 export default class Content extends Component {
@@ -16,10 +13,16 @@ export default class Content extends Component {
         return (
             <section className={styles.content}>
                 <Switch>
-                    <Route exact path='/dashboard' component={Default}/>
-                    <Route exact path='/dashboard/orders' component={Orders}/>
-                    <Route exact path='/dashboard/order/:id' component={Order}/>
-                    <Route exact path='/dashboard/comments' component={Comments}/>
+                    {
+                        routes.map(route => (
+                            <Route
+                                key={route.name}
+                                exact={route.isExact}
+                                path={route.path}
+                                component={route.component}
+                            />
+                        ))
+                    }
                 </Switch>
             </section>
         );

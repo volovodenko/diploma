@@ -12,6 +12,7 @@ export default () => Controller => {
             commentIsSaving: state.comments.commentIsSaving,
 
             ordersListIsLoading: state.orders.ordersListIsLoading,
+            orderIsLoading: state.orders.orderIsLoading,
             orderIsAccepting: state.orders.orderIsAccepting
         };
     };
@@ -34,6 +35,7 @@ export default () => Controller => {
             commentIsSaving: PropTypes.bool.isRequired,
 
             ordersListIsLoading: PropTypes.bool.isRequired,
+            orderIsLoading: PropTypes.bool.isRequired,
             orderIsAccepting: PropTypes.bool.isRequired,
         };
     }

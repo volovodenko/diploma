@@ -15,6 +15,7 @@ export default () => View => {
                     this.props.commentIsDeleting ||
                     this.props.commentIsSaving ||
                     this.props.ordersListIsLoading ||
+                    this.props.orderIsLoading ||
                     this.props.orderIsAccepting
                 ) &&
                 <View styles={this.props.styles}/>
