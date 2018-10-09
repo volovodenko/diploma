@@ -129,17 +129,32 @@ class OrderController extends Controller
 
     public function getOrdersList()
     {
-
-        $orders = Order::where('user_id', Auth::user()->id)
+        $orders = Order::orderBy('id', 'desc')
+            ->where('user_id', Auth::user()->id)
             ->with('orderProduct')
             ->get();
 
+
+        $ordersList = $this->prepareOrdersList($orders->toArray());
+
+
+        return response()->json($ordersList, 200);
+
+    }
+
+
+    public function prepareOrdersList($orders)
+    {
         $ordersList = array_map(function ($item) {
             $order = new \stdClass();
 
             $order->order = $item['id'];
             $order->date = $item['created_at'];
             $order->sumTotal = $item['sum_total'];
+
+            if (Auth::user()->isAdmin) {
+                $order->checked = $item['checked'];
+            }
 
             $numberProducts = 0;
 
@@ -151,9 +166,27 @@ class OrderController extends Controller
 
             return $order;
 
-        }, $orders->toArray());
+        }, $orders);
 
-//        sleep(5);
+
+        return $ordersList;
+    }
+
+
+    public function getDashboardOrdersList()
+    {
+        if (!Auth::user()->isAdmin) {
+            return response()->json(['message' => 'API: Forbidden'], 403);
+        }
+
+
+        $orders = Order::orderBy('id', 'desc')
+            ->with('orderProduct')
+            ->get();
+
+
+        $ordersList = $this->prepareOrdersList($orders->toArray());
+
 
         return response()->json($ordersList, 200);
 
@@ -163,10 +196,14 @@ class OrderController extends Controller
     public function getOrder(ProductController $product, $orderId)
     {
 
-        $orderData = Order::where('user_id', Auth::user()->id)
-            ->with('orderProduct')
-            ->find($orderId);
-
+        if (Auth::user()->isAdmin) {
+            $orderData = Order::with('orderProduct')
+                ->find($orderId);
+        } else {
+            $orderData = Order::where('user_id', Auth::user()->id)
+                ->with('orderProduct')
+                ->find($orderId);
+        }
 
         if (!$orderData) {
             return response()->json(['message' => 'API: Order not found'], 200);
@@ -184,6 +221,11 @@ class OrderController extends Controller
         $order->payment = PaymentTypes::find($orderData->payment_type_id)->type;
         $order->delivery = DeliveryMethod::find($orderData->delivery_method_id)->title;
         $order->created_at = $orderData->created_at;
+        $order->updated_at = $orderData->updated_at;
+
+        if (Auth::user()->isAdmin) {
+            $order->checked = $orderData->checked;
+        }
 
 
         //если не самовывоз
@@ -219,6 +261,28 @@ class OrderController extends Controller
 
 
         return response()->json(['message' => 'Success', 'order' => $order], 200);
+
+    }
+
+
+    public function orderAccept(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|integer|unique:orders,id,' . $request->id,
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+
+        if (!Auth::user()->isAdmin) {
+            return response()->json(['message' => 'API: Forbidden'], 403);
+        }
+
+        $order=Order::find($request->id);
+        $order->checked=true;
+        $order->save();
+
+        return response()->json(['message' => 'Success'], 200);
 
     }
 

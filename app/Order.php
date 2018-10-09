@@ -11,6 +11,8 @@ class Order extends Model
         'id' => 'integer',
         'user_id' => 'integer',
         'created_at' => 'string',
+        'updated_at' => 'string',
+        'checked' => 'boolean',
     ];
 
     public function orderProduct()

@@ -1,0 +1,65 @@
+.ordersList{
+  width: 100%;
+  list-style: none;
+
+
+  li {
+    padding: 5px 0 10px;
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+
+  }
+}
+
+.null {
+  text-align: center;
+  border-bottom: none;
+}
+
+
+.top {
+  margin-bottom: 10px;
+
+  a {
+    color: #0c0537;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.bottom {
+
+  span {
+    color: #0c0537;
+  }
+
+}
+
+.sections {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+
+.sectionLeft, .sectionRight {
+  width: 50%;
+
+  h3 {
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 10px;
+    border-bottom: 1px solid black;
+  }
+}
+
+.sectionRight{
+  border-left: 2px solid black;
+}

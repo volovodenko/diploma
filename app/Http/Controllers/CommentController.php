@@ -126,6 +126,11 @@ class CommentController extends Controller
 
     public function saveEditedComment(Request $request)
     {
+
+        if (!Auth::user()->isAdmin){
+            return response()->json(['message' => 'API: Forbidden'], 403);
+        }
+
         $validator = Validator::make($request->all(), [
             'id' => 'required|integer|unique:comments,id,' . $request->id,
             'comment' => 'required|string|max:1000',

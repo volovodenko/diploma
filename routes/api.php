@@ -56,8 +56,12 @@ Route::get('getPayments', 'PaymentController@getPayments');
 //OrderController
 Route::post('saveOrder', 'OrderController@saveOrder')->middleware('user:api');
 Route::get('getOrdersList', 'OrderController@getOrdersList')->middleware('auth:api');
+Route::get('getDashboardOrdersList', 'OrderController@getDashboardOrdersList')
+    ->middleware('auth:api');
 Route::get('getOrder/{orderId}', 'OrderController@getOrder')
     ->where('orderId', '[0-9]+')
+    ->middleware('auth:api');
+Route::post('orderAccept', 'OrderController@orderAccept')
     ->middleware('auth:api');
 
 

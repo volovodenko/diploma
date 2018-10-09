@@ -1,7 +1,6 @@
 import React from 'react';
 
 import HomePage from '../pages/HomePage';
-import redirectTo from '../helpers/redirectTo';
 import CarModelsPage from '../pages/CarModelsPage';
 import CarCategoriesPage from '../pages/CarCategoriesPage';
 import CarSubCategoriesPage from '../pages/CarSubCategoriesPage';
@@ -25,12 +24,6 @@ const routes = [
         path: '/',
         isExact: true,
         component: (location) => <HomePage location={location}/>
-    },
-    {
-        name: 'Catalog',
-        path: '/catalog',
-        isExact: true,
-        component: redirectTo('/')
     },
     {
         name: 'CarModels',

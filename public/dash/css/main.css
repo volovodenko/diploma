@@ -44,6 +44,199 @@ main {
 .Default-default__1YReH {
   text-align: center; }
 
+.Orders-orders__1RWBr {
+  position: relative; }
+  .Orders-orders__1RWBr h1 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    letter-spacing: 2px;
+    padding: 5px 0; }
+
+.Orders-loader__2m_YI {
+  top: 38px; }
+
+.PageLoader-loader__3kyuI {
+  width: 100%;
+  height: 5px;
+  margin: 0 auto;
+  background: #000;
+  position: absolute;
+  overflow: hidden; }
+  .PageLoader-loader__3kyuI .PageLoader-expand__2MWSP {
+    width: 100%;
+    height: 1px;
+    margin: 2px 0;
+    background: #2187e7;
+    position: absolute;
+    -webkit-box-shadow: 0 0 10px 1px rgba(0, 198, 255, 0.7);
+            box-shadow: 0 0 10px 1px rgba(0, 198, 255, 0.7);
+    left: 0;
+    -webkit-animation: PageLoader-fullExpand__24e4F 4s infinite linear;
+            animation: PageLoader-fullExpand__24e4F 4s infinite linear; }
+
+@-webkit-keyframes PageLoader-fullExpand__24e4F {
+  0% {
+    left: -100%; }
+  50% {
+    left: 0; }
+  100% {
+    left: 100%; } }
+
+@keyframes PageLoader-fullExpand__24e4F {
+  0% {
+    left: -100%; }
+  50% {
+    left: 0; }
+  100% {
+    left: 100%; } }
+
+.Sections-ordersList__23MGX {
+  width: 100%;
+  list-style: none; }
+  .Sections-ordersList__23MGX li {
+    padding: 5px 0 10px;
+    border-bottom: 1px solid black;
+    padding-left: 10px; }
+    .Sections-ordersList__23MGX li:last-child {
+      border-bottom: none; }
+
+.Sections-null__NJuSm {
+  text-align: center;
+  border-bottom: none; }
+
+.Sections-top__KGLb8 {
+  margin-bottom: 10px; }
+  .Sections-top__KGLb8 a {
+    color: #0c0537;
+    text-decoration: none; }
+    .Sections-top__KGLb8 a:hover {
+      text-decoration: underline; }
+
+.Sections-bottom__2hA0k span {
+  color: #0c0537; }
+
+.Sections-sections__2fXzx {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 2px solid black; }
+
+.Sections-sectionLeft__lp0kW, .Sections-sectionRight__29_j7 {
+  width: 50%; }
+  .Sections-sectionLeft__lp0kW h3, .Sections-sectionRight__29_j7 h3 {
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 10px;
+    border-bottom: 1px solid black; }
+
+.Sections-sectionRight__29_j7 {
+  border-left: 2px solid black; }
+
+.Order-orders__1vzjs {
+  position: relative; }
+  .Order-orders__1vzjs h1 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    letter-spacing: 2px;
+    padding: 5px 0; }
+
+.Order-loader__39yx4 {
+  top: 38px; }
+
+.Order-button__1eeQV {
+  text-align: center;
+  margin-top: 10px; }
+  .Order-button__1eeQV button {
+    font: inherit;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: darkorange;
+    color: rgba(0, 0, 0, 0.7);
+    border: 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    -webkit-box-shadow: 2px 2px 3px black;
+            box-shadow: 2px 2px 3px black;
+    outline: 0 !important; }
+    .Order-button__1eeQV button:hover {
+      background-color: darkblue;
+      color: #999;
+      cursor: pointer; }
+
+.Common-common__dL9lP {
+  border-bottom: 1px solid black;
+  text-align: center;
+  margin-top: 10px; }
+  .Common-common__dL9lP .Common-top__gUCMA {
+    margin-bottom: 10px; }
+  .Common-common__dL9lP .Common-bottom__3MLcn span {
+    color: #0c0537; }
+
+@media (max-device-width: 630px) {
+  .Common-common__dL9lP {
+    width: 100%; } }
+
+.Info-info__TVnUl {
+  list-style: none;
+  margin-top: 10px; }
+  .Info-info__TVnUl li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid black; }
+    .Info-info__TVnUl li span:first-child {
+      width: 200px;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; }
+
+@media (max-device-width: 630px) {
+  .Info-info__TVnUl {
+    width: 100%; } }
+
+.ProductList-products__2H6s- {
+  margin-top: 10px; }
+
+.ProductList-list__1h5kH {
+  border-bottom: 1px solid black;
+  padding: 0 5px; }
+  .ProductList-list__1h5kH, .ProductList-list__1h5kH ul {
+    list-style: none; }
+  .ProductList-list__1h5kH .ProductList-orderItem__2k_gH {
+    border-bottom: 1px solid black;
+    padding: 5px 0; }
+    .ProductList-list__1h5kH .ProductList-orderItem__2k_gH:last-child {
+      border-bottom: none; }
+    .ProductList-list__1h5kH .ProductList-orderItem__2k_gH a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: darkblue; }
+      .ProductList-list__1h5kH .ProductList-orderItem__2k_gH a:hover {
+        text-decoration: underline; }
+    .ProductList-list__1h5kH .ProductList-orderItem__2k_gH .ProductList-sum__2UkyV {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      font-size: 12px; }
+      .ProductList-list__1h5kH .ProductList-orderItem__2k_gH .ProductList-sum__2UkyV ul {
+        text-align: center; }
+        .ProductList-list__1h5kH .ProductList-orderItem__2k_gH .ProductList-sum__2UkyV ul li:last-child {
+          font-weight: bold; }
+
+.ProductList-total__uylGP {
+  font-size: 1.125rem;
+  padding-top: 5px;
+  font-weight: bold; }
+  .ProductList-total__uylGP span {
+    color: #0c0537; }
 
 .Comments-comments__3x7PH {
   position: relative; }
@@ -53,11 +246,14 @@ main {
     letter-spacing: 2px;
     padding: 5px 0; }
 
-.Comments-commentsList__kcfpo {
+.Comments-loader__36BRy {
+  top: 38px; }
+
+.CommentsList-commentsList__12VUK {
   list-style: none;
   margin-top: 10px; }
 
-.Comments-item__1uzev {
+.CommentsList-item__QlRjB {
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
@@ -70,60 +266,38 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
-.Comments-comment__h8Skz {
+.CommentsList-comment__3V5EB {
   width: 100%; }
 
-.Comments-header__2FGRa {
+.Header-header__1F7KZ {
   margin-bottom: 10px; }
-  .Comments-header__2FGRa div {
+  .Header-header__1F7KZ div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-    .Comments-header__2FGRa div a {
+    .Header-header__1F7KZ div a {
       text-decoration: none;
       color: darkblue; }
-      .Comments-header__2FGRa div a:hover {
+      .Header-header__1F7KZ div a:hover {
         text-decoration: underline; }
 
-.Comments-author__2Q5YF {
+.Header-author__2LEjN {
   font-weight: bold; }
 
-.Comments-date__3SAz8 {
+.Header-date__JswXF {
   margin-left: 30px; }
 
-.Comments-product__2EqVX {
+.Header-product__2wdYw {
   margin-right: 10px; }
 
-.Comments-operations__2zM6f {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  width: 100px;
-  font-size: 14px; }
-  .Comments-operations__2zM6f .Comments-del__2hKEN, .Comments-operations__2zM6f .Comments-edit__2FJpD {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    text-align: center; }
-    .Comments-operations__2zM6f .Comments-del__2hKEN:hover, .Comments-operations__2zM6f .Comments-edit__2FJpD:hover {
-      color: darkred;
-      cursor: pointer; }
-  .Comments-operations__2zM6f .Comments-edit__2FJpD {
-    margin-top: 10px; }
-    .Comments-operations__2zM6f .Comments-edit__2FJpD:hover {
-      color: orange; }
-
-.Comments-commentChange__29rDy {
+.EditComment-commentChange__177aY {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between; }
-  .Comments-commentChange__29rDy > textarea {
+  .EditComment-commentChange__177aY > textarea {
     color: #cfcfcf;
     resize: none;
     font: inherit;
@@ -136,15 +310,15 @@ main {
     padding: 5px;
     letter-spacing: 0.5px;
     overflow-y: auto; }
-  .Comments-commentChange__29rDy > span {
+  .EditComment-commentChange__177aY > span {
     padding-left: 5px;
     font-size: 12px; }
-  .Comments-commentChange__29rDy > .Comments-warning__2ic65 {
+  .EditComment-commentChange__177aY > .EditComment-warning__3-P4q {
     color: darkred; }
 
-.Comments-buttons__HXKSu {
+.EditComment-buttons__3ssfJ {
   margin-top: 10px; }
-  .Comments-buttons__HXKSu button {
+  .EditComment-buttons__3ssfJ button {
     font: inherit;
     margin-left: 10px;
     padding: 10px 15px;
@@ -158,22 +332,41 @@ main {
     -webkit-box-shadow: 2px 2px 3px black;
             box-shadow: 2px 2px 3px black;
     outline: 0 !important; }
-    .Comments-buttons__HXKSu button:disabled {
+    .EditComment-buttons__3ssfJ button:disabled {
       background-color: #161a1d;
       color: #bbb;
       -webkit-box-shadow: none;
               box-shadow: none; }
-      .Comments-buttons__HXKSu button:disabled:hover {
+      .EditComment-buttons__3ssfJ button:disabled:hover {
         background-color: #161a1d;
         color: #bbb;
         cursor: not-allowed; }
-    .Comments-buttons__HXKSu button:hover {
+    .EditComment-buttons__3ssfJ button:hover {
       background-color: darkblue;
       color: #999;
       cursor: pointer; }
 
-.Comments-loader__36BRy {
-  top: 38px; }
+.Operations-operations__2cPoI {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 100px;
+  font-size: 14px; }
+  .Operations-operations__2cPoI .Operations-del__1tSEs, .Operations-operations__2cPoI .Operations-edit__3dQ40 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center; }
+    .Operations-operations__2cPoI .Operations-del__1tSEs:hover, .Operations-operations__2cPoI .Operations-edit__3dQ40:hover {
+      color: darkred;
+      cursor: pointer; }
+  .Operations-operations__2cPoI .Operations-edit__3dQ40 {
+    margin-top: 10px; }
+    .Operations-operations__2cPoI .Operations-edit__3dQ40:hover {
+      color: orange; }
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2503,41 +2696,6 @@ main {
   margin: 0;
   overflow: visible;
   clip: auto; }
-
-.PageLoader-loader__3kyuI {
-  width: 100%;
-  height: 5px;
-  margin: 0 auto;
-  background: #000;
-  position: absolute;
-  overflow: hidden; }
-  .PageLoader-loader__3kyuI .PageLoader-expand__2MWSP {
-    width: 100%;
-    height: 1px;
-    margin: 2px 0;
-    background: #2187e7;
-    position: absolute;
-    -webkit-box-shadow: 0 0 10px 1px rgba(0, 198, 255, 0.7);
-            box-shadow: 0 0 10px 1px rgba(0, 198, 255, 0.7);
-    left: 0;
-    -webkit-animation: PageLoader-fullExpand__24e4F 4s infinite linear;
-            animation: PageLoader-fullExpand__24e4F 4s infinite linear; }
-
-@-webkit-keyframes PageLoader-fullExpand__24e4F {
-  0% {
-    left: -100%; }
-  50% {
-    left: 0; }
-  100% {
-    left: 100%; } }
-
-@keyframes PageLoader-fullExpand__24e4F {
-  0% {
-    left: -100%; }
-  50% {
-    left: 0; }
-  100% {
-    left: 100%; } }
 
 aside {
   background-color: #161a1d;

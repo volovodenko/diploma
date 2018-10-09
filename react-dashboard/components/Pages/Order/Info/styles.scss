@@ -1,0 +1,23 @@
+.info {
+  list-style: none;
+  margin-top: 10px;
+
+  li {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid black;
+
+    span {
+      &:first-child {
+        width: 200px;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+@media (max-device-width: 630px) {
+  .info {
+    width: 100%;
+  }
+}

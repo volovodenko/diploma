@@ -9,7 +9,10 @@ export default () => Controller => {
         return {
             commentsIsLoading: state.comments.commentsIsLoading,
             commentIsDeleting: state.comments.commentIsDeleting,
-            commentIsSaving: state.comments.commentIsSaving
+            commentIsSaving: state.comments.commentIsSaving,
+
+            ordersListIsLoading: state.orders.ordersListIsLoading,
+            orderIsAccepting: state.orders.orderIsAccepting
         };
     };
 
@@ -29,6 +32,9 @@ export default () => Controller => {
             commentsIsLoading: PropTypes.bool.isRequired,
             commentIsDeleting: PropTypes.bool.isRequired,
             commentIsSaving: PropTypes.bool.isRequired,
+
+            ordersListIsLoading: PropTypes.bool.isRequired,
+            orderIsAccepting: PropTypes.bool.isRequired,
         };
     }
 

@@ -25,7 +25,7 @@ export default () => Controller => {
             getComments, deleteComment, saveComment
         }
     )
-    class CommentsContainer extends Component {
+    class CommentsPageContainer extends Component {
 
         render() {
             return <Controller {...this.props}/>
@@ -45,5 +45,5 @@ export default () => Controller => {
     }
 
 
-    return CommentsContainer;
+    return CommentsPageContainer;
 }

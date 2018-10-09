@@ -117,7 +117,8 @@ class TransporterController extends Controller
     protected function getCitiesAutoLux($client)
     {
         //получить инфо с access_token (с моего промежуточного серева)
-        $res1 = $client->request("GET", "https://intense-stream-77990.herokuapp.com/");
+        $options['timeout'] = 300;
+        $res1 = $client->request("GET", "https://intense-stream-77990.herokuapp.com/", $options);
 
         $accessToken = json_decode($res1->getBody())->access_token;
 

@@ -1,0 +1,28 @@
+.operations {
+  flex-shrink: 0;
+  width: 100px;
+  font-size: 14px;
+
+  .del, .edit {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &:hover {
+      color: darkred;
+      cursor: pointer;
+    }
+  }
+
+
+  .edit {
+    margin-top: 10px;
+
+    &:hover{
+      color: orange;
+    }
+
+  }
+
+
+}

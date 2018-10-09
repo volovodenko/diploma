@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 
 
-import CommentsContainer from '../../containers/PageContainers/CommentsContainer';
+import CommentsPageContainer from '../../containers/PageContainers/CommentsPageContainer';
 import {COMMENT_MAX_LENGTH} from '../../../react/config';
 
 
 export default () => View => {
 
-    @CommentsContainer()
-    class CommentsController extends Component {
+    @CommentsPageContainer()
+    class CommentsPageController extends Component {
 
         constructor(props) {
             super(props);
 
             window.scrollTo(0, 0); //обнулить прокрутку
 
-            this.props.commentsLoaded || this.props.getComments();
+            this.props.getComments();
 
             this.state = {
                 editCommentId: null,
@@ -117,6 +117,6 @@ export default () => View => {
          **************************************************************************/
     }
 
-    return CommentsController;
+    return CommentsPageController;
 
 }

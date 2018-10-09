@@ -1,0 +1,23 @@
+.common {
+  border-bottom: 1px solid black;
+  text-align: center;
+  margin-top: 10px;
+
+  .top {
+    margin-bottom: 10px;
+  }
+
+  .bottom {
+    span {
+      color: #0c0537;
+    }
+
+  }
+}
+
+
+@media (max-device-width: 630px) {
+  .common {
+    width: 100%;
+  }
+}
